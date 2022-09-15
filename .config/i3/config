@@ -1,0 +1,14 @@
+include $HOME/.config/i3/workspaces.conf
+include $HOME/.config/i3/bar.conf
+set $mod Mod4
+font pango:monospace 8
+
+exec_always --no-startup-id ~/.config/i3/autostart.sh
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+new_window 1pixel
+gaps inner 8
+gaps outer 4
+

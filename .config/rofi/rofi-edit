@@ -1,0 +1,65 @@
+#!/bin/bash
+
+myTerm=kitty
+myEdit=vim
+
+menu(){
+	printf "1. i3gaps\n"
+	printf "2. i3gaps\n"
+	printf "3. sxhkd\n"
+	printf "4. dwm\n"
+	printf "5. leftwm\n"
+	printf "6. polybar\n"
+	printf "7. spectrwm\n"
+	printf "8. spectrwm bar\n"
+	printf "9. xmonad\n"
+	printf "10. xmobar\n"
+	printf "11. .bashrc\n"
+	printf "12. .profile\n"
+}
+
+main(){
+    choice=$(menu | rofi -dmenu | cut -d. -f1)
+
+	case $choice in
+		1)
+			$myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/i3/config"
+            ;;
+		2)
+			$myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/i3/config"
+            ;;
+		3)
+			$myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/i3/sxhkd/sxhkdrc"
+            ;;
+		4)
+           	$myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/dwm/config.h"
+            ;;
+		5)
+            $myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/leftwm/config.toml"
+            ;;
+		6)
+            $myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/polybar/config"
+            ;;
+		7)
+           	$myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/spectrwm/spectrwm.conf"
+            ;;
+		8)
+            $myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/spectrwm/baraction.sh"
+            ;;
+		9)
+           	$myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.xmonad/xmonad.hs"
+            ;;
+		10)
+            $myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.config/xmobar/xmobarrc0"
+            ;;
+		11)
+            $myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.bashrc"
+            ;;
+		12)
+            $myTerm -e sh -c "sleep 0.2 ; $myEdit $HOME/.profile"
+            ;;
+
+        esac
+}
+
+main

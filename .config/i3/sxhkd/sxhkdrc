@@ -1,0 +1,140 @@
+super + Escape
+    pkill -USR1 -x sxhkd
+
+super + Return
+   kitty
+
+#Rofi & dmenu
+
+super + space
+   	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+   	
+super + p
+	dmenu_run
+
+super + shift + q
+     i3-msg exit
+
+super + r
+   kitty -e "ranger"
+   
+super + g
+	google-chrome-stable
+
+super + f
+	thunar
+
+super + e
+	geany
+	
+
+alt + p
+ rofi -show
+
+# Application Keybindings
+
+super + b
+    firefox-esr
+
+super + d 
+ discord
+
+ctrl + alt + s
+    flameshot gui
+
+
+#Audio Keybindings
+
+XF86AudioRaiseVolume
+        amixer -c 1 -- sset Master 2db+
+
+XF86AudioLowerVolume
+        amixer -c 1 -- sset Master 2db-
+
+XF86AudioMute
+        amixer -c 1 -- sset Master toggle
+
+alt + d
+        amixer -c 1 -- sset Master 2db+
+
+alt + a
+        amixer -c 1 -- sset Master 2db-
+
+XF86AudioPlay
+    playerctl play-pause
+
+ctrl + alt + p
+    playerctl play-pause
+
+XF86AudioNext
+    playerctl next
+
+XF86AudioPrev
+    playerctl previous
+
+ctrl + shift + period
+    playerctl next
+
+ctrl + shift + comma
+    playerctl previous
+
+XF86AudioStop
+    playerctl stop
+
+alt + {h,j,k,l}
+   mpc {prev,next,play,pause}
+
+#i3 Specific Keybindings
+
+super + {v,b}
+    i3-msg split {v,h}
+
+super + alt + f
+    i3-msg fullscreen toggle
+
+super + alt + space
+    i3-msg floating toggle
+
+super + control + space
+    i3-msg focus mode_toggle
+
+super + alt + a
+    i3-msg focus parent
+
+#workspaces
+
+super + {1-9,0}
+    i3-msg workspace {1-9,10}
+
+super + shift+{1-9,0}
+    i3-msg move container to workspace number {1-9,10}
+    
+#movement
+
+super+{h,j,k,l}
+    i3-msg focus {left,down,up,right}
+
+super+shift+{h,j,k,l}
+    i3-msg move {left,down,up,right}
+    
+super+{Left,Down,Up,Right}
+    i3-msg focus {left,down,up,right}
+    
+super+shift+{Left,Down,Up,Right}
+    i3-msg move {left,down,up,right}
+
+
+#other bindings
+
+super + shift + c
+    i3-msg kill
+
+super + alt + c
+    i3-msg reload
+
+super + alt + r
+    i3-msg restart
+
+super + ctrl + {Left,Down,Up,Right}
+    i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
+

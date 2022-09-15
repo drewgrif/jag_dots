@@ -1,0 +1,113 @@
+super + w
+    firefox-esr
+
+super + Return
+	kitty
+
+# rofi launchers
+super + space
+   	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+   	
+super + shift + Return
+	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+	
+
+super + n
+	bash ~/bin/rofi-network-manager
+	
+super + x
+	~/bin/power
+
+# application launchers
+
+super + f
+	pcmanfm
+
+super + e
+	geany
+
+super + shift + s
+	scrot
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+	
+super + g
+	gimp
+
+super + d
+	discord
+
+super + o
+	obs
+
+super + t
+	~/bin/time_date
+
+super + shift + r
+	bspc wm -r
+
+super + shift + q
+	bspc quit
+
+super + shift + c
+	bspc node -c
+
+super + i
+    bspc node -R 90
+super + shift + i
+    bspc node -R -90
+
+super + {shift + t,shift + f}
+	bspc node -t {tiled,fullscreen}
+
+super + shift + { Left, Down, Up, Right}
+	bspc node -s {west,south,north,east}
+
+super + { Left, Down, Up, Right}
+	bspc node -f {west,south,north,east}
+
+super + {_,shift + }{1-9,0}
+	bspc {desktop --focus,node --to-desktop} 'focused:^{1-9,10}'
+
+super + ctrl + { Left, Down, Up, Right}
+	bspc node -z {left -80 0,bottom 0 80,top 0 -80,right 80 0}
+
+super + ctrl + shift + { Left, Down, Up, Right}
+	bspc node -z {right -80 0,top 0 80,bottom 0 -80,left 80 0}
+	
+#########
+# Media #
+#########
+
+# Toggle mute
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Toggle mic mute
+XF86AudioMicMute
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Change volume
+XF86Audio{Raise,Lower}Volume
+    pactl set-sink-volume @DEFAULT_SINK@ {+,-}2%
+
+# Change volume
+super + {k,j}
+    pactl set-sink-volume @DEFAULT_SINK@ {+,-}2%
+
+# Change volume, chunky
+super + shift + {k,j}
+    pactl set-sink-volume @DEFAULT_SINK@ {+,-}10%
+
+#########
+# Scrot #
+#########
+super + alt + @v
+	scrot -s -e 'mv $f ~/Pictures'
+
+super + v
+	scrot -e 'mv $f ~/Pictures'
+
+	
