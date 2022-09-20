@@ -16,14 +16,31 @@ bspc config normal_border_color		"#282A36"
 bspc config active_border_color		"#8BE9FD"
 bspc config presel_feedback_color	"#50FA7B"
 
+## Rules
+bspc rule -a Firefox-esr desktop='^1' follow=on
+bspc rule -a Geany desktop='^4' follow=on
+bspc rule -a Pcmanfm desktop='^5' follow=on
+
+bspc rule -a qimgv state=floating center=true
 # bspc rule -a "*" split_dir=east
 
+## Notifications
 dunst &
+
+## Compositor
 picom --config ~/.config/picom/picom.conf &
+
+## Background
 feh --bg-fill ~/.config/backgrounds/umbrella.png &
+
+## Keybinding daemon
+sxhkd &
+
+## Polybar or tint
 ~/bin/polybar-launch &
 # tint2 &
-sxhkd &
+
+## apps for systray if enabled
 # volumeicon &
 # nm-applet &
 

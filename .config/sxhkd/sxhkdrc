@@ -77,29 +77,17 @@ super + ctrl + { Left, Down, Up, Right}
 super + ctrl + shift + { Left, Down, Up, Right}
 	bspc node -z {right -80 0,top 0 80,bottom 0 -80,left 80 0}
 	
-#########
-# Media #
-#########
-
-# Toggle mute
-XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
-
-# Toggle mic mute
-XF86AudioMicMute
-    pactl set-source-mute @DEFAULT_SOURCE@ toggle
-
-# Change volume
-XF86Audio{Raise,Lower}Volume
-    pactl set-sink-volume @DEFAULT_SINK@ {+,-}2%
-
-# Change volume
-super + {k,j}
-    pactl set-sink-volume @DEFAULT_SINK@ {+,-}2%
+## audio
 
 # Change volume, chunky
-super + shift + {k,j}
-    pactl set-sink-volume @DEFAULT_SINK@ {+,-}10%
+super + shift + k
+    ~/bin/changevolume up
+    
+super + shift + j
+	~/bin/changevolume down
+	
+super + shift + m
+	~/bin/changevolume mute
 
 #########
 # Scrot #
@@ -109,5 +97,12 @@ super + alt + @v
 
 super + v
 	scrot -e 'mv $f ~/Pictures'
+	
+## redshift
+super + alt + r
+	~/bin/redshift-on
+	
+super + alt + b
+	~/bin/redshift-off
 
 	
