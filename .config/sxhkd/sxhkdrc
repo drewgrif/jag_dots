@@ -31,10 +31,6 @@ super + f
 super + e
 	geany
 
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
-	
 super + g
 	gimp
 
@@ -47,9 +43,15 @@ super + o
 super + t
 	~/bin/time_date
 
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+	
 super + shift + r
 	bspc wm -r; notify-send 'bspwm' 'Restarted'
 
+## windows keybindings
 super + shift + q
 	bspc quit
 
@@ -66,15 +68,16 @@ super + {shift + t,shift + f}
 
 super + { Left, Down, Up, Right}
 	bspc node -f {west,south,north,east}
-
+	
 super + shift + { Left, Down, Up, Right}
 	bspc node -s {west,south,north,east}
-	
+
+## Change workspace with dunst feedback
 super + {_,shift + }{1-9,0}
 	bspc {desktop --focus,node --to-desktop} 'focused:^{1-9,10}'; \
 	~/bin/whichws
-	
-## resizing windows
+
+## Resizing windows
 super + ctrl + { Left, Down, Up, Right}
 	bspc node -z {left -80 0,bottom 0 80,top 0 -80,right 80 0}
 
@@ -98,11 +101,11 @@ super + shift + m
 #########
 super + alt + @s
 	scrot -s -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Cropped photo saved to ~/Pictures'
+	notify-send 'Scrot' 'Selected image to ~/Pictures'
 
 super + s
 	scrot -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Photo saved to ~/Pictures'
+	notify-send 'Scrot' 'Image saved to ~/Pictures'
 	
 ## redshift
 super + alt + r
