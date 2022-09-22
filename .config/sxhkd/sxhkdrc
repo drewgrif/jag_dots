@@ -64,16 +64,17 @@ super + shift + i
 super + {shift + t,shift + f}
 	bspc node -t {tiled,fullscreen}
 
-super + shift + { Left, Down, Up, Right}
-	bspc node -s {west,south,north,east}
-
 super + { Left, Down, Up, Right}
 	bspc node -f {west,south,north,east}
+
+super + shift + { Left, Down, Up, Right}
+	bspc node -s {west,south,north,east}
 	
 super + {_,shift + }{1-9,0}
 	bspc {desktop --focus,node --to-desktop} 'focused:^{1-9,10}'; \
 	~/bin/whichws
-
+	
+## resizing windows
 super + ctrl + { Left, Down, Up, Right}
 	bspc node -z {left -80 0,bottom 0 80,top 0 -80,right 80 0}
 
