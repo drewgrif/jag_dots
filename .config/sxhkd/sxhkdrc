@@ -97,11 +97,11 @@ super + shift + m
 #########
 super + alt + @s
 	scrot -s -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Photo saved to ~/Pictures'
+	notify-send 'Scrot' 'Cropped photo saved to ~/Pictures'
 
 super + s
 	scrot -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Cropped photo saved to ~/Pictures'
+	notify-send 'Scrot' 'Photo saved to ~/Pictures'
 	
 ## redshift
 super + alt + r
