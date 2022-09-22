@@ -1,4 +1,4 @@
-super + w
+super + b
     firefox-esr
 
 super + Return
@@ -11,12 +11,17 @@ super + space
 super + shift + Return
 	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
 	
-
+# rofi network manager	
 super + n
 	bash ~/bin/rofi-network-manager
-	
+
+# logout, shutdown, reboot
 super + x
 	~/bin/power
+	
+# help with shortcuts
+super + h
+	~/bin/rofi-key
 
 # application launchers
 

@@ -22,8 +22,9 @@
     show_age_threshold = -1
     word_wrap = yes
     ignore_newline = no
-	origin = top-right offset = 50x500 
-    # geometry = "300x5-500+40"
+	origin = top-center 
+	# offset = 50x500 
+    geometry = "300x5-500+40"
     shrink = no
     transparency = 0
     idle_threshold = 70

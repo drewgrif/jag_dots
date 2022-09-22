@@ -6,7 +6,7 @@ notify-send -u normal -i \
 "S + space	rofi\n\
 S +  		term\n\
 S + f		Files\n\
-S + w		Firefox\n\
+S + b		Firefox\n\
 S + 1-9,0	go to ws\n\
 S + Sh + 1-9,0	mv win to ws\n\
 S + Sh + ,   mv win\n\
