@@ -26,12 +26,9 @@ super + f
 super + e
 	geany
 
-super + shift + s
-	scrot
-
 # make sxhkd reload its configuration files:
 super + Escape
-	pkill -USR1 -x sxhkd
+	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 	
 super + g
 	gimp
@@ -46,7 +43,7 @@ super + t
 	~/bin/time_date
 
 super + shift + r
-	bspc wm -r
+	bspc wm -r; notify-send 'bspwm' 'Restarted'
 
 super + shift + q
 	bspc quit
@@ -67,9 +64,10 @@ super + shift + { Left, Down, Up, Right}
 
 super + { Left, Down, Up, Right}
 	bspc node -f {west,south,north,east}
-
+	
 super + {_,shift + }{1-9,0}
-	bspc {desktop --focus,node --to-desktop} 'focused:^{1-9,10}'
+	bspc {desktop --focus,node --to-desktop} 'focused:^{1-9,10}'; \
+	~/bin/whichws
 
 super + ctrl + { Left, Down, Up, Right}
 	bspc node -z {left -80 0,bottom 0 80,top 0 -80,right 80 0}
@@ -92,11 +90,13 @@ super + shift + m
 #########
 # Scrot #
 #########
-super + alt + @v
-	scrot -s -e 'mv $f ~/Pictures'
+super + alt + @s
+	scrot -s -e 'mv $f ~/Pictures'; \
+	notify-send 'Scrot' 'Photo saved to ~/Pictures'
 
-super + v
-	scrot -e 'mv $f ~/Pictures'
+super + s
+	scrot -e 'mv $f ~/Pictures'; \
+	notify-send 'Scrot' 'Cropped photo saved to ~/Pictures'
 	
 ## redshift
 super + alt + r
@@ -105,4 +105,8 @@ super + alt + r
 super + alt + b
 	~/bin/redshift-off
 
-	
+
+## Show clipmenu
+alt + v
+    CM_LAUNCHER=rofi clipmenu 
+
