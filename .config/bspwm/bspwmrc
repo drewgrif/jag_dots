@@ -17,12 +17,16 @@ bspc config active_border_color		"#8BE9FD"
 bspc config presel_feedback_color	"#50FA7B"
 
 ## Rules
-bspc rule -a Firefox-esr desktop='^1' follow=on
-bspc rule -a Geany desktop='^4' follow=on
+# bspc rule -a Firefox-esr desktop='^1' follow=on
+# bspc rule -a Geany desktop='^4' follow=on
 bspc rule -a Pcmanfm desktop='^5' follow=on
 
 bspc rule -a qimgv state=floating center=true
-# bspc rule -a "*" split_dir=east
+bspc rule -a Pavucontrol state=floating center=true
+bspc rule -a Blueman-manager state=floating center=true
+bspc rule -a gimp state=floating center=true
+
+bspc rule -a "*" split_dir=east
 
 ## Notifications
 dunst &
@@ -40,7 +44,12 @@ sxhkd &
 ~/bin/polybar-launch &
 # tint2 &
 
+## Clipmemu start
+clipmenud &
+
 ## apps for systray if enabled
 # volumeicon &
 # nm-applet &
 
+#Scratchpads
+bspc rule -a scpad sticky=on state=floating rectangle=1200x800+450+100

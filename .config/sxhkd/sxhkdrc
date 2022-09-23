@@ -2,7 +2,7 @@ super + b
     firefox-esr
 
 super + Return
-	kitty
+	~/bin/scpad
 
 # rofi launchers
 super + space
@@ -118,4 +118,7 @@ super + alt + b
 ## Show clipmenu
 alt + v
     CM_LAUNCHER=rofi clipmenu 
-
+    
+super + @equal
+	bspc query -N -d | xargs -I % bspc node % -B
+ 
