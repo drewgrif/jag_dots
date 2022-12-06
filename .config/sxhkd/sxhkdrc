@@ -1,8 +1,12 @@
+#####################
+# BSPWM keybindings #
+#####################
+
 super + b
     firefox-esr
 
 super + Return
-	~/bin/scpad
+	kitty
 
 # rofi launchers
 super + space
@@ -26,14 +30,17 @@ super + h
 # application launchers
 
 super + f
-	pcmanfm
+	thunar
 
 super + e
 	geany
 
 super + g
 	gimp
-
+	
+super + c
+	google-chrome
+	
 super + d
 	discord
 
@@ -55,7 +62,7 @@ super + shift + r
 super + shift + q
 	bspc quit
 
-super + shift + c
+super + q
 	bspc node -c
 
 super + i
