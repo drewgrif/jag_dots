@@ -1,12 +1,8 @@
-#####################
-# BSPWM keybindings #
-#####################
-
 super + b
     firefox-esr
 
 super + Return
-	kitty
+	tilix
 
 # rofi launchers
 super + space
@@ -15,7 +11,7 @@ super + space
 super + shift + Return
 	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
 	
-# rofi network manager	
+# rofi network manager (will not work unless on wifi)	
 super + n
 	bash ~/bin/rofi-network-manager
 
@@ -32,8 +28,11 @@ super + h
 super + f
 	thunar
 
-super + e
+super + e 	
 	geany
+
+super + l
+	~/Applications/LiteXL-v2.1.1-x86_64.AppImage 
 
 super + g
 	gimp
@@ -42,13 +41,16 @@ super + c
 	google-chrome
 	
 super + d
-	discord
+	Discord
 
 super + o
 	obs
 
 super + t
 	~/bin/time_date
+	
+super + shift + c
+	galculator
 
 
 # make sxhkd reload its configuration files:
@@ -81,7 +83,7 @@ super + shift + { Left, Down, Up, Right}
 
 ## Change workspace with dunst feedback
 super + {_,shift + }{1-9,0}
-	bspc {desktop --focus,node --to-desktop} 'focused:^{1-9,10}'; \
+	bspc {desktop --focus,node --to-desktop} 'focused:^{1-9,10}' --follow; \
 	~/bin/whichws
 
 ## Resizing windows
@@ -125,6 +127,10 @@ super + alt + b
 ## Show clipmenu
 alt + v
     CM_LAUNCHER=rofi clipmenu 
+
+## Show clipmenu
+super+ alt + v
+    xfce4-terminal -e ~/bin/ovpn
     
 super + @equal
 	bspc query -N -d | xargs -I % bspc node % -B

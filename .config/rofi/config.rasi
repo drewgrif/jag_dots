@@ -4,9 +4,9 @@
  *******************************************************/
 
 configuration {
-    font:				"JetBrainsMono Nerd Font 11";
+    font:				"JetBrainsMono Nerd Font 10";
     show-icons:				true;
-    icon-theme:				"Tela-pink-dark";
+    icon-theme:				"Fluent-dark";
     display-drun:			"Apps";
     drun-display-format:		"{name}";
     scroll-method:			0;
@@ -17,7 +17,7 @@ configuration {
 @import "~/.config/rofi/arc_dark_transparent_colors.rasi"
 
 window {
-    background-color: #303446;
+    background-color: @background;
     border:           0;
     padding:          30;
 }

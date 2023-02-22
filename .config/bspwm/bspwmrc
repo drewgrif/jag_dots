@@ -16,40 +16,33 @@ bspc config normal_border_color		"#282A36"
 bspc config active_border_color		"#8BE9FD"
 bspc config presel_feedback_color	"#50FA7B"
 
-## Rules
-# bspc rule -a Firefox-esr desktop='^1' follow=on
-# bspc rule -a Geany desktop='^4' follow=on
-bspc rule -a Pcmanfm desktop='^5' follow=on
-
-bspc rule -a qimgv state=floating center=true
-bspc rule -a Pavucontrol state=floating center=true
-bspc rule -a Blueman-manager state=floating center=true
-bspc rule -a gimp state=floating center=true
-
 bspc rule -a "*" split_dir=east
+bspc rule -a qimgv state=floating center=true
+bspc rule -a Xarchiver state=floating layer=normal center=true
+bspc rule -a mpv state=floating layer=normal center=true
+bspc rule -a Pavucontrol:pavucontrol state=floating 
+bspc rule -a Lxappearance state=floating layer=normal center=true
+bspc rule -a Galculator state=floating layer=normal center=true
+bspc rule -a Xfce4-terminal state=floating layer=normal center=true
+bspc rule -a Google-chrome desktop='^2' follow=on
+bspc rule -a Gimp desktop='^8' follow=on
+bspc rule -a obs desktop='^9' follow=on
+bspc rule -a discord desktop='^10' follow=on
+# bspc rule -a Thunar desktop='^5' follow=on
+# bspc rule -a Geany desktop='^4' follow=on
 
-## Notifications
 dunst &
-
-## Compositor
 picom --config ~/.config/picom/picom.conf &
-
-## Background
-feh --bg-fill ~/.config/backgrounds/umbrella.png &
-
-## Keybinding daemon
-sxhkd &
-
+feh --bg-fill ~/.config/backgrounds/cat-anime.jpg &
 ## Polybar or tint
 ~/bin/polybar-launch &
 # tint2 &
 
 ## Clipmemu start
-clipmenud &
+# clipmenud &
 
 ## apps for systray if enabled
 # volumeicon &
 # nm-applet &
+sxhkd &
 
-#Scratchpads
-bspc rule -a scpad sticky=on state=floating rectangle=1200x800+450+100
