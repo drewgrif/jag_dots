@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sudo openvpn --config ~/.config/ovpn/ams-001.ovpn
