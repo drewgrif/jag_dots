@@ -5,6 +5,11 @@
 super + p
 	dmenu_run
 	
+# rofi launchers
+# rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+super + space
+   	sh $HOME/.config/rofi/bin/launcher
+	
 super + b
 	firefox-esr
 
@@ -17,11 +22,7 @@ super + f
 # terminal
 super + Return
 	tilix
-
-# gimp
-super + g
-	gimp
-
+	
 super + l
 	~/Applications/LiteXL-v2.1.1-x86_64.AppImage 
 
@@ -39,31 +40,29 @@ super + o
 
 super + t
 	~/bin/time_date
-
-# rofi launchers
-super + space
-   	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
-   	
-super + shift + Return
-	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
 	
-# screenshot and selection capture
+super + shift + c
+	galculator
 
-@Print
-	scrot -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Image saved to ~/Pictures'
-
+#########
+# Scrot #
+#########
 super + @Print
 	scrot -s -e 'mv $f ~/Pictures'; \
 	notify-send 'Scrot' 'Selected image to ~/Pictures'
 
+@Print
+	scrot -e 'mv $f ~/Pictures'; \
+	notify-send 'Scrot' 'Image saved to ~/Pictures'
+	
 ## redshift
 super + alt + r
 	~/bin/redshift-on
 	
 super + alt + b
 	~/bin/redshift-off
-
+	
+	
 # dedicated volume keys
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
 	pamixer {-i,-d} 2
@@ -122,7 +121,8 @@ super + {Up,Down}
 
 # view, send, or follow to a workspace (by number)
 super + {_,shift + ,ctrl + }{1-9,0}
-	dkcmd ws {view,send,follow} {1-9,10}
+	dkcmd ws {view,send,follow} {1-9,10}; \
+	~/bin/dkwhich
 
 # view, send, or follow to the next, previous, last active,
 # next non-empty, or prev non-empty workspace
@@ -133,9 +133,6 @@ super + {_,shift + ,ctrl + }{bracketleft,bracketright,BackSpace,Left,Right}
 super + {_,shift + ,ctrl + }{comma,period,backslash}
 	dkcmd mon {view,send,follow} {prev,next,last}
 
-# change active workspace layout
-# super + {t,r,m,g,s,w,f,u}
-#	dkcmd set layout {tile,rtile,mono,grid,spiral,dwindle,none,tstack}
 
 # change number of windows in master or first stack
 super + {_,shift + }{i,d}

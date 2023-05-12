@@ -44,11 +44,13 @@ fi
 
 	# default workspace '_' values used when allocating new workspaces
 	# can be applied to all existing workspaces when passed 'apply' after ws=_
-	dkcmd set ws=_ apply layout=tile master=1 stack=1 gap=3 msplit=0.33 ssplit=0.48
+	dkcmd set ws=_ apply layout=tile master=1 stack=1 gap=3 msplit=0.33 ssplit=0.47
 
+	# use grid layout, padding, and gaps on workspace 10
+	# dkcmd set ws=3 layout=grid master=1 stack=1
 	
 	# use grid layout, padding, and gaps on workspace 10
-	dkcmd set ws=10 layout=none pad left=20 right=20 top=10 bottom=10 gap=5
+	# dkcmd set ws=10 layout=grid pad left=20 right=20 top=10 bottom=10 gap=5
 
 	# change workspace names (default: number == name)
 	 dkcmd set \
@@ -115,12 +117,12 @@ fi
 	# outer_width must be less than width, outer_width of 0 will be single borders
 	dkcmd set border width=$border_width outer_width=$border_outer_width \
 		colour \
-		focus='#6699cc' \
-		unfocus='#444444' \
-		urgent='#ee5555' \
-		outer_focus='#222222' \
-		outer_unfocus='#222222' \
-		outer_urgent='#222222'
+		focus='#F0C674' \
+		unfocus='#8ABEB7' \
+		urgent='#A54242' \
+		outer_focus='#282A2E' \
+		outer_unfocus='#282A2E' \
+		outer_urgent='#282A2E'
 
 
 	# window rules
@@ -129,18 +131,21 @@ fi
 	# rule class, instance, and title regexes (*ALWAYS* CASE INSENSITIVE)
 
 	# open window(s) on a specific workspace (assigned monitor)
-	dkcmd rule class="^gimp$" ws=2
-
+	dkcmd rule class="^gimp$" ws=8 focus=true
+	dkcmd rule class="^discord$" ws=9 focus=true
+	dkcmd rule class="^obs$" ws=10 focus=true
+	dkcmd rule class="^github desktop$" ws=2 focus=true
+	
 	# open window(s) on a monitor by number or name (active workspace on monitor)
 	dkcmd rule class="^chromium$" mon="HDMI-A-0"
 
 	# open window(s) and use a callback function (user defined in config.h)
 	# we also ignore=true to stop the window from being resized on it's own from events
 	# eg. mpv --x11-name=albumart /path/to/media
-	dkcmd rule class="^mpv$" instance="^albumart$" float=true ignore=true callback=albumart bw=0
+	# dkcmd rule class="^mpv$" instance="^albumart$" float=true ignore=true callback=albumart bw=0
 
 	# open window(s) in a floating state
-	dkcmd rule class="^(pavucontrol|transmission-gtk|steam|lxappearance)$" float=true
+	dkcmd rule class="^(pavucontrol|transmission-gtk|qimgv|galculator|mpv|xfce4-terminal|lxappearance)$" float=true w=1280 h=720 x=950 y=350
 
 	# open window(s) with a specific geometry and coordinates (floating only!)
 	dkcmd rule class="^google-chrome$" title="^open files$" float=true w=1280 h=720
@@ -149,7 +154,7 @@ fi
 	dkcmd rule class="^stickyterm$" stick=true float=true w=1280 h=720
 
 	# focus window and workspace on opening
-	dkcmd rule class="^firefox$" ws=1 focus=true
+	dkcmd rule class="^firefox-esr$" ws=1 focus=true
 
 	# update or remove an existing rule with the same match patterns
 	dkcmd rule class="^firefox$" mon="HDMI-A-0"
