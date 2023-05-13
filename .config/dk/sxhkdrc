@@ -8,7 +8,7 @@ super + p
 # rofi launchers
 # rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
 super + space
-   	sh $HOME/.config/rofi/bin/launcher
+   	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
 	
 super + b
 	firefox-esr
@@ -24,7 +24,7 @@ super + Return
 	tilix
 	
 super + l
-	~/Applications/LiteXL-v2.1.1-x86_64.AppImage 
+	~/Applications/LiteXL-v2.1.1-addons-x86_64.AppImage 
 
 super + g
 	gimp
