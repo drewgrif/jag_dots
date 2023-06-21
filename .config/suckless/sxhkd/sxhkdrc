@@ -1,0 +1,78 @@
+#####################
+# Application keybindings #
+#####################
+
+super + b
+    firefox-esr
+
+super + Return
+	tilix
+
+# rofi launchers
+super + space
+   	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+   	
+super + shift + Return
+	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+	
+# rofi network manager	
+super + n
+	bash ~/bin/rofi-network-manager
+
+# logout, shutdown, reboot
+super + x
+	~/bin/power
+	
+# help with shortcuts
+super + h
+	~/bin/dwm-key
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+# application launchers
+
+super + f
+	thunar
+
+super + e
+	geany
+
+super + g
+	gimp
+	
+super + c
+	google-chrome
+	
+super + d
+	Discord
+
+super + o
+	obs
+
+super + t
+	~/bin/time_date
+
+
+
+#########
+# Scrot #
+#########
+super + alt + @s
+	scrot -s -e 'mv $f ~/Pictures'; \
+	notify-send 'Scrot' 'Selected image to ~/Pictures'
+
+super + s
+	scrot -e 'mv $f ~/Pictures'; \
+	notify-send 'Scrot' 'Image saved to ~/Pictures'
+	
+## redshift
+super + alt + r
+	~/bin/redshift-on
+	
+super + alt + b
+	~/bin/redshift-off
+
+
+## Show clipmenu
+alt + v
+    CM_LAUNCHER=rofi clipmenu 
