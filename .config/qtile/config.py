@@ -97,7 +97,7 @@ _gruvbox = {
     'fg9':          '#ebdbb2'
 }
 
-color_schema = _jagl
+color_schema = _gruvbox
 
 
 keys = [

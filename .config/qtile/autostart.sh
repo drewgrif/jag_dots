@@ -2,7 +2,7 @@
 nm-applet &
 
 # background
-feh --bg-scale ~/Pictures/blueguitar.jpg &
+feh --bg-scale ~/.config/backgrounds/Wallpaperkiss_1208315.jpg &
 
 # compositor
 picom --config ~/.config/picom/picom.conf &
