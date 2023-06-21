@@ -33,7 +33,7 @@ bspc rule -a discord desktop='^10' follow=on
 
 dunst &
 picom --config ~/.config/picom/picom.conf &
-feh --bg-fill ~/.config/backgrounds/cat-anime.jpg &
+feh --bg-fill ~/.config/backgrounds/wallhaven-y8o51x_3440x1440.png &
 ## Polybar or tint
 ~/bin/polybar-launch &
 # tint2 &

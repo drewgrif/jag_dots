@@ -6,7 +6,7 @@ slstatus &
 nm-applet &
 
 # background
-feh --bg-scale ~/.config/backgrounds/debianpaint.png &
+feh --bg-scale ~/.config/backgrounds/debdino.png &
 
 # compositor
 picom --config ~/.config/picom/picom.conf &

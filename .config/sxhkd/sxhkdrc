@@ -108,11 +108,11 @@ super + shift + m
 #########
 # Scrot #
 #########
-super + alt + @s
+super + @Print
 	scrot -s -e 'mv $f ~/Pictures'; \
 	notify-send 'Scrot' 'Selected image to ~/Pictures'
 
-super + s
+@Print
 	scrot -e 'mv $f ~/Pictures'; \
 	notify-send 'Scrot' 'Image saved to ~/Pictures'
 	

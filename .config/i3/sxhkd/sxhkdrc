@@ -16,7 +16,7 @@ super + shift + q
      i3-msg exit
 
 super + r
-   kitty -e "ranger"
+   tilix -e "ranger"
    
 super + g
 	google-chrome-stable
@@ -38,9 +38,17 @@ super + b
 
 super + d 
  discord
+ 
+#########
+# Scrot #
+#########
+super + @Print
+	scrot -s -e 'mv $f ~/Pictures'; \
+	notify-send 'Scrot' 'Selected image to ~/Pictures'
 
-ctrl + alt + s
-    flameshot gui
+@Print
+	scrot -e 'mv $f ~/Pictures'; \
+	notify-send 'Scrot' 'Image saved to ~/Pictures'
 
 
 #Audio Keybindings
