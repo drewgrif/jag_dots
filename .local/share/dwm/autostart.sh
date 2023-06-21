@@ -1,8 +1,8 @@
 #!/bin/sh
 
 slstatus &
-# network applet
 
+# network applet
 nm-applet &
 
 # background
