@@ -1,8 +1,9 @@
+# reload sxhkd
 super + Escape
-    pkill -USR1 -x sxhkd
+	pkill -USR1 -x sxhkd;notify-send 'sxhkd' 'Reloaded config'
 
 super + Return
-   kitty
+   tilix
 
 #Rofi & dmenu
 
@@ -12,21 +13,6 @@ super + space
 super + p
 	dmenu_run
 
-super + shift + q
-     i3-msg exit
-
-super + r
-   tilix -e "ranger"
-   
-super + g
-	google-chrome-stable
-
-super + f
-	thunar
-
-super + e
-	geany
-	
 
 alt + p
  rofi -show
@@ -38,6 +24,18 @@ super + b
 
 super + d 
  discord
+ 
+super + r
+   tilix -e "ranger"
+   
+super + g
+	gimp
+
+super + f
+	thunar
+
+super + e
+	geany
  
 #########
 # Scrot #
@@ -133,8 +131,10 @@ super+shift+{Left,Down,Up,Right}
 
 
 #other bindings
+super + shift + q
+     i3-msg exit
 
-super + shift + c
+super + q
     i3-msg kill
 
 super + alt + c

@@ -137,7 +137,7 @@ fi
 	dkcmd rule class="^github desktop$" ws=2 focus=true
 	
 	# open window(s) on a monitor by number or name (active workspace on monitor)
-	dkcmd rule class="^chromium$" mon="HDMI-A-0"
+	# dkcmd rule class="^chromium$" mon="HDMI-A-0"
 
 	# open window(s) and use a callback function (user defined in config.h)
 	# we also ignore=true to stop the window from being resized on it's own from events
