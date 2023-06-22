@@ -276,7 +276,7 @@ screens = [
 			   ),
 			   separator,
                widget.Memory(
-                format='{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}',
+                format='󰻠{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}',
                 measure_mem='G',
                 foreground=color_schema['magenta']
                ),
@@ -289,7 +289,7 @@ screens = [
 				),
 				separator,
                widget.Volume(
-					fmt="墳 {}",
+					fmt="󰕾 {}",
 					mute_command="amixer -D pulse set Master toggle",
 					foreground=color_schema['red']
             ),
