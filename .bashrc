@@ -24,7 +24,7 @@ alias e="micro"
 alias gc="git clone"
 
 # Dunst
-alias hi="notify-send 'Hi there!' 'Welcome to my Bspwm desktop! ' -i ''"
+alias hi="notify-send 'Hi there!' 'Welcome to my dk desktop! ' -i ''"
 
 
 # Add Color
