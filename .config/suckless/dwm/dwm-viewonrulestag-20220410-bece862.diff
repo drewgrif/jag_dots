@@ -1,0 +1,41 @@
+From 749e118a78fa884af5bd766c714f91cac995f257 Mon Sep 17 00:00:00 2001
+From: opseter <opseter@outlook.com>
+Date: Sat, 9 Apr 2022 11:28:56 +0800
+Subject: [PATCH] v2
+
+---
+ config.def.h | 1 +
+ dwm.c        | 5 +++++
+ 2 files changed, 6 insertions(+)
+
+diff --git a/config.def.h b/config.def.h
+index a2ac963..a2fc692 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -5,6 +5,7 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
+ static const unsigned int snap      = 32;       /* snap pixel */
+ static const int showbar            = 1;        /* 0 means no bar */
+ static const int topbar             = 1;        /* 0 means bottom bar */
++static const int viewonrulestag 	= 1;		 /* 1 means when open applications view will move to tags defined in rules*/
+ static const char *fonts[]          = { "monospace:size=10" };
+ static const char dmenufont[]       = "monospace:size=10";
+ static const char col_gray1[]       = "#222222";
+diff --git a/dwm.c b/dwm.c
+index 5f16260..afab263 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -310,6 +310,11 @@ applyrules(Client *c)
+ 	if (ch.res_name)
+ 		XFree(ch.res_name);
+ 	c->tags = c->tags & TAGMASK ? c->tags & TAGMASK : c->mon->tagset[c->mon->seltags];
++	if(viewonrulestag)
++	{
++		Arg a = {.ui = c->tags};
++		view(&a);
++	}
+ }
+ 
+ int
+-- 
+2.35.1
+
