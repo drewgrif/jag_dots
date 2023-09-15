@@ -9,7 +9,7 @@ super + space
    	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
    	
 super + shift + Return
-	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+	kitty
 	
 # rofi network manager (will not work unless on wifi)	
 super + n
@@ -32,7 +32,7 @@ super + e
 	geany
 
 super + l
-	~/Applications/LiteXL-v2.1.1-x86_64.AppImage 
+	/opt/LiteXL-v2.1.1-addons-x86_64.AppImage
 
 super + g
 	gimp
@@ -109,12 +109,12 @@ super + shift + m
 # Scrot #
 #########
 super + @Print
-	scrot -s -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Selected image to ~/Pictures'
+	scrot -s -e 'mv $f ~/Screenshots'; \
+	notify-send 'Scrot' 'Selected image to ~/Screenshots'
 
 @Print
-	scrot -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Image saved to ~/Pictures'
+	scrot -e 'mv $f ~/Screenshots'; \
+	notify-send 'Scrot' 'Image saved to ~/Screenshots'
 	
 ## redshift
 super + alt + r

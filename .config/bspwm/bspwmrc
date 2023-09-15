@@ -11,10 +11,10 @@ bspc config focus_follows_pointer	true
 bspc config borderless_monocle		true
 bspc config gapless_monocle			true
 
-bspc config focused_border_color	"#BD93F9"
-bspc config normal_border_color		"#282A36"
-bspc config active_border_color		"#8BE9FD"
-bspc config presel_feedback_color	"#50FA7B"
+bspc config focused_border_color	"#009688"
+bspc config normal_border_color		"#3C3C3C"
+bspc config active_border_color		"#616161"
+bspc config presel_feedback_color	"#8AB4F8"
 
 bspc rule -a "*" split_dir=east
 bspc rule -a qimgv state=floating center=true
@@ -23,7 +23,7 @@ bspc rule -a mpv state=floating layer=normal center=true
 bspc rule -a Pavucontrol:pavucontrol state=floating 
 bspc rule -a Lxappearance state=floating layer=normal center=true
 bspc rule -a Galculator state=floating layer=normal center=true
-bspc rule -a Xfce4-terminal state=floating layer=normal center=true
+bspc rule -a Tilix state=floating layer=normal center=true sticky=on 
 bspc rule -a 'GitHub Desktop' desktop='^2' follow=on
 bspc rule -a Gimp desktop='^8' follow=on
 bspc rule -a obs desktop='^10' follow=on
@@ -33,7 +33,8 @@ bspc rule -a Geany desktop='^4' follow=on
 
 dunst &
 picom --config ~/.config/picom/picom.conf &
-feh --bg-fill ~/.config/backgrounds/wallhaven-m9ezjy_3440x1440.png &
+# feh --bg-fill ~/.config/backgrounds/wallhaven-8odgry_3440x1440.png &
+feh --bg-fill ~/.config/backgrounds/gruvbox-dark-debian-scalable.svg &
 ## Polybar or tint
 ~/bin/polybar-dk &
 # tint2 &
