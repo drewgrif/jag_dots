@@ -17,18 +17,19 @@ bspc config active_border_color		"#616161"
 bspc config presel_feedback_color	"#8AB4F8"
 
 bspc rule -a "*" split_dir=east
-bspc rule -a qimgv state=floating center=true
-bspc rule -a Xarchiver state=floating layer=normal center=true
-bspc rule -a mpv state=floating layer=normal center=true
+bspc rule -a \* rectangle 1280x720+0+0 center=true
+bspc rule -a qimgv state=floating
+bspc rule -a Xarchiver state=floating layer=normal
+bspc rule -a mpv state=floating layer=normal
 bspc rule -a Pavucontrol:pavucontrol state=floating 
-bspc rule -a Lxappearance state=floating layer=normal center=true
-bspc rule -a Galculator state=floating layer=normal center=true
-bspc rule -a Tilix state=floating layer=normal center=true sticky=on 
+bspc rule -a Lxappearance state=floating layer=normal
+bspc rule -a Galculator state=floating layer=normal
+bspc rule -a Terminator state=floating layer=normal sticky=on 
 bspc rule -a 'GitHub Desktop' desktop='^2' follow=on
 bspc rule -a Gimp desktop='^8' follow=on
 bspc rule -a obs desktop='^10' follow=on
 bspc rule -a discord desktop='^9' follow=on
-bspc rule -a Thunar desktop='^3' follow=on
+# bspc rule -a Thunar desktop='^3' follow=on
 bspc rule -a Geany desktop='^4' follow=on
 
 dunst &
