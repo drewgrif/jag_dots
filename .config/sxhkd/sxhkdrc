@@ -9,7 +9,7 @@ super + space
    	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
    	
 super + shift + Return
-	kitty
+    terminator
 	
 # rofi network manager (will not work unless on wifi)	
 super + n
