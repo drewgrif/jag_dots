@@ -1,6 +1,6 @@
 #! /bin/sh
 
-bspc monitor -d www dev dir txt vid pad mus gfx dis obs
+bspc monitor -d web dev dir txt vid pad mus gfx dis obs
 
 bspc config border_width			4
 bspc config window_gap				10

@@ -26,10 +26,10 @@ super + h
 # application launchers
 
 super + f
-	thunar
+	wmctrl -a Thunar || thunar
 
 super + e 	
-	geany
+	wmctrl -a Geany || geany
 
 super + l
 	/opt/LiteXL-v2.1.1-addons-x86_64.AppImage
@@ -84,7 +84,7 @@ super + shift + { Left, Down, Up, Right}
 ## Change workspace with dunst feedback
 super + {_,shift + }{1-9,0}
 	bspc {desktop --focus,node --to-desktop} 'focused:^{1-9,10}' --follow; \
-	~/bin/whichws
+	~/bin/whichwspace
 
 ## Resizing windows
 super + ctrl + { Left, Down, Up, Right}
