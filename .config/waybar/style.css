@@ -1,0 +1,95 @@
+@import "tokyonight.css";
+* {
+    border: none;
+    border-radius: 0;
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: @BASE;
+    color: @TEXT;
+}
+
+#workspaces {
+	background-color: @BASE;
+	margin: 5px;
+	margin-left: 10px;
+	border-radius: 5px;
+}
+#workspaces button {
+    padding: 5px 10px;
+    color: @TEXT_100;
+}
+
+#workspaces button.focused {
+    color: @BASE;
+    background-color: @BLUEBERRY_100;
+    border-radius: 5px;
+}
+
+#workspaces button:hover {
+	background-color: @SLATE_500;
+	color: @SILVER_500;
+	border-radius: 5px;
+}
+
+#custom-date, #cpu, #memory, #clock, #battery, #pulseaudio, #network, #tray  {
+	color: @BASE_100;
+	border-radius: 5px;
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+	padding: 5px 10px;
+}
+
+#custom-date {
+	color: @LIME_900;
+}
+
+#custom-power {
+	color: @BASE_100;
+	background-color: @STRAWBERRY_700;
+	border-radius: 5px;
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+	padding: 5px 10px;
+}
+#memory {
+    	background-color: @BLUEBERRY_100;
+}
+#cpu {
+	background-color: @LIME_100;
+}
+
+#clock {
+    background-color: @GRAPE_100;
+    margin-right: 10px;
+}
+
+#battery {
+    background-color: @STRAWBERRY_100;
+}
+
+#battery.charging {
+    background-color: @STRAWBERRY_900;
+}
+
+#battery.warning:not(.charging) {
+    background-color: @STRAWBERRY_900;
+}
+
+#network {
+    background-color: @COCOA_100;
+	border-radius: 5px 0px 0px 5px;
+}
+#tray {
+	background-color: @SLATE_100;
+}
+#pulseaudio {
+    background-color: @ORANGE_100;
+}
