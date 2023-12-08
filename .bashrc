@@ -19,8 +19,10 @@ alias myip="ip -f inet address | grep inet | grep -v 'lo$' | cut -d ' ' -f 6,13 
 alias x="exit"
 # Dotfiles & Files
 alias bs='micro ~/.bashrc'
+alias ewm='micro ~/.config/bspwm/bspwmrc'
 alias reload='source ~/.bashrc'
-alias v="micro"
+alias v="nvim"
+alias vv="nvim ."
 alias e="micro"
 # Git aliases
 alias gp="git push -u origin main"
