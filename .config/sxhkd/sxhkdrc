@@ -1,15 +1,15 @@
 super + b
-    firefox-esr
+    wmctrl -a floorp || floorp
 
 super + Return
-	tilix
+	alacritty
 
 # rofi launchers
 super + space
-   	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+   	rofi  drun -show drun -line padding 4 -hide-scrollbar -show-icons 
    	
 super + shift + Return
-    terminator
+    tilix
 	
 # rofi network manager (will not work unless on wifi)	
 super + n
@@ -31,8 +31,11 @@ super + f
 super + e 	
 	wmctrl -a Geany || geany
 
+# super + l
+#	wmctrl -a lite-xl || /opt/LiteXL/LiteXL-v2.1.1-addons-x86_64.AppImage
+
 super + l
-	/opt/LiteXL-v2.1.1-addons-x86_64.AppImage
+	wmctrl -s 1 && /opt/LiteXL/LiteXL-v2.1.1-addons-x86_64.AppImage
 
 super + g
 	gimp
@@ -86,12 +89,12 @@ super + {_,shift + }{1-9,0}
 	bspc {desktop --focus,node --to-desktop} 'focused:^{1-9,10}' --follow; \
 	~/bin/whichwspace
 
-## Resizing windows
-super + ctrl + { Left, Down, Up, Right}
-	bspc node -z {left -80 0,bottom 0 80,top 0 -80,right 80 0}
-
-super + ctrl + shift + { Left, Down, Up, Right}
-	bspc node -z {right -80 0,top 0 80,bottom 0 -80,left 80 0}
+# Resize tiling windows
+super + ctrl + {Left,Down,Up,Right}
+	{bspc node -z left -40 0; bspc node -z right -40 0, \
+	bspc node -z bottom 0 40; bspc node -z top 0 40, \
+	bspc node -z bottom 0 -40; bspc node -z top 0 -40, \ 
+	bspc node -z left 40 0; bspc node -z right 40 0}
 	
 ## audio
 
