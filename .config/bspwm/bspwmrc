@@ -27,7 +27,7 @@ bspc rule -a mpv state=floating layer=normal
 bspc rule -a Pavucontrol:pavucontrol state=floating 
 bspc rule -a Lxappearance state=floating layer=normal
 bspc rule -a Galculator state=floating layer=normal
-bspc rule -a Terminator state=floating layer=normal sticky=on 
+bspc rule -a Tilix state=floating layer=normal sticky=on 
 bspc rule -a 'GitHub Desktop' desktop='^2' follow=on
 bspc rule -a Gimp desktop='^8' follow=on
 bspc rule -a obs desktop='^10' follow=on
@@ -37,8 +37,10 @@ bspc rule -a Geany desktop='^4' follow=on
 
 dunst &
 picom --config ~/.config/picom/picom.conf &
-# feh --bg-fill ~/.config/backgrounds/wallhaven-8odgry_3440x1440.png &
-feh --bg-fill ~/.config/backgrounds/wallhaven-kw5yy7_3440x1440.png &
+feh --bg-fill ~/.config/backgrounds/deer-forest-outdoor-art.jpg &
+# feh --bg-fill ~/.config/backgrounds/wallhaven-kw5yy7_3440x1440.png &
+# feh --bg-fill ~/.config/backgrounds/wallhaven-85erok_3440x1440.png &
+
 ## Polybar or tint
 ~/bin/polybar-dk &
 # tint2 &
