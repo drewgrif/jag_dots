@@ -1,8 +1,8 @@
 #!/bin/sh
-nm-applet &
+# nm-applet &
 
 # background
-feh --bg-scale ~/.config/backgrounds/Wallpaperkiss_1208315.jpg &
+feh --bg-fill ~/.config/backgrounds/debdino.png &
 
 # compositor
 picom --config ~/.config/picom/picom.conf &
