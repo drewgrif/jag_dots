@@ -53,7 +53,18 @@ super + t
 	~/bin/time_date
 
 
+## audio
 
+# Change volume, chunky
+super + shift + k
+    ~/bin/changevolume up
+    
+super + shift + j
+	~/bin/changevolume down
+	
+super + shift + m
+	~/bin/changevolume mute
+	
 #########
 # Scrot #
 #########

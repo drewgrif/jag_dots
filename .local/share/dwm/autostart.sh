@@ -3,7 +3,7 @@
 slstatus &
 
 # network applet
-nm-applet &
+# nm-applet &
 
 # background
 feh --bg-scale ~/.config/backgrounds/debdino.png &

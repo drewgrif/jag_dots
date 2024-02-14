@@ -130,7 +130,7 @@ layouts = [
     layout.Max(**layout_theme)
 ]
 widget_defaults = dict(
-	font='Hack Nerd Font Regular',
+	font='Roboto Mono Nerd Font',
     background=colors[0],
     foreground=colors[2],
     fontsize=14,
@@ -162,7 +162,7 @@ screens = [
             background = colors[2],
             borderwidth = 0,
             border = colors[6],
-            margin = 0,
+            margin_y = -5,
             padding = 8,
             highlight_method = "block",
             title_width_method = "uniform",
