@@ -73,14 +73,14 @@ keys = [
 #groups = [Group(i) for i in ["", "", "", "", "阮", "", "", "", ""]]
 # groups = [Group(i) for i in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]]
 groups = [
-	Group('1', label="1", layout="MonadTall"),
-	Group('2', label="2", layout="MonadTall"),
-	Group('3', label="3", layout="MonadTall"),	
-	Group('4', label="4", layout="MonadTall"),
+	Group('1', label="1", layout="Columns"),
+	Group('2', label="2", layout="Columns"),
+	Group('3', label="3", layout="Columns"),	
+	Group('4', label="4", layout="Columns"),
 	Group('5', label="5", layout="MonadTall"),
 	Group('6', label="6", layout="MonadTall"),
 	Group('7', label="7", matches=[Match(wm_class='gimp')], layout="MonadTall"),
-	Group('8', label="8", layout="MonadTall"),
+	Group('8', label="8", matches=[Match(wm_class='discord')], layout="MonadTall"),
 	Group('9', label="9", matches=[Match(wm_class='obs')],layout="MonadTall"),
 ]
 
