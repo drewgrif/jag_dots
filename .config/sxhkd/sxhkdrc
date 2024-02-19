@@ -1,15 +1,15 @@
 super + b
-    wmctrl -a floorp || floorp
+	wmctrl -a firefox-esr || firefox-esr
 
 super + Return
-	alacritty
+	tilix
 
 # rofi launchers
 super + space
    	rofi  drun -show drun -line padding 4 -hide-scrollbar -show-icons 
    	
 super + shift + Return
-    tilix
+    kitty
 	
 # rofi network manager (will not work unless on wifi)	
 super + n
@@ -28,6 +28,9 @@ super + h
 super + f
 	wmctrl -a Thunar || thunar
 
+super + m
+	wmctrl -a Zettlr || zettlr
+
 super + e 	
 	wmctrl -a Geany || geany
 
@@ -39,7 +42,10 @@ super + l
 
 super + g
 	gimp
-	
+
+super + r
+	tilix -e ranger
+
 super + c
 	google-chrome
 	
