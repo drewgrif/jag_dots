@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Get screen dimensions
+screen_width=$(xdpyinfo | awk '/dimensions/{print $2}' | cut -d 'x' -f1)
+screen_height=$(xdpyinfo | awk '/dimensions/{print $2}' | cut -d 'x' -f2)
+
+# Get list of active windows
+active_windows=$(wmctrl -l | awk '{print $1}')
+
+# Calculate window dimensions
+num_windows=$(echo "$active_windows" | wc -l)
+window_width=$((screen_width / num_windows))
+window_height=$screen_height
+
+# Resize and move windows
+x_offset=0
+for window_id in $active_windows; do
+    wmctrl -i -r $window_id -e 0,$x_offset,0,$window_width,$window_height
+    x_offset=$((x_offset + window_width))
+done
