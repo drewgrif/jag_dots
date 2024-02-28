@@ -2,22 +2,22 @@
 
 # Function to get the current workspace
 get_current_workspace() {
-    xprop -root -notype _NET_CURRENT_DESKTOP | awk '{print $3}'
+    xfconf-query -c xfwm4 -p /general/workspace_count
 }
 
 # Function to display XFCE notification
 notify_workspace_change() {
     local workspace_number=$1
-    xfce4-notifyd -t 1000 -u low -c "Workspace Changed" "Switched to workspace $workspace_number"
+    xfce4-notifyd -t 2000 -u low -a "workspace_monitor" -i "workspace" "Workspace Changed" "Switched to workspace $workspace_number"
 }
 
 # Main loop
-current_workspace=$(get_current_workspace)
+previous_workspace=$(get_current_workspace)
 while true; do
-    new_workspace=$(get_current_workspace)
-    if [[ "$new_workspace" != "$current_workspace" ]]; then
-        notify_workspace_change "$new_workspace"
-        current_workspace="$new_workspace"
+    current_workspace=$(get_current_workspace)
+    if [[ "$current_workspace" != "$previous_workspace" ]]; then
+        notify_workspace_change "$current_workspace"
+        previous_workspace="$current_workspace"
     fi
     sleep 1  # Adjust this interval as needed
 done
