@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Function to send a notification using xfce4-notifyd
+send_notification() {
+    local volume=$(pamixer --get-volume)
+    local bars=$(seq -s ' ' $(($volume / 5)) | sed 's/[0-9]/█/g')
+    xfce4-notifyd -t 2000 -u low -a "changevolume" -i "audio-volume-medium" "Volume: ${volume}%"
+    echo "Volume: ${volume}% [$bars]"
+}
+
+# Main script
+case $1 in
+up)
+    # Set the volume on (if it was muted)
+    pamixer -u
+    pamixer -i 2 --allow-boost
+    send_notification
+    ;;
+down)
+    pamixer -u
+    pamixer -d 2 --allow-boost
+    send_notification
+    ;;
+mute)
+    pamixer -t
+    if $(pamixer --get-mute); then
+        xfce4-notifyd -t 2000 -u low -a "changevolume" -i "audio-volume-muted" "Muted"
+    else
+        send_notification
+    fi
+    ;;
+esac
