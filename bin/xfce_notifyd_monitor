@@ -2,9 +2,7 @@
 
 # Function to get the current workspace
 get_current_workspace() {
-    local workspace_index=$(xdotool get_desktop)
-    local workspace_number=$((workspace_index + 1))
-    echo "$workspace_number"
+    wmctrl -d | awk '/\*/ {print $1 + 1}'
 }
 
 # Function to display XFCE notification
@@ -14,12 +12,12 @@ notify_workspace_change() {
 }
 
 # Main loop
-current_workspace=$(get_current_workspace)
+previous_workspace=$(get_current_workspace)
 while true; do
-    new_workspace=$(get_current_workspace)
-    if [[ "$new_workspace" != "$current_workspace" ]]; then
-        notify_workspace_change "$new_workspace"
-        current_workspace="$new_workspace"
+    current_workspace=$(get_current_workspace)
+    if [[ "$current_workspace" != "$previous_workspace" ]]; then
+        notify_workspace_change "$current_workspace"
+        previous_workspace="$current_workspace"
     fi
     sleep 1  # Adjust this interval as needed
 done
