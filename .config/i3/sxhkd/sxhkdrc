@@ -2,9 +2,6 @@
 super + Escape
 	pkill -USR1 -x sxhkd;notify-send 'sxhkd' 'Reloaded config'
 
-super + Return
-   tilix
-
 #Rofi & dmenu
 
 super + space
@@ -13,29 +10,39 @@ super + space
 super + p
 	dmenu_run
 
-alt + p
- rofi -show
 
 # Application Keybindings
 
-super + b
-    firefox-esr
+super + shift + Return
+   kitty
+   
+super + Return
+   tilix
 
-super + d 
- discord
- 
+super + b
+	wmctrl -a firefox-esr || firefox-esr
+	
+super + f
+	wmctrl -a Thunar || thunar
+	
 super + r
    tilix -e "ranger"
    
+super + e 	
+	i3-msg 'workspace 4;  exec --no-startup-id geany'
+	
+super + m
+	i3-msg 'workspace 6;  exec --no-startup-id zettlr'
+	
 super + g
-	gimp; \
-	bindsym $ws9
-
-super + f
-	thunar
-
-super + e
-	geany
+	i3-msg 'workspace 8;  exec --no-startup-id gimp'
+	
+super + d 
+	i3-msg 'workspace 9;  exec --no-startup-id Discord'
+	
+super + o	
+	i3-msg 'workspace 10;  exec --no-startup-id obs'
+ 
  
 #########
 # Scrot #
@@ -49,51 +56,7 @@ super + @Print
 	notify-send 'Scrot' 'Image saved to ~/Pictures'
 
 
-#Audio Keybindings
-
-XF86AudioRaiseVolume
-        amixer -c 1 -- sset Master 2db+
-
-XF86AudioLowerVolume
-        amixer -c 1 -- sset Master 2db-
-
-XF86AudioMute
-        amixer -c 1 -- sset Master toggle
-
-alt + d
-        amixer -c 1 -- sset Master 2db+
-
-alt + a
-        amixer -c 1 -- sset Master 2db-
-
-XF86AudioPlay
-    playerctl play-pause
-
-ctrl + alt + p
-    playerctl play-pause
-
-XF86AudioNext
-    playerctl next
-
-XF86AudioPrev
-    playerctl previous
-
-ctrl + shift + period
-    playerctl next
-
-ctrl + shift + comma
-    playerctl previous
-
-XF86AudioStop
-    playerctl stop
-
-alt + {h,j,k,l}
-   mpc {prev,next,play,pause}
-
 #i3 Specific Keybindings
-
-super + {v,b}
-    i3-msg split {v,h}
 
 super + alt + f
     i3-msg fullscreen toggle
@@ -112,8 +75,39 @@ super + alt + a
 super + {1-9,0}
     i3-msg workspace {1-9,10}
 
-super + shift+{1-9,0}
-    i3-msg move container to workspace number {1-9,10}
+# super + shift+{1-9,0}
+#    i3-msg move container to workspace number {1-9,10}
+
+# the following is if you want to follow your app to the new ws
+super + shift + 1
+	i3-msg 'move container to workspace 1; workspace 1'
+
+super + shift + 2
+	i3-msg 'move container to workspace 2; workspace 2'
+
+super + shift + 3
+	i3-msg 'move container to workspace 3; workspace 3'
+	
+super + shift + 4
+	i3-msg 'move container to workspace 4; workspace 4'
+	
+super + shift + 5
+	i3-msg 'move container to workspace 5; workspace 5'
+	
+super + shift + 6
+	i3-msg 'move container to workspace 6; workspace 6'
+	
+super + shift + 7
+	i3-msg 'move container to workspace 7; workspace 7'
+	
+super + shift + 8
+	i3-msg 'move container to workspace 8; workspace 8'
+	
+super + shift + 9
+	i3-msg 'move container to workspace 9; workspace 9'
+	
+super + shift + 0
+	i3-msg 'move container to workspace 10; workspace 10'
     
 #movement
 
