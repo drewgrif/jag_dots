@@ -26,6 +26,7 @@ alias v="nvim"
 alias vv="nvim ."
 alias e="micro"
 alias gd="cd ~/Downloads"
+alias g.="cd ~/.config"
 # Git aliases
 alias gp="git push -u origin main"
 alias gsave="git commit -m 'save'"
