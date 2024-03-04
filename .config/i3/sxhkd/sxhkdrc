@@ -27,6 +27,9 @@ super + f
 	
 super + r
    tilix -e "ranger"
+
+super + v
+   tilix -e "nvim"
    
 super + e 	
 	i3-msg 'workspace 4;  exec --no-startup-id geany'
