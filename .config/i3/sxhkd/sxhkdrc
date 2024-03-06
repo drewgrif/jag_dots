@@ -1,14 +1,12 @@
-# reload sxhkd
+# sxhkd reload
+
 super + Escape
 	pkill -USR1 -x sxhkd;notify-send 'sxhkd' 'Reloaded config'
 
-#Rofi & dmenu
+#Rofi
 
 super + space
    	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
-   	
-super + p
-	dmenu_run
 
 
 # Application Keybindings
@@ -141,5 +139,5 @@ super + alt + r
     i3-msg restart
 
 super + ctrl + {Left,Down,Up,Right}
-    i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
+    i3-msg resize {grow width 3 px or 3 ppt, shrink height 3 px or 3 ppt, grow height 3 px or 3 ppt, shrink width 3 px or 3 ppt}
 
