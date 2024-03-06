@@ -49,33 +49,26 @@ super + o
 # Scrot #
 #########
 super + @Print
-	scrot -s -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Selected image to ~/Pictures'
+	scrot -s -e 'mv $f ~/Screenshots'; \
+	notify-send 'Scrot' 'Selected image to ~/Screenshots'
 
 @Print
-	scrot -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Image saved to ~/Pictures'
-
-
-#i3 Specific Keybindings
-
-super + alt + f
-    i3-msg fullscreen toggle
-
-super + alt + space
-    i3-msg floating toggle
-
-super + control + space
-    i3-msg focus mode_toggle
-
-super + alt + a
-    i3-msg focus parent
+	scrot -e 'mv $f ~/Screenshots'; \
+	notify-send 'Scrot' 'Image saved to ~/Screenshots'
+	
+## redshift
+super + alt + r
+	~/bin/redshift-on
+	
+super + alt + b
+	~/bin/redshift-off
 
 #workspaces
 
 super + {1-9,0}
     i3-msg workspace {1-9,10}
 
+# The 
 # super + shift+{1-9,0}
 #    i3-msg move container to workspace number {1-9,10}
 
@@ -124,8 +117,33 @@ super+{Left,Down,Up,Right}
 super+shift+{Left,Down,Up,Right}
     i3-msg move {left,down,up,right}
 
+## audio
 
-#other bindings
+# Change volume, chunky
+super + shift + k
+    ~/bin/changevolume up
+    
+super + shift + j
+	~/bin/changevolume down
+	
+super + shift + m
+	~/bin/changevolume mute
+
+
+#i3 Specific Keybindings
+
+super + alt + f
+    i3-msg fullscreen toggle
+
+super + alt + space
+    i3-msg floating toggle
+
+super + control + space
+    i3-msg focus mode_toggle
+
+super + alt + a
+    i3-msg focus parent
+    
 super + shift + q
      i3-msg exit
 
@@ -136,7 +154,7 @@ super + alt + c
     i3-msg reload
 
 super + alt + r
-    i3-msg restart
+    i3-msg restart; notify-send 'i3' 'Restarted'
 
 super + ctrl + {Left,Down,Up,Right}
     i3-msg resize {grow width 3 px or 3 ppt, shrink height 3 px or 3 ppt, grow height 3 px or 3 ppt, shrink width 3 px or 3 ppt}
