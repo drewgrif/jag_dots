@@ -1,20 +1,20 @@
-@define-color bg-hover #272E32;
-@define-color lbg #2D363B;
-@define-color bg #141b1f;
-@define-color blue #A2C8C3;
-@define-color sky #A2C8C3;
-@define-color red #E67E80;
+@define-color bg-hover #f28668;
+@define-color lbg #131721;
+@define-color bg #0b0e14;
+@define-color blue #73b8ff;
+@define-color sky #95e6cb;
+@define-color red #f07178;
 @define-color pink #f28779;
-@define-color lavender #D699B6;
+@define-color lavender #d2a6ff;
 @define-color rosewater #f07178;
 @define-color flamingo #f07178;
-@define-color fg #D3C6AA;
-@define-color green #B2C98F;
-@define-color active-green #B2C98F;
-@define-color dark-fg #9DA9A0;
+@define-color fg #bfbdb6;
+@define-color green #7fd962;
+@define-color active-green #aad94c;
+@define-color dark-fg #787bb0;
 @define-color peach #f2966b;
 @define-color border @lavender;
-@define-color gray2 #9DA9A0;
+@define-color gray2 #cccac2;
 @define-color black4 #0d1017;
 @define-color black3 #131721;
 @define-color maroon #d95757;
@@ -44,8 +44,8 @@ tooltip {
 	border-radius: 7px;
 	border-bottom: 2px solid @bg;
 	border-right: 2px solid @bg;
-	background-color: @lbg;
-	color: @fg;
+	background-color: @yellow;
+	color: @bg;
 }
 
 window#waybar.empty #window {
@@ -84,7 +84,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-    background-color:@red;
+    background-color:@yellow;
     color: @bg;
     /*color: @bg;*/
 
@@ -125,6 +125,7 @@ window#waybar {
   color: @fg;
 }
 
+
 #network {
   margin: 5px 5px 2px 5px;
   padding-left: 10px;
@@ -148,9 +149,7 @@ window#waybar {
     padding-left: 10px;
     padding-right: 12px;
     border-radius: 7px;
-	border-bottom: 2px solid @bg;
-	border-right: 2px solid @bg;
-background-color: @red;
+    background-color: @rosewater;
 
 }
 
