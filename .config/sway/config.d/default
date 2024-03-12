@@ -6,8 +6,8 @@ set $term tilix
 set $menu rofi -show drun
 
 # wallpaper
-output * background ~/.config/backgrounds/debdino.png fill
-
+# output * background ~/.config/backgrounds/debdino.png fill
+output * background ~/.config/backgrounds/wallhaven-wex83x_3440x1440.png fill
 
 # shortcuts
 bindsym $mod+Return exec $term
@@ -48,8 +48,8 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Down move down
 
 # resize window
-bindsym $mod+Ctrl+Left resize shrink width 10px
-bindsym $mod+Ctrl+Right resize grow width 10px
+bindsym $mod+Ctrl+Left resize shrink width 20px
+bindsym $mod+Ctrl+Right resize grow width 20px
 
 # audio
 bindsym $mod+shift+k exec ~/bin/changevolume up
@@ -90,9 +90,9 @@ bindsym Print exec grim ~/Screenshots/$(date +"%Y-%m-%d_%H-%M-$S").png; exec not
 bindsym $mod+Print exec grim -g "$(slurp)" ~/Screenshots/$(date +"%Y-%m-%d_%H-%M-%S").png; exec notify-send 'Grim' 'Selected image saved to ~/Screenshots'
 
 ### Gaps
-gaps inner 10
+gaps inner 16
 gaps outer 1
-default_border pixel 2
+default_border pixel 3
 
 ### Borders
 client.focused          #a5adcb #a5adcb #24283b #a5adcb #a5adcb

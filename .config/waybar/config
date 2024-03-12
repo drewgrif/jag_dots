@@ -7,7 +7,7 @@
 
 "modules-left": ["clock","sway/window"],
 "modules-center": ["sway/workspaces"],
-"modules-right":  ["tray","cpu","memory","pulseaudio"],
+"modules-right":  ["tray","disk","cpu","memory","pulseaudio"],
 
 "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
@@ -27,17 +27,21 @@
     "format-alt": " {:%a,%b %d}" // Icon: calendar-alt
 },
 "cpu": {
-    "format": "<span foreground='#DBBC7F'>󰯳</span> {usage}%",
+    "format": "<span foreground='#E69875'></span> {usage}%",
     "tooltip": false,
     "on-click": "kitty -e 'htop'"
 },
 "memory": {
     "interval": 1,
-    "format": "<span foreground='#88C096'>󰍛</span> {used:0.2f}GB",
+    "format": "<span foreground='#E69875'>󰍛</span> {used:0.2f}GB",
     "max-length": 10,
     "tooltip": false,
     "warning": 70,
     "critical": 90
+},
+"disk": {
+	"interval": 30,
+	"format": "<span foreground='#E69875'></span> {percentage_used}%",
 },
 "network": {
   "interval": 2,
@@ -66,11 +70,11 @@
     "on-scroll-up": "brightnessctl -c backlight set +1%"
 },
 "pulseaudio": {
-	"format": "<span foreground='#A2C8C3'>{icon}</span> {volume}%  {format_source}",
-	"format-bluetooth": "<span foreground='#DBBC7F'>{icon}</span> {volume}%  {format_source}",
+	"format": "<span foreground='#E69875'>{icon}</span> {volume}%  {format_source}",
+	"format-bluetooth": "<span foreground='##E69875'>{icon}</span> {volume}%  {format_source}",
 	"format-bluetooth-muted": "<span foreground='#D699B6'>󰖁</span>  {format_source}",
 	"format-muted": "<span foreground='#7A8478'>󰖁</span>  {format_source}",
-	"format-source": "<span foreground='#E67E80'></span> {volume}%",
+	"format-source": "<span foreground='#E69875'></span> {volume}%",
 	"format-source-muted": "<span foreground='#F38BA8'></span>",
 	"format-icons": {
 	  "headphone": "",
