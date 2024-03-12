@@ -1,0 +1,85 @@
+{
+"layer": "top",
+"position": "top",
+"height": 10,
+"margin-bottom":0,
+"margin-top":0,
+
+"modules-left": ["clock","sway/window"],
+"modules-center": ["sway/workspaces"],
+"modules-right":  ["tray","cpu","memory","pulseaudio"],
+
+"sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+},
+"sway/window": {
+	    "format": "{title}",
+ 		"max-length": 333,
+	    "seperate-outputs": true
+  },
+"tray": {
+    "icon-size": 16,
+    "spacing": 6
+},
+"clock": {
+    "locale": "C", 
+    "format": "<span foreground='#E69875'> </span><span>{:%I:%M %p}</span>",
+    "format-alt": " {:%a,%b %d}" // Icon: calendar-alt
+},
+"cpu": {
+    "format": "<span foreground='#DBBC7F'>󰯳</span> {usage}%",
+    "tooltip": false,
+    "on-click": "kitty -e 'htop'"
+},
+"memory": {
+    "interval": 1,
+    "format": "<span foreground='#88C096'>󰍛</span> {used:0.2f}GB",
+    "max-length": 10,
+    "tooltip": false,
+    "warning": 70,
+    "critical": 90
+},
+"network": {
+  "interval": 2,
+  "format-wifi": " {signalStrength}%",
+  "format-ethernet": "",
+  "format-linked": " {ipaddr}",
+  "format-disconnected": " Disconnected",
+  "format-disabled": "",
+  "tooltip": false,
+  "max-length": 20,
+  "min-length": 6,
+  "format-alt": "{essid}",
+},
+"idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+        "activated": "",
+        "deactivated": ""
+    }
+},
+"backlight": {
+    // "device": "acpi_video1",
+    "format": "{icon}&#8239;{percent}%",
+    "format-icons": ["", ""],
+    "on-scroll-down": "brightnessctl -c backlight set 1%-",
+    "on-scroll-up": "brightnessctl -c backlight set +1%"
+},
+"pulseaudio": {
+	"format": "<span foreground='#A2C8C3'>{icon}</span> {volume}%  {format_source}",
+	"format-bluetooth": "<span foreground='#DBBC7F'>{icon}</span> {volume}%  {format_source}",
+	"format-bluetooth-muted": "<span foreground='#D699B6'>󰖁</span>  {format_source}",
+	"format-muted": "<span foreground='#7A8478'>󰖁</span>  {format_source}",
+	"format-source": "<span foreground='#E67E80'></span> {volume}%",
+	"format-source-muted": "<span foreground='#F38BA8'></span>",
+	"format-icons": {
+	  "headphone": "",
+	  "phone": "",
+	  "portable": "",
+	  "default": ["", "", ""]
+	},
+	"on-click-left": "pavucontrol",
+	"input": true
+
+  },
+}

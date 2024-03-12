@@ -2,29 +2,37 @@
 set $mod Mod4
 
 # set terminal and menu
-set $term kitty
-set $menu wofi --show drun 
+set $term tilix
+set $menu rofi -show drun
 
 # wallpaper
-output * background ~/.config/backgrounds/cloudflower.png fill
+output * background ~/.config/backgrounds/debdino.png fill
 
 
 # shortcuts
 bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec kitty
 bindsym $mod+Space exec $menu
 bindsym $mod+f exec thunar
 bindsym $mod+b exec firefox-esr
 bindsym $mod+e exec geany
-bindsym $mod+g exec gedit
-bindsym $mod+d exec dmenu_run
-bindsym $mod+l exec ~/Applications/LiteXL-v2.1.1-addons-x86_64.AppImage
+bindsym $mod+g exec swaymsg "workspace 8; exec gimp"
+bindsym $mod+d exec swaymsg "workspace 9; exec Discord"
+bindsym $mod+o exec swaymsg "workspace 10; exec obs"
+bindsym $mod+r exec tilix -e ranger
+bindsym $mod+v exec tilix -e nvim
 
 # rules
 for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="galculator"] floating enable
+for_window [app_id="kitty"] floating enable, resize set 1280 720
+for_window [app_id="nwg-look"] floating enable
+for_window [app_id="mpv"] floating enable, resize set 1280 720
+for_window [app_id="qimgv"] floating enable, resize set 1280 720
 
 # windows
 bindsym $mod+q kill
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r reload; exec notify-send 'sway' 'Restarted'
 bindsym $mod+Shift+e exit
 
 # move focus
@@ -38,6 +46,15 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Down move down
+
+# resize window
+bindsym $mod+Ctrl+Left resize shrink width 10px
+bindsym $mod+Ctrl+Right resize grow width 10px
+
+# audio
+bindsym $mod+shift+k exec ~/bin/changevolume up
+bindsym $mod+shift+j exec ~/bin/changevolume down
+bindsym $mod+shift+m exec ~/bin/changevolume mute
 
 #
 # Workspaces:
@@ -68,20 +85,9 @@ bindsym $mod+Shift+Down move down
     # We just use 1-10 as the default.
 #
 #
-# Resizing containers:
-#
-mode "resize" {
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
+# Screen Capture
+bindsym Print exec grim ~/Screenshots/$(date +"%Y-%m-%d_%H-%M-$S").png; exec notify-send 'Grim' 'Image saved to ~/Screenshots'
+bindsym $mod+Print exec grim -g "$(slurp)" ~/Screenshots/$(date +"%Y-%m-%d_%H-%M-%S").png; exec notify-send 'Grim' 'Selected image saved to ~/Screenshots'
 
 ### Gaps
 gaps inner 10
@@ -99,4 +105,5 @@ client.background       #24283b
 bar { 
      swaybar_command waybar
      }
-
+#GTK issue
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK

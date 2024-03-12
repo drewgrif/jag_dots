@@ -2,15 +2,5 @@
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # notifications
-exec mako
+exec dunst
 
-# nwg-panel start
-exec_always nwg-panel
-
-#numlock on
-exec numlockx on
-
-# gtk app problem solver
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
