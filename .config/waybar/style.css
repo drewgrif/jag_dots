@@ -2,6 +2,7 @@
     font-family: Roboto Mono Nerd Font;
     font-size: 13px;
     min-height: 0;
+    color: #C5C8C6;
 }
 
 window#waybar {
