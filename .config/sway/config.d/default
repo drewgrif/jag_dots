@@ -86,7 +86,7 @@ bindsym $mod+shift+m exec ~/bin/changevolume mute
 #
 #
 # Screen Capture
-bindsym Print exec grim ~/Screenshots/$(date +"%Y-%m-%d_%H-%M-$S").png; exec notify-send 'Grim' 'Image saved to ~/Screenshots'
+bindsym Print exec grim ~/Screenshots/$(date +"%Y-%m-%d_%H-%M-%S").png; exec notify-send 'Grim' 'Image saved to ~/Screenshots'
 bindsym $mod+Print exec grim -g "$(slurp)" ~/Screenshots/$(date +"%Y-%m-%d_%H-%M-%S").png; exec notify-send 'Grim' 'Selected image saved to ~/Screenshots'
 
 ### Gaps
