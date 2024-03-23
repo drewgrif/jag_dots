@@ -20,6 +20,9 @@ super + Return
 super + b
 	wmctrl -a firefox-esr || firefox-esr
 	
+super + c
+   galculator
+	
 super + f
 	wmctrl -a Thunar || thunar
 	
@@ -150,10 +153,10 @@ super + shift + q
 super + q
     i3-msg kill
 
-super + alt + c
+super + shift + c
     i3-msg reload
 
-super + alt + r
+super + shift + r
     i3-msg restart; notify-send 'i3' 'Restarted'
 
 super + ctrl + {Left,Down,Up,Right}
