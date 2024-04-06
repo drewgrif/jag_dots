@@ -40,8 +40,8 @@ bspc rule -a Geany desktop='^4' follow=on
 dunst &
 picom --config ~/.config/picom/picom.conf &
 feh --bg-fill ~/.config/backgrounds/deer-forest-outdoor-art.jpg &
-# feh --bg-fill ~/.config/backgrounds/wallhaven-kw5yy7_3440x1440.png &
-# feh --bg-fill ~/.config/backgrounds/wallhaven-85erok_3440x1440.png &
+
+xsetroot -cursor_name left_ptr &
 
 ## Polybar or tint
 ~/bin/polybar-dk &
