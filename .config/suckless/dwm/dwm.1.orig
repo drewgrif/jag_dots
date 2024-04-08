@@ -52,8 +52,7 @@ command.
 .TP
 .B Button1
 click on a tag label to display all windows with that tag, click on the layout
-label toggles between tiled and floating layout, click on the window follow
-icon toggles it on and off.
+label toggles between tiled and floating layout.
 .TP
 .B Button3
 click on a tag label adds/removes all windows with that tag to/from the view.
@@ -88,9 +87,6 @@ Send focused window to next screen, if any.
 .TP
 .B Mod1\-b
 Toggles bar on and off.
-.TP
-.B Mod1\-n
-Toggles window following on and off.
 .TP
 .B Mod1\-t
 Sets tiled layout.

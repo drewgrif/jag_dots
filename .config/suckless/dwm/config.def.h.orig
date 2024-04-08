@@ -15,18 +15,17 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=12" };
+static const char *fonts[]          = { "Roboto Mono Nerd Font:size=12" };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#00141d";
-static const char col_gray2[]       = "#80bfff";
-static const char col_gray3[]       = "#FFFFFF";
-static const char col_gray4[]       = "#1a1a1a";
-static const char col_cyan[]        = "#b3e5fc"; /* was #6CF982  */
-static const char col_barbie[]      = "#4fc3f7";
+static const char col_gray1[]       = "#172228";
+static const char col_gray2[]       = "#305d74";
+static const char col_gray3[]       = "#b5e1fb";
+static const char col_gray4[]       = "#e7f5fe";
+static const char col_cyan[]        = "#3B7D9D";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray4 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_barbie  },
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
 /* tagging */
@@ -37,23 +36,15 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      			instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     			NULL,       NULL,       1 << 6,         0,           -1 },
-	{ "GitHub Desktop", 	NULL,       NULL,       1 << 1,         0,           -1 },
-	{ "obs",  				NULL,       NULL,       1 << 8,       	0,           -1 },
-	{ "discord",  			NULL,       NULL,       1 << 7,       	0,           -1 },
-	{ "mpv",  				NULL,       NULL,       0,       	1,           -1 },
-	{ "qimgv",    			NULL,       NULL,       0,       	1,           -1 },
-	{ "Galculator",   		NULL,       NULL,       0,       	1,           -1 },
-	{ "Lxappearance",   	NULL,       NULL,       0,       	1,           -1 },
-	{ "Pavucontrol",  		NULL,       NULL,       0,       	1,           -1 },
-	{ "Terminator", 		NULL,       NULL,       0,       	1,           -1 },
+	/* class      instance    title       tags mask     isfloating   monitor */
+	{ "Gimp",     NULL,       NULL,       1 << 6,            0,           -1 },
+	{ "obs",  	  NULL,       NULL,       1 << 8,       	 0,           -1 },
+	{ "discord",  NULL,       NULL,       1 << 7,       	 0,           -1 },
+	{ "mpv",  	  NULL,       NULL,       0,       			 1,           -1 },
+	{ "qimgv",    NULL,       NULL,       0,       	 		 1,           -1 },
+	{ "Galculator",   NULL,       NULL,       0,       	 1,           -1 },
+	{ "kitty",    NULL,       NULL,       0,       	 		 1,           -1 },
 };
-
-/* window following */
-#define WFACTIVE '>'
-#define WFINACTIVE 'v'
-#define WFDEFAULT WFACTIVE
 
 /* layout(s) */
 static const float mfact     = 0.40; /* factor of master area size [0.05..0.95] */
@@ -68,17 +59,17 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "|M|",      centeredmaster },	/* first entry is default */
 	{ "[]=",      tile },
-	{ "HHH",      grid },
-	{ ">M>",      centeredfloatingmaster },
 	{ "[M]",      monocle },    
 	{ "[@]",      spiral },
 	{ "[\\]",     dwindle },
 	{ "H[]",      deck },
 	{ "TTT",      bstack },
 	{ "===",      bstackhoriz },
+	{ "HHH",      grid },
 	{ "###",      nrowgrid },
 	{ "---",      horizgrid },
 	{ ":::",      gaplessgrid },
+	{ ">M>",      centeredfloatingmaster },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ NULL,       NULL },
 };
@@ -107,9 +98,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_Right,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_Left,      focusstack,     {.i = -1 } },
-	{ MODKEY|ControlMask,           XK_Left,      setmfact,       {.f = -0.05} },
-	{ MODKEY|ControlMask,           XK_Right,      setmfact,       {.f = +0.05} },
-	{ MODKEY|ShiftMask,             XK_n,      togglefollow,   {0} },
+	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Right,      movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_Left,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
@@ -137,12 +129,6 @@ static const Key keys[] = {
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_9,      incrovgaps,     {.i = -1 } },
 	{ MODKEY|Mod1Mask,              XK_0,      togglegaps,     {0} },
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
-	{ MODKEY|ControlMask,           XK_1,      setlayout,     {.v = &layouts[0] } },
-	{ MODKEY|ControlMask,           XK_2,      setlayout,     {.v = &layouts[1] } },
-	{ MODKEY|ControlMask,           XK_3,      setlayout,     {.v = &layouts[2] } },
-	{ MODKEY|ControlMask,           XK_4,      setlayout,     {.v = &layouts[3] } },
-	{ MODKEY|ControlMask,           XK_5,      setlayout,     {.v = &layouts[4] } },
-	{ MODKEY|ControlMask,           XK_6,      setlayout,     {.v = &layouts[5] } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -152,8 +138,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|Mod1Mask|ShiftMask,   	XK_Tab,      incnmaster,     {.i = +1 } },
-	{ MODKEY|Mod1Mask,			    XK_Tab,      incnmaster,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
@@ -163,7 +147,6 @@ static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	{ ClkFollowSymbol,      0,              Button1,        togglefollow,   {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },

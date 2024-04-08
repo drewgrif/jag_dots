@@ -1,7 +1,9 @@
 slstatus - suckless status
 ==========================
-slstatus is a suckless status monitor for window managers that use WM_NAME
-(e.g. dwm) or stdin to fill the status bar.
+slstatus is a small tool for providing system status information to other
+programs over the EWMH property of the root window (used by dwm(1)) or
+standard input/output. It is designed to be as efficient as possible by
+only issuing the minimum of system calls required.
 
 
 Features
@@ -61,9 +63,3 @@ Configuration
 -------------
 slstatus can be customized by creating a custom config.h and (re)compiling the
 source code. This keeps it fast, secure and simple.
-
-
-Upcoming
---------
-A first feature-complete release with official packages for common distributions
-will come soon.

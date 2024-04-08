@@ -1,46 +1,24 @@
 --- dwm.c
 +++ dwm.c
-@@ -62,7 +62,7 @@ enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
- enum { SchemeNorm, SchemeSel }; /* color schemes */
- enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
-        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
--       NetWMWindowTypeDialog, NetClientList, NetLast }; /* EWMH atoms */
-+       NetWMWindowTypeDialog, NetClientList, NetClientInfo, NetLast }; /* EWMH atoms */
- enum { WMProtocols, WMDelete, WMState, WMTakeFocus, WMLast }; /* default atoms */
- enum { ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle,
-        ClkClientWin, ClkRootWin, ClkLast }; /* clicks */
-@@ -1061,6 +1062,26 @@ manage(Window w, XWindowAttributes *wa)
- 	updatewindowtype(c);
- 	updatesizehints(c);
- 	updatewmhints(c);
-+	{
-+		int format;
-+		unsigned long *data, n, extra;
-+		Monitor *m;
-+		Atom atom;
-+		if (XGetWindowProperty(dpy, c->win, netatom[NetClientInfo], 0L, 2L, False, XA_CARDINAL,
-+				&atom, &format, &n, &extra, (unsigned char **)&data) == Success && n == 2) {
-+			c->tags = *data;
-+			for (m = mons; m; m = m->next) {
-+				if (m->num == *(data+1)) {
-+					c->mon = m;
-+					break;
-+				}
-+			}
-+		}
-+		if (n > 0)
-+			XFree(data);
-+	}
-+	setclienttagprop(c);
+@@ -442,8 +444,10 @@ buttonpress(XEvent *e)
+ 		if (i < LENGTH(tags)) {
+ 			click = ClkTagBar;
+ 			arg.ui = 1 << i;
+-		} else if (ev->x < x + TEXTW(selmon->ltsymbol))
++		} else if (ev->x < (x = (x + TEXTW(selmon->ltsymbol))))
+ 			click = ClkLtSymbol;
++		else if (ev->x < x + TEXTW(selmon->wfsymbol))
++			click = ClkFollowSymbol;
+ 		else if (ev->x > selmon->ww - (int)TEXTW(stext))
+ 			click = ClkStatusText;
+ 		else
+@@ -739,6 +745,9 @@ drawbar(Monitor *m)
+ 	drw_setscheme(drw, scheme[SchemeNorm]);
+ 	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
+ 
++	w = TEXTW(m->wfsymbol);
++	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->wfsymbol, 0);
 +
- 	XSelectInput(dpy, w, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
- 	grabbuttons(c, 0);
- 	if (!c->isfloating)
-@@ -1568,6 +1590,7 @@ setup(void)
- 	netatom[NetWMWindowType] = XInternAtom(dpy, "_NET_WM_WINDOW_TYPE", False);
- 	netatom[NetWMWindowTypeDialog] = XInternAtom(dpy, "_NET_WM_WINDOW_TYPE_DIALOG", False);
- 	netatom[NetClientList] = XInternAtom(dpy, "_NET_CLIENT_LIST", False);
-+	netatom[NetClientInfo] = XInternAtom(dpy, "_NET_CLIENT_INFO", False);
- 	/* init cursors */
- 	cursor[CurNormal] = drw_cur_create(drw, XC_left_ptr);
- 	cursor[CurResize] = drw_cur_create(drw, XC_sizing);
+ 	if ((w = m->ww - tw - x) > bh) {
+ 		if (m->sel) {
+ 			drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);

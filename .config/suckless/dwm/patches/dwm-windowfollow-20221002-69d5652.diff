@@ -1,0 +1,162 @@
+From 0d52397649099000d154b65c077fe927608d8d0b Mon Sep 17 00:00:00 2001
+From: Aidan Hall <aidan.hall202@gmail.com>
+Date: Sun, 2 Oct 2022 18:13:36 +0100
+Subject: [PATCH] window following for latest git version
+
+---
+ config.def.h |  7 +++++++
+ dwm.1        |  6 +++++-
+ dwm.c        | 24 ++++++++++++++++++++++--
+ 3 files changed, 34 insertions(+), 3 deletions(-)
+
+diff --git a/config.def.h b/config.def.h
+index 061ad66..5eb37ed 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -31,6 +31,11 @@ static const Rule rules[] = {
+ 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+ };
+ 
++/* window following */
++#define WFACTIVE '>'
++#define WFINACTIVE 'v'
++#define WFDEFAULT WFINACTIVE
++
+ /* layout(s) */
+ static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+ static const int nmaster     = 1;    /* number of clients in master area */
+@@ -64,6 +69,7 @@ static const Key keys[] = {
+ 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+ 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+ 	{ MODKEY,                       XK_b,      togglebar,      {0} },
++	{ MODKEY,                       XK_n,      togglefollow,   {0} },
+ 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+ 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+ 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+@@ -102,6 +108,7 @@ static const Button buttons[] = {
+ 	/* click                event mask      button          function        argument */
+ 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
+ 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
++	{ ClkFollowSymbol,      0,              Button1,        togglefollow,   {0} },
+ 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
+ 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+ 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
+diff --git a/dwm.1 b/dwm.1
+index ddc8321..67dfbc0 100644
+--- a/dwm.1
++++ b/dwm.1
+@@ -44,7 +44,8 @@ command.
+ .TP
+ .B Button1
+ click on a tag label to display all windows with that tag, click on the layout
+-label toggles between tiled and floating layout.
++label toggles between tiled and floating layout, click on the window follow
++icon toggles it on and off.
+ .TP
+ .B Button3
+ click on a tag label adds/removes all windows with that tag to/from the view.
+@@ -80,6 +81,9 @@ Send focused window to next screen, if any.
+ .B Mod1\-b
+ Toggles bar on and off.
+ .TP
++.B Mod1\-n
++Toggles window following on and off.
++.TP
+ .B Mod1\-t
+ Sets tiled layout.
+ .TP
+diff --git a/dwm.c b/dwm.c
+index e5efb6a..6d86a9c 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -65,7 +65,7 @@ enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
+        NetWMWindowTypeDialog, NetClientList, NetLast }; /* EWMH atoms */
+ enum { WMProtocols, WMDelete, WMState, WMTakeFocus, WMLast }; /* default atoms */
+ enum { ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle,
+-       ClkClientWin, ClkRootWin, ClkLast }; /* clicks */
++       ClkClientWin, ClkRootWin, ClkFollowSymbol, ClkLast }; /* clicks */
+ 
+ typedef union {
+ 	int i;
+@@ -113,6 +113,7 @@ typedef struct {
+ 
+ struct Monitor {
+ 	char ltsymbol[16];
++	char wfsymbol[2];
+ 	float mfact;
+ 	int nmaster;
+ 	int num;
+@@ -212,6 +213,7 @@ static void tagmon(const Arg *arg);
+ static void tile(Monitor *m);
+ static void togglebar(const Arg *arg);
+ static void togglefloating(const Arg *arg);
++static void togglefollow(const Arg *arg);
+ static void toggletag(const Arg *arg);
+ static void toggleview(const Arg *arg);
+ static void unfocus(Client *c, int setfocus);
+@@ -440,8 +442,10 @@ buttonpress(XEvent *e)
+ 		if (i < LENGTH(tags)) {
+ 			click = ClkTagBar;
+ 			arg.ui = 1 << i;
+-		} else if (ev->x < x + TEXTW(selmon->ltsymbol))
++		} else if (ev->x < (x = (x + TEXTW(selmon->ltsymbol))))
+ 			click = ClkLtSymbol;
++		else if (ev->x < x + TEXTW(selmon->wfsymbol))
++			click = ClkFollowSymbol;
+ 		else if (ev->x > selmon->ww - (int)TEXTW(stext))
+ 			click = ClkStatusText;
+ 		else
+@@ -645,6 +649,8 @@ createmon(void)
+ 	m->lt[0] = &layouts[0];
+ 	m->lt[1] = &layouts[1 % LENGTH(layouts)];
+ 	strncpy(m->ltsymbol, layouts[0].symbol, sizeof m->ltsymbol);
++	m->wfsymbol[0] = WFDEFAULT;
++	m->wfsymbol[1] = '\0';
+ 	return m;
+ }
+ 
+@@ -735,6 +741,9 @@ drawbar(Monitor *m)
+ 	drw_setscheme(drw, scheme[SchemeNorm]);
+ 	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
+ 
++	w = TEXTW(m->wfsymbol);
++	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->wfsymbol, 0);
++
+ 	if ((w = m->ww - tw - x) > bh) {
+ 		if (m->sel) {
+ 			drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);
+@@ -1656,6 +1665,8 @@ tag(const Arg *arg)
+ 		focus(NULL);
+ 		arrange(selmon);
+ 	}
++	if (selmon->wfsymbol[0] == WFACTIVE)
++		view(arg);
+ }
+ 
+ void
+@@ -1664,6 +1675,8 @@ tagmon(const Arg *arg)
+ 	if (!selmon->sel || !mons->next)
+ 		return;
+ 	sendmon(selmon->sel, dirtomon(arg->i));
++	if (selmon->wfsymbol[0] == WFACTIVE)
++		focusmon(arg);
+ }
+ 
+ void
+@@ -1703,6 +1716,13 @@ togglebar(const Arg *arg)
+ 	arrange(selmon);
+ }
+ 
++void
++togglefollow(const Arg *arg)
++{
++	selmon->wfsymbol[0] = (selmon->wfsymbol[0] == WFACTIVE) ? WFINACTIVE : WFACTIVE;
++	drawbars();
++}
++
+ void
+ togglefloating(const Arg *arg)
+ {
+-- 
+2.37.3
+

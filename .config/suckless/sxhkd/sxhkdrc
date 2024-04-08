@@ -13,11 +13,7 @@ super + space
    	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
    	
 super + shift + Return
-	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
-	
-# rofi network manager	
-super + n
-	bash ~/bin/rofi-network-manager
+	terminator
 
 # logout, shutdown, reboot
 super + x
@@ -40,8 +36,8 @@ super + e
 super + g
 	gimp
 	
-super + c
-	google-chrome
+# super + c
+# 	google-chrome
 	
 super + d
 	Discord
@@ -52,6 +48,11 @@ super + o
 super + t
 	~/bin/time_date
 
+super + r
+   tilix -e "ranger"
+
+super + v
+   tilix -e "nvim"
 
 ## audio
 
@@ -68,13 +69,13 @@ super + shift + m
 #########
 # Scrot #
 #########
-super + alt + @s
-	scrot -s -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Selected image to ~/Pictures'
+super + @Print
+	scrot -s -e 'mv $f ~/Screenshots'; \
+	notify-send 'Scrot' 'Selected image to ~/Screenshots'
 
-super + s
-	scrot -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Image saved to ~/Pictures'
+@Print
+	scrot -e 'mv $f ~/Screenshots'; \
+	notify-send 'Scrot' 'Image saved to ~/Screenshots'
 	
 ## redshift
 super + alt + r
