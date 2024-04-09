@@ -66,9 +66,10 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
   { kernel_release, "^c#F9B8B8^  Debian %s  ", NULL },
-  { run_command, "^c#b3e5fc^  [ Updates : %s ] ",  "aptitude search '~U' | wc -l" },
-	{ cpu_perc, "^c#b3e5fc^ [ CPU %s%%  ]", 	NULL },
-	{ ram_perc, "^c#b3e5fc^  [ RAM %s%%  ]",	 NULL },
+  { run_command, "^c#F9B8B8^  Updates: ^c#b3e5fc^%s",  "aptitude search '~U' | wc -l" },
+	{ cpu_perc, "^c#F9B8B8^  CPU: ^c#b3e5fc^%s%%", 	NULL },
+	{ ram_perc, "^c#F9B8B8^  RAM: ^c#b3e5fc^%s%%",	 NULL },
+	/* { run_command, "^c#F9B8B8^VOL: ^c#b3e5fc^%s", "pamixer --get-volume" }, */
 	{ datetime, "^c#F9B8B8^  %s", 		"%a %b %-d" },
 	{ datetime, "^c#ffffff^ %s", 		"%l:%M %p  " },
-};
+	};

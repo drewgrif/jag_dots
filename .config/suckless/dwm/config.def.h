@@ -104,7 +104,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,             			XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
+	{ MODKEY|ControlMask,           XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_Right,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_Left,      focusstack,     {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_Left,      setmfact,       {.f = -0.05} },
@@ -137,12 +137,16 @@ static const Key keys[] = {
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_9,      incrovgaps,     {.i = -1 } },
 	{ MODKEY|Mod1Mask,              XK_0,      togglegaps,     {0} },
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
-	{ MODKEY|ControlMask,           XK_1,      setlayout,     {.v = &layouts[0] } },
-	{ MODKEY|ControlMask,           XK_2,      setlayout,     {.v = &layouts[1] } },
-	{ MODKEY|ControlMask,           XK_3,      setlayout,     {.v = &layouts[2] } },
-	{ MODKEY|ControlMask,           XK_4,      setlayout,     {.v = &layouts[3] } },
-	{ MODKEY|ControlMask,           XK_5,      setlayout,     {.v = &layouts[4] } },
-	{ MODKEY|ControlMask,           XK_6,      setlayout,     {.v = &layouts[5] } },
+	{ ShiftMask|ControlMask,           XK_1,      setlayout,     {.v = &layouts[0] } },
+	{ ShiftMask|ControlMask,           XK_2,      setlayout,     {.v = &layouts[1] } },
+	{ ShiftMask|ControlMask,           XK_3,      setlayout,     {.v = &layouts[2] } },
+	{ ShiftMask|ControlMask,           XK_4,      setlayout,     {.v = &layouts[3] } },
+	{ ShiftMask|ControlMask,           XK_5,      setlayout,     {.v = &layouts[4] } },
+	{ ShiftMask|ControlMask,           XK_6,      setlayout,     {.v = &layouts[5] } },
+	{ ShiftMask|ControlMask,           XK_7,      setlayout,     {.v = &layouts[6] } },
+	{ ShiftMask|ControlMask,           XK_8,      setlayout,     {.v = &layouts[7] } },
+	{ ShiftMask|ControlMask,           XK_9,      setlayout,     {.v = &layouts[8] } },
+	{ ShiftMask|ControlMask,           XK_0,      setlayout,     {.v = &layouts[9] } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -155,6 +159,7 @@ static const Key keys[] = {
 	{ MODKEY|Mod1Mask|ShiftMask,   	XK_Tab,      incnmaster,     {.i = +1 } },
 	{ MODKEY|Mod1Mask,			    XK_Tab,      incnmaster,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
 };
 
 /* button definitions */

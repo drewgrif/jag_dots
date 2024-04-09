@@ -4,9 +4,9 @@
 
 super + b
     firefox-esr
-
-super + Return
-	tilix
+    
+super + shift + b
+	firefox-esr -private-window
 
 # rofi launchers
 super + space
