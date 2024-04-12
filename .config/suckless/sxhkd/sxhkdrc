@@ -21,7 +21,7 @@ super + x
 	
 # help with shortcuts
 super + h
-	~/bin/dwm-key
+	tilix -e ~/bin/keyhelper.sh
 	
 # make sxhkd reload its configuration files:
 super + Escape
