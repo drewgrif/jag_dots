@@ -70,15 +70,16 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },
 	{ "HHH",      grid },
 	{ ">M>",      centeredfloatingmaster },
-	{ "[M]",      monocle },    
+   	{ "---",      horizgrid },
+   	{ "TTT",      bstack },
+	{ "===",      bstackhoriz },
+	{ "###",      nrowgrid },
+	{ ":::",      gaplessgrid },
 	{ "[@]",      spiral },
 	{ "[\\]",     dwindle },
 	{ "H[]",      deck },
-	{ "TTT",      bstack },
-	{ "===",      bstackhoriz },
-	{ "###",      nrowgrid },
-	{ "---",      horizgrid },
-	{ ":::",      gaplessgrid },
+	{ "[M]",      monocle }, 
+
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ NULL,       NULL },
 };
