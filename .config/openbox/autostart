@@ -1,0 +1,7 @@
+
+feh --bg-fill ~/.config/backgrounds/wallhaven-6dzwm7_3440x1440.png &
+# xfce4-panel &
+tint2 &
+volumeicon &
+dunst &
+picom --config ~/.config/picom/picom.conf &
