@@ -1,0 +1,38 @@
+/* XPM */
+static char *selected[] = {
+/* columns rows colors chars-per-pixel */
+"24 24 8 1 ",
+"  c None",
+". c #5293E1",
+"X c #5195E1",
+"o c #5294E1",
+"O c #5294E2",
+"+ c #5394E2",
+"@ c #5394E3",
+"# c #5395E3",
+/* pixels */
+"                        ",
+"                        ",
+"                        ",
+"    OOOOOOOOOOOOOOOO    ",
+"   OOOOOOOOOOOOOOOOOO   ",
+"   OOOOOOOOOOOOOOOOOO   ",
+"   OOOOOOOOOOOOOOOOOO   ",
+"   OOOOOOOOOOOOOO  OO   ",
+"   OOOOOOOOOOOOO  .OO   ",
+"   OOOOOOOOOOOO  .OOO   ",
+"   OOOOOOOOOOO  .OOOO   ",
+"   OO  OOOOOO  .OOOOO   ",
+"   OOO  OOOO  .OOOOOO   ",
+"   OOOO  OO  .OOOOOOO   ",
+"   OOOO.    .OOOOOOOO   ",
+"   OOOOOO  .OOOOOOOOO   ",
+"   OOOOOO..OOOOOOOOOO   ",
+"   OOOOOOOOOOOOOOOOOO   ",
+"   OOOOOOOOOOOOOOOOOO   ",
+"   OOOOOOOOOOOOOOOOOO   ",
+"    OOOOOOOOOOOOOOOO    ",
+"                        ",
+"                        ",
+"                        "
+};

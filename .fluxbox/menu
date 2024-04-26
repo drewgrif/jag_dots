@@ -1,0 +1,117 @@
+#
+## Menu generated with fbmenugen v0.88
+#
+
+[begin] (Fluxbox)
+[encoding] {UTF-8}
+  [exec] (Applications) {xfce4-appfinder}
+  [exec] (File Manager) {thunar}
+  [exec] (Terminal) {tilix}
+  [exec] (Web Browser) {firefox-esr}
+  [exec] (Text Editor) {geany}
+[separator]
+[submenu] (Accessories)
+  [exec] (Application Finder) {xfce4-appfinder}
+  [exec] (Archive Manager) {file-roller}
+  [exec] (Bulk Rename) {thunar --bulk-rename}
+  [exec] (Galculator) {galculator}
+  [exec] (Help) {yelp}
+  [exec] (Micro) {xterm -e 'micro'}
+  [exec] (nitrogen) {nitrogen}
+  [exec] (Orage Globaltime) {globaltime}
+  [exec] (picom) {picom}
+  [exec] (Run Program...) {xfce4-appfinder --collapsed}
+  [exec] (Terminator) {terminator}
+  [exec] (Vim) {xterm -e 'vim'}
+  [exec] (xvkbd) {xvkbd}
+[end]
+[submenu] (Development)
+  [exec] (Geany) {geany}
+  [exec] (Micro) {xterm -e 'micro'}
+[end]
+[submenu] (Graphics)
+  [exec] (Flameshot) {flameshot}
+  [exec] (GNU Image Manipulation Program) {gimp-2.10}
+  [exec] (Image Viewer) {eog}
+  [exec] (ImageMagick (color depth=q16\)) {/usr/bin/display-im6.q16 -nostdin}
+  [exec] (qimgv) {qimgv}
+[end]
+[submenu] (Multimedia)
+  [exec] (MKVToolNix GUI) {mkvtoolnix-gui}
+  [exec] (mpv Media Player) {mpv --player-operation-mode=pseudo-gui --}
+  [exec] (PulseAudio Volume Control) {pavucontrol}
+[end]
+[submenu] (Network)
+  [exec] (Firefox ESR) {/usr/lib/firefox-esr/firefox-esr}
+[end]
+[submenu] (Office)
+  [exec] (Orage Calendar) {orage}
+  [exec] (Orage Globaltime) {globaltime}
+[end]
+[submenu] (Settings)
+  [exec] (Advanced Network Configuration) {nm-connection-editor}
+  [exec] (Customize Look and Feel) {lxappearance}
+  [exec] (File Manager Settings) {thunar-settings}
+  [exec] (Openbox Configuration Manager) {obconf}
+  [exec] (Orage preferences) {orage -p}
+  [exec] (Panel) {xfce4-panel --preferences}
+  [exec] (Power Manager) {xfce4-power-manager-settings}
+  [exec] (PulseAudio Volume Control) {pavucontrol}
+  [exec] (Removable Drives and Media) {thunar-volman-settings}
+  [exec] (Tint2 Settings) {tint2conf}
+  [exec] (Window Manager Tweaks) {xfwm4-tweaks-settings}
+  [exec] (Window Manager) {xfwm4-settings}
+  [exec] (Workspaces) {xfwm4-workspace-settings}
+[end]
+[submenu] (System)
+  [exec] (CPU-X) {cpu-x}
+  [exec] (Terminator) {terminator}
+  [exec] (Thunar File Manager) {thunar}
+  [exec] (Tilix) {tilix}
+  [exec] (Tint2) {tint2}
+  [exec] (UXTerm) {uxterm}
+  [exec] (XTerm) {xterm}
+  [exec] (xvkbd) {xvkbd}
+[end]
+[separator]
+[submenu] (Advanced Settings)
+  [exec] (Conky RC) {geany ~/.conkyrc}
+  [exec] (Tint2 Panel) {geany ~/.config/tint2/tint2rc}
+[submenu] (Fbmenugen)
+  [exec] (Menu Schema) {geany ~/.config/fbmenugen/schema.pl}
+  [exec] (Menu Config) {geany ~/.config/fbmenugen/config.pl}
+[separator]
+  [exec] (Generate a menu with icons) {fbmenugen -i}
+  [exec] (Generate a menu without icons) {fbmenugen -g}
+[separator]
+  [exec] (Refresh cache) {fbmenugen -d}
+[end]
+[submenu] (Fluxbox)
+[config] (Configure)
+[submenu] (System Styles) {Choose a style...}
+  [stylesdir] (/usr/share/fluxbox/styles)
+[end]
+[submenu] (User Styles) {Choose a style...}
+  [stylesdir] (~/.fluxbox/styles)
+[end]
+[workspaces] (Workspace List)
+[submenu] (Tools)
+  [exec] (Screenshot - JPG) {import screenshot.jpg && display -resize 50% screenshot.jpg}
+  [exec] (Screenshot - PNG) {import screenshot.png && display -resize 50% screenshot.png}
+  [exec] (Run) {fbrun}
+  [exec] (Regen Menu) {fluxbox-generate_menu}
+[end]
+[commanddialog] (Fluxbox Command)
+  [reconfig] (Reload config)
+  [restart] (Restart)
+  [exec] (About) {(fluxbox -v; fluxbox -info | sed 1d) | xmessage -file - -center}
+  [separator]
+  [exit] (Exit)
+[end]
+[end]
+[separator]
+  [exec] (Refresh) {/usr/bin/perl \/home\/drew\/\.local\/bin\/fbmenugen -S \/home\/drew\/\.config\/fbmenugen\/schema\.pl -C \/home\/drew\/\.config\/fbmenugen\/config\.pl -o \/home\/drew\/\.fluxbox\/menu}
+[exit] (Exit)
+
+[endencoding]
+[end]

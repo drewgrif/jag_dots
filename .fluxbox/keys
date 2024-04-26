@@ -1,0 +1,166 @@
+## Mouse ----------------------------
+
+# click on the desktop to get menus
+OnDesktop Mouse1 :HideMenus
+OnDesktop Mouse2 :WorkspaceMenu
+OnDesktop Mouse3 :RootMenu
+
+# scroll on the desktop to change workspaces
+OnDesktop Mouse4 :PrevWorkspace
+OnDesktop Mouse5 :NextWorkspace
+
+# scroll on the toolbar to change current window
+OnToolbar Mouse4 :PrevWindow {static groups} (iconhidden=no)
+OnToolbar Mouse5 :NextWindow {static groups} (iconhidden=no)
+
+# alt + left/right click to move/resize a window
+OnWindow Mod4 Mouse1 :MacroCmd {Raise} {Focus} {StartMoving}
+OnWindowBorder Move1 :StartMoving
+
+OnWindow Mod1 Mouse3 :MacroCmd {Raise} {Focus} {StartResizing NearestCorner}
+OnLeftGrip Move1 :StartResizing bottomleft
+OnRightGrip Move1 :StartResizing bottomright
+
+# alt + middle click to lower the window
+OnWindow Mod1 Mouse2 :Lower
+
+# control-click a window's titlebar and drag to attach windows
+OnTitlebar Control Mouse1 :StartTabbing
+
+# double click on the titlebar to shade
+OnTitlebar Double Mouse1 :maximize
+
+# scroll on the titlebar to shade
+OnTitlebar Mouse4 :shadeon
+OnTitlebar Mouse5 :shadeoff
+
+# left click on the titlebar to move the window
+OnTitlebar Mouse1 :MacroCmd {Raise} {Focus} {ActivateTab}
+OnTitlebar Move1  :StartMoving
+
+# middle click on the titlebar to lower
+OnTitlebar Mouse2 :Lower
+
+# right click on the titlebar for a menu of options
+OnTitlebar Mouse3 :WindowMenu
+
+## Tabbing
+
+# ctrl-tab
+Control Tab :NextWindow {groups} (workspace=[current])
+Control Shift Tab :PrevWindow {groups} (workspace=[current])
+
+# cycle through tabs in the current window
+Mod4 Tab :NextTab
+Mod4 Shift Tab :PrevTab
+
+# go to a specific tab in the current window
+Control 1 :Tab 1
+Control 2 :Tab 2
+Control 3 :Tab 3
+Control 4 :Tab 4
+Control 5 :Tab 5
+Control 6 :Tab 6
+Control 7 :Tab 7
+Control 8 :Tab 8
+Control 9 :Tab 9
+
+## Moving and Resizing ##
+Control Mod1 Left :MoveLeft 20
+Control Mod1 Right :MoveRight 20
+Control Mod1 Up :MoveUp 20
+Control Mod1 Down :MoveDown 20
+
+Control Mod4 Left :Resize -20 0
+Control Mod4 Right :Resize 20 0
+Control Mod4 Up :Resize 0 -20
+Control Mod4 Down :Resize 0 20
+
+## Windows Arrangement ##
+Shift Mod4 plus :arrangewindowshorizontal
+Mod4 equal :arrangewindowsvertical
+
+# exit fluxbox
+Shift Mod4 q :Exit
+Control Shift Mod4 q :reconfig
+Shift Mod4 r :restart
+
+# open a terminal
+Mod4 Return :Exec tilix
+
+# open a dialog to run programs
+Mod4 p :Exec xfce4-appfinder
+Mod4 space :Exec rofi drun -show drun -line padding 4 -hide-scrollbar -show-icons 
+
+# custom
+Mod4 b :Exec firefox-esr
+Mod4 e :Exec geany
+Mod4 f :Exec thunar
+Mod4 g :Exec gimp
+
+# screenshots
+Print :Exec scrot -e 'mv $f ~/Screenshots'; notify-send 'Scrot' 'Image saved to ~/Screenshots'
+mod4 Print :Exec flameshot gui
+
+# volume settings, using common keycodes
+# if these don't work, use xev to find out your real keycodes
+Mod1 Right :Exec ~/bin/changevolume up
+Mod1 Left :Exec ~/bin/changevolume down
+Mod1 m :Exec ~/bin/changevolume mute
+
+# current window commands
+Mod4 Q :Close
+Mod1 F5 :Kill
+Mod1 F9 :Minimize
+Mod1 F10 :Maximize
+Mod1 F11 :Fullscreen
+
+# open the window menu
+Mod1 space :WindowMenu
+
+# Tiling
+Mod4 Left :MacroCmd {ResizeTo 50% 100%} {MoveTo 0 0 Left}
+Mod4 Right :MacroCmd {ResizeTo 50% 100%} {MoveTo 0 0 Right}
+Mod4 Up :MaximizeWindow
+Mod4 Down :MacroCmd {ResizeTo 60% 80%} {MoveTo 0 0 Center}
+
+# change to a specific workspace
+Mod4 1 :Workspace 1
+Mod4 2 :Workspace 2
+Mod4 3 :Workspace 3
+Mod4 4 :Workspace 4
+Mod4 5 :Workspace 5
+Mod4 6 :Workspace 6
+Mod4 7 :Workspace 7
+Mod4 8 :Workspace 8
+Mod4 9 :Workspace 9
+Mod4 0 :Workspace 10
+
+# Previous and Next Workspace
+Shift Mod4 Left :TakeToPrevWorkspace
+Shift Mod4 Right :TakeToNextWorkspace
+
+# send the current window to a specific workspace
+Shift Mod4 1 :SendToWorkspace 1
+Shift Mod4 2 :SendToWorkspace 2
+Shift Mod4 3 :SendToWorkspace 3
+Shift Mod4 4 :SendToWorkspace 4
+Shift Mod4 5 :SendToWorkspace 5
+Shift Mod4 6 :SendToWorkspace 6
+Shift Mod4 7 :SendToWorkspace 7
+Shift Mod4 8 :SendToWorkspace 8
+Shift Mod4 9 :SendToWorkspace 9
+Shift Mod4 0 :SendToWorkspace 10
+
+# send the current window and change to a specific workspace
+Control Mod4 1 :TakeToWorkspace 1
+Control Mod4 2 :TakeToWorkspace 2
+Control Mod4 3 :TakeToWorkspace 3
+Control Mod4 4 :TakeToWorkspace 4
+Control Mod4 5 :TakeToWorkspace 5
+Control Mod4 6 :TakeToWorkspace 6
+Control Mod4 7 :TakeToWorkspace 7
+Control Mod4 8 :TakeToWorkspace 8
+Control Mod4 9 :TakeToWorkspace 9
+Control Mod4 0 :TakeToWorkspace 10
+
