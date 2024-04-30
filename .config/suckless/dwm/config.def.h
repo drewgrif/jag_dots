@@ -56,7 +56,7 @@ static const Rule rules[] = {
 #define WFDEFAULT WFACTIVE
 
 /* layout(s) */
-static const float mfact     = 0.40; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -66,7 +66,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "|M|",      centeredmaster },	/* first entry is default */
+	{ ":::",      gaplessgrid }, /* first entry is default */
+	{ "|M|",      centeredmaster },	
 	{ "[]=",      tile },
 	{ "HHH",      grid },
 	{ ">M>",      centeredfloatingmaster },
@@ -74,12 +75,10 @@ static const Layout layouts[] = {
    	{ "TTT",      bstack },
 	{ "===",      bstackhoriz },
 	{ "###",      nrowgrid },
-	{ ":::",      gaplessgrid },
 	{ "[@]",      spiral },
 	{ "[\\]",     dwindle },
 	{ "H[]",      deck },
 	{ "[M]",      monocle }, 
-
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ NULL,       NULL },
 };

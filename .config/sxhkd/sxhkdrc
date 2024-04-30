@@ -1,5 +1,8 @@
 super + b
-	wmctrl -a firefox-esr || firefox-esr
+	wmctrl -a Mozilla Firefox || firefox-esr
+
+super + shift + b
+	wmctrl -a Mozilla Firefox Private Browsing || firefox-esr -private-window
 
 super + Return
 	tilix
@@ -9,7 +12,7 @@ super + space
    	rofi  drun -show drun -line padding 4 -hide-scrollbar -show-icons 
    	
 super + shift + Return
-    kitty
+    terminator
 	
 # rofi network manager (will not work unless on wifi)	
 super + n
@@ -21,30 +24,24 @@ super + x
 	
 # help with shortcuts
 super + h
-	~/bin/rofi-key
+	tilix -e ~/bin/bsphelp.sh
 
 # application launchers
 
 super + f
 	wmctrl -a Thunar || thunar
 
-super + m
-	wmctrl -a Zettlr || zettlr
-
 super + e 	
 	wmctrl -a Geany || geany
-
-# super + l
-#	wmctrl -a lite-xl || /opt/LiteXL/LiteXL-v2.1.1-addons-x86_64.AppImage
-
-super + l
-	wmctrl -s 1 && /opt/LiteXL/LiteXL-v2.1.1-addons-x86_64.AppImage
 
 super + g
 	gimp
 
 super + r
-	tilix -e ranger
+   tilix -e "ranger"
+
+super + v
+   tilix -e "nvim"
 
 super + c
 	google-chrome
@@ -54,12 +51,13 @@ super + d
 
 super + o
 	obs
-
-super + t
-	~/bin/time_date
 	
 super + shift + c
 	galculator
+
+# set the window state
+super + shift + {t,s,f}
+	bspc node -t {tiled,floating,fullscreen}
 
 
 # make sxhkd reload its configuration files:
@@ -80,9 +78,6 @@ super + i
     bspc node -R 90
 super + shift + i
     bspc node -R -90
-
-super + {shift + t,shift + f}
-	bspc node -t {tiled,fullscreen}
 
 super + { Left, Down, Up, Right}
 	bspc node -f {west,south,north,east}
@@ -105,10 +100,10 @@ super + ctrl + {Left,Down,Up,Right}
 ## audio
 
 # Change volume, chunky
-super + shift + k
+super + shift + Up
     ~/bin/changevolume up
     
-super + shift + j
+super + shift + Down
 	~/bin/changevolume down
 	
 super + shift + m
@@ -118,8 +113,7 @@ super + shift + m
 # Scrot #
 #########
 super + @Print
-	scrot -s -e 'mv $f ~/Screenshots'; \
-	notify-send 'Scrot' 'Selected image to ~/Screenshots'
+	flameshot gui
 
 @Print
 	scrot -e 'mv $f ~/Screenshots'; \
@@ -131,16 +125,6 @@ super + alt + r
 	
 super + alt + b
 	~/bin/redshift-off
-
-
-## Show clipmenu
-alt + v
-    CM_LAUNCHER=rofi clipmenu 
-
-## Show clipmenu
-super+ alt + v
-    xfce4-terminal -e ~/bin/ovpn
     
 super + @equal
 	bspc query -N -d | xargs -I % bspc node % -B
- 

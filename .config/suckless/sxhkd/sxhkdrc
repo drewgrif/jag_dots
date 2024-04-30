@@ -71,8 +71,7 @@ super + shift + m
 # Scrot #
 #########
 super + @Print
-	scrot -s -e 'mv $f ~/Screenshots'; \
-	notify-send 'Scrot' 'Selected image to ~/Screenshots'
+	flameshot gui
 
 @Print
 	scrot -e 'mv $f ~/Screenshots'; \
