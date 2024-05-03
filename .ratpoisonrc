@@ -1,0 +1,36 @@
+exec nitrogen --restore
+exec /usr/bin/rpws init 9 -k
+exec xsetroot -cursor_name left_ptr
+
+set winname title
+set bargravity center
+set barpadding 3 3
+set border 4
+set font "SauceCodePro Nerd Font Mono Regular:size 10"
+set bgcolor #222222
+set fgcolor #CCCCCC
+
+escape Super_L
+bind Return exec tilix
+bind b exec firefox-esr
+bind space exec rofi drun -show drun -line padding 4 -hide-scrollbar -show-icons 
+bind e exec geany
+bind f exec thunar
+bind m exec kitty -e pulsemixer
+bind q delete
+bind Q only
+bind <DOWN> focusdown
+bind <UP> focusup
+bind <LEFT> focusleft
+bind <RIGHT> focusright
+
+bind 1 exec rpws 1
+bind 2 exec rpws 2
+bind 3 exec rpws 3
+bind 4 exec rpws 4
+bind 5 exec rpws 5
+bind 6 exec rpws 6
+bind 7 exec rpws 7
+bind 8 exec rpws 8
+bind 9 exec rpws 9
+

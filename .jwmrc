@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<JWM>
+
+    <!-- The root menu. -->
+    <RootMenu onroot="12">
+    	<Include>exec: xdgmenumaker -n -i -f jwm</Include>
+        <Include>/etc/jwm/debian-menu</Include>
+        <Program icon="utilities-terminal" label="Terminal">tilix</Program>
+        <Program icon="firefox-esr" label="Web">firefox-esr</Program>
+        <Separator/>
+        <Program icon="lock" label="Lock">
+           xscreensaver-command -lock
+        </Program>
+        <Separator/>
+        <Restart label="Restart" icon="reload"/>
+        <Program label="Power Off">/usr/libexec/jwm/jwm-poweroff.sh</Program>
+        <Exit label="Log Out" confirm="true" icon="exit"/>
+    </RootMenu>
+
+    <!-- Options for program groups. -->
+    <Group>
+        <Option>tiled</Option>
+    </Group>
+    <Group>
+        <Name>xterm</Name>
+        <Option>vmax</Option>
+    </Group>
+    <Group>
+        <Name>xclock</Name>
+        <Option>drag</Option>
+        <Option>notitle</Option>
+    </Group>
+
+    <!-- Tray at the bottom. -->
+	<Tray x="0" y="-1" height="36" autohide="off">
+		<Spacer width="2"/>
+        <TrayButton icon="/usr/share/icons/Papirus-Dark/symbolic/places/start-here-symbolic.svg">root:1</TrayButton>
+			<Spacer width="8"/>
+		<TrayButton icon="/home/drew/.local/share/icons/Colloid-teal-dark/apps/scalable/thunar.svg">exec:thunar</TrayButton>
+			<Spacer width="8"/>
+        <TrayButton icon="/home/drew/.local/share/icons/Colloid-teal-dark/apps/scalable/tilix.svg">exec:tilix</TrayButton>
+			<Spacer width="8"/>
+		<TrayButton icon="/home/drew/.local/share/icons/Colloid-teal-dark/apps/scalable/firefox.svg">exec:firefox-esr</TrayButton>
+			<Spacer width="8"/>
+		<TrayButton icon="/home/drew/.local/share/icons/Colloid-teal-dark/apps/scalable/geany.svg">exec:geany</TrayButton>
+			<Spacer width="8"/>
+
+        <TaskList maxwidth="150"/>
+			<Spacer width="8"/>
+     <Pager labeled="false"/>
+			<Spacer width="21"/>
+    <Dock spacing="14"/>
+		<Spacer width="14"/>
+        <Clock format="%l:%M %p"><Button mask="123">exec:orage</Button></Clock>
+		<Spacer width="14"/>
+        <TrayButton icon="/usr/share/icons/Papirus-Dark/symbolic/places/user-desktop-symbolic.svg">showdesktop</TrayButton>
+
+    	</Tray>
+
+    <!-- Visual Styles -->
+    <WindowStyle decorations="motif">
+        <Font>DejaVu Sans-10</Font>
+        <Width>4</Width>
+        <Corner>0</Corner>
+        <Height>24</Height>
+        <Foreground>#FFFFFF</Foreground>
+        <Background>#555555</Background>
+        <Opacity>1.0</Opacity>
+        <Active>
+            <Foreground>#C5C8C6</Foreground>
+            <Background>#242632</Background>
+            <Opacity>1.0</Opacity>
+        </Active>
+    </WindowStyle>
+    <TrayStyle decorations="motif">
+        <Font>DejaVu Sans-12</Font>
+        <Background>#242632</Background>
+        <Foreground>#C5C8C6</Foreground>
+        <Opacity>0.75</Opacity>
+    </TrayStyle>
+    <TaskListStyle list="all" group="true">
+      <Font>DejaVu Sans-12</Font>
+      <Active>
+        <Foreground>#FFFFFF</Foreground>
+        <Background>#555555</Background>
+      </Active>
+      <Foreground>#FFFFFF</Foreground>
+      <Background>#333333</Background>
+    </TaskListStyle>
+    <PagerStyle>
+        <Foreground>#555555</Foreground>
+        <Background>#333333</Background>
+        <Text>#FFFFFF</Text>
+        <Active>
+            <Foreground>#8ABEB7</Foreground>
+            <Background>#3A3C47</Background>
+        </Active>
+    </PagerStyle>
+    <MenuStyle decorations="motif">
+        <Font>DejaVu Sans-12</Font>
+        <Foreground>#FFFFFF</Foreground>
+        <Background>#333333</Background>
+        <Active>
+            <Foreground>#FFFFFF</Foreground>
+            <Background>#0077CC</Background>
+        </Active>
+        <Opacity>0.85</Opacity>
+    </MenuStyle>
+    <PopupStyle>
+        <Font>DejaVu Sans-12</Font>
+        <Foreground>#000000</Foreground>
+        <Background>#999999</Background>
+    </PopupStyle>
+
+    <!-- Path where icons can be found.
+         IconPath can be listed multiple times to allow searching
+         for icons in multiple paths.
+      -->
+    <IconPath>/usr/share/icons/gnome/256x256/actions</IconPath>
+    <IconPath>/usr/share/icons/gnome/256x256/apps</IconPath>
+    <IconPath>/usr/share/icons/gnome/256x256/categories</IconPath>
+    <IconPath>/usr/share/icons/gnome/256x256/devices</IconPath>
+    <IconPath>/usr/share/icons/gnome/256x256/emblems</IconPath>
+    <IconPath>/usr/share/icons/gnome/256x256/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/gnome/256x256/places</IconPath>
+    <IconPath>/usr/share/icons/gnome/256x256/status</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/actions</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/animations</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/apps</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/categories</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/devices</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/emblems</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/places</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/status</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/actions</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/apps</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/categories</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/devices</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/emblems</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/places</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/status</IconPath>
+    <IconPath>/usr/share/icons/hicolor/256x256/apps</IconPath>
+    <IconPath>/usr/share/icons/hicolor/256x256/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/hicolor/32x32/actions</IconPath>
+    <IconPath>/usr/share/icons/hicolor/32x32/apps</IconPath>
+    <IconPath>/usr/share/icons/hicolor/32x32/categories</IconPath>
+    <IconPath>/usr/share/icons/hicolor/32x32/devices</IconPath>
+    <IconPath>/usr/share/icons/hicolor/32x32/emblems</IconPath>
+    <IconPath>/usr/share/icons/hicolor/32x32/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/hicolor/32x32/status</IconPath>
+    <IconPath>/usr/share/icons/hicolor/512x512/apps</IconPath>
+    <IconPath>/usr/share/icons/hicolor/512x512/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/actions</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/apps</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/categories</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/devices</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/emblems</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/places</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/status</IconPath>
+    <IconPath>/usr/share/icons</IconPath>
+    <IconPath>/usr/share/pixmaps</IconPath>
+
+    <!-- Virtual Desktops -->
+    <!-- Desktop tags can be contained within Desktops for desktop names. -->
+    <Desktops width="8" height="1">
+        <!-- Default background. Note that a Background tag can be
+              contained within a Desktop tag to give a specific background
+              for that desktop.
+         -->
+        <Background type="command">feh --bg-fill ~/.config/backgrounds/groot.png</Background>
+    </Desktops>
+
+    <!-- Double click speed (in milliseconds) -->
+    <DoubleClickSpeed>400</DoubleClickSpeed>
+
+    <!-- Double click delta (in pixels) -->
+    <DoubleClickDelta>2</DoubleClickDelta>
+
+    <!-- The focus model (sloppy or click) -->
+    <FocusModel>sloppy</FocusModel>
+
+    <!-- The snap mode (none, screen, or border) -->
+    <SnapMode distance="10">border</SnapMode>
+
+    <!-- The move mode (outline or opaque) -->
+    <MoveMode>opaque</MoveMode>
+
+    <!-- The resize mode (outline or opaque) -->
+    <ResizeMode>opaque</ResizeMode>
+
+    <!-- Key bindings -->
+    <Key key="Up">up</Key>
+    <Key key="Down">down</Key>
+    <Key key="Right">right</Key>
+    <Key key="Left">left</Key>
+    <Key key="h">left</Key>
+    <Key key="j">down</Key>
+    <Key key="k">up</Key>
+    <Key key="l">right</Key>
+    <Key key="Return">select</Key>
+    <Key key="Escape">escape</Key>
+
+    <Key mask="4" key="Tab">nextstacked</Key>
+    <Key mask="4" key="q">close</Key>
+    <Key mask="4" key="#">desktop#</Key>
+    <Key mask="A" key="F1">root:1</Key>
+    <Key mask="A" key="F2">window</Key>
+    <Key mask="A" key="F10">maximize</Key>
+    <Key mask="A" key="Right">rdesktop</Key>
+    <Key mask="A" key="Left">ldesktop</Key>
+    <Key mask="A" key="Up">udesktop</Key>
+    <Key mask="A" key="Down">ddesktop</Key>
+
+    <!-- Mouse bindings -->
+    <Mouse context="root" button="4">ldesktop</Mouse>
+    <Mouse context="root" button="5">rdesktop</Mouse>
+
+    <Mouse context="title" button="1">move</Mouse>
+    <Mouse context="title" button="2">move</Mouse>
+    <Mouse context="title" button="3">window</Mouse>
+    <Mouse context="title" button="4">shade</Mouse>
+    <Mouse context="title" button="5">shade</Mouse>
+    <Mouse context="title" button="11">maximize</Mouse>
+
+    <Mouse context="icon" button="1">window</Mouse>
+    <Mouse context="icon" button="2">move</Mouse>
+    <Mouse context="icon" button="3">window</Mouse>
+    <Mouse context="icon" button="4">shade</Mouse>
+    <Mouse context="icon" button="5">shade</Mouse>
+
+    <Mouse context="border" button="1">resize</Mouse>
+    <Mouse context="border" button="2">move</Mouse>
+    <Mouse context="border" button="3">window</Mouse>
+
+    <Mouse context="close" button="-1">close</Mouse>
+    <Mouse context="close" button="2">move</Mouse>
+    <Mouse context="close" button="-3">close</Mouse>
+
+    <Mouse context="maximize" button="-1">maximize</Mouse>
+    <Mouse context="maximize" button="-2">maxv</Mouse>
+    <Mouse context="maximize" button="-3">maxh</Mouse>
+
+    <Mouse context="minimize" button="-1">minimize</Mouse>
+    <Mouse context="minimize" button="2">move</Mouse>
+    <Mouse context="minimize" button="-3">shade</Mouse>
+
+</JWM>
