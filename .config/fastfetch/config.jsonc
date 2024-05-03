@@ -14,6 +14,40 @@
     },
     "modules": [
         {
+            "type": "title",
+            "key": "╭─",
+            "format": "{1}@{2}",
+            "keyColor": "blue"
+        },
+        {
+            "type": "os",
+            "key": "├─", // Just get your distro's logo off nerdfonts.com
+            "keyColor": "blue"
+        },
+        {
+            "type": "kernel",
+            "key": "├─",
+            "format": "{1} {2}",
+            "keyColor": "blue"
+        },
+        {
+            "type": "packages",
+            "key": "├─󰏖",
+            "keyColor": "blue"
+        },
+        {
+            "type": "uptime",
+            "key": "├─󰅐",
+            "keyColor": "blue"
+        },
+        {
+            "type": "wifi",
+            "key": "├─",
+            "format": "{4}", // ssid
+            "keyColor": "blue"
+        },
+        "break",
+        {
             "type": "host",
             "key": "╭─󰌢",
             "keyColor": "green"
@@ -83,82 +117,47 @@
         {
             "type": "shell",
             "key": "╭─",
-            "keyColor": "yellow"
+            "keyColor": "cyan"
         },
         {
             "type": "terminal",
             "key": "├─",
-            "keyColor": "yellow"
+            "keyColor": "cyan"
         },
         {
             "type": "terminalfont",
             "key": "├─",
-            "keyColor": "yellow"
+            "keyColor": "cyan"
         },
         {
             "type": "lm",
             "key": "├─󰧨",
-            "keyColor": "yellow"
+            "keyColor": "cyan"
         },
         {
             "type": "de",
             "key": "├─",
-            "keyColor": "yellow"
+            "keyColor": "cyan"
         },
         {
             "type": "wm",
             "key": "├─",
-            "keyColor": "yellow"
+            "keyColor": "cyan"
         },
         {
             "type": "theme",
             "key": "├─󰉼",
-            "keyColor": "yellow"
+            "keyColor": "cyan"
         },
         {
             "type": "icons",
             "key": "├─󰀻",
-            "keyColor": "yellow"
+            "keyColor": "cyan"
         },
         {
             "type": "wallpaper",
             "key": "╰─󰸉",
-            "keyColor": "yellow"
-        },
-
-        "break",
-        {
-            "type": "title",
-            "key": "╭─",
-            "format": "{1}@{2}",
-            "keyColor": "blue"
-        },
-        {
-            "type": "os",
-            "key": "├─", // Just get your distro's logo off nerdfonts.com
-            "keyColor": "blue"
-        },
-        {
-            "type": "kernel",
-            "key": "├─",
-            "format": "{1} {2}",
-            "keyColor": "blue"
-        },
-        {
-            "type": "packages",
-            "key": "├─󰏖",
-            "keyColor": "blue"
-        },
-        {
-            "type": "uptime",
-            "key": "├─󰅐",
-            "keyColor": "blue"
-        },
-        {
-            "type": "wifi",
-            "key": "├─",
-            "format": "{4}", // ssid
-            "keyColor": "blue"
+            "keyColor": "cyan"
         }
     ]
 }
