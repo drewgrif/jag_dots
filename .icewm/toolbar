@@ -1,0 +1,10 @@
+# This is a default toolbar definition file for IceWM
+#
+# Place your personal variant in $HOME/.icewm directory.
+
+prog Terminal tilix tilix
+prog "File Manager" thunar thunar
+prog Editor geany geany
+prog "Image Viewer" qimgv qimgv
+prog    "WWW" firefox-esr firefox-esr
+

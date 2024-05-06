@@ -1,0 +1,92 @@
+# This is an example for IceWM's menu definition file.
+#
+# Place your variants in /etc/X11/icewm or in $HOME/.icewm
+# since modifications to this file will be discarded when you
+# (re)install icewm.
+#
+prog Terminal tilix tilix
+prog "Web Browser" firefox-esr firefox-esr
+prog Thunar thunar thunar
+prog Geany	geany geany
+prog Gimp gimp gimp
+#separator
+#menu Applications folder {
+#    menu Editors folder {
+#        prog fte fte fte
+#        prog vim vim gvim
+#        prog xemacs xemacs xemacs
+#        prog NEdit nedit nedit
+#        prog xedit xedit xedit
+#        prog Lyx emacs lyx
+#    }
+#    menu "Mail Agents" folder {
+#        prog Mutt mutt x-terminal-emulator -e mutt
+#    }
+#    menu "WWW Browsers" folder {
+#        prog "Web Browser" ! x-www-browser
+#        prog Konqueror konqueror konqueror
+#        prog Chromium chromium chromium
+#        prog w3m lynx x-terminal-emulator -e w3m
+#        prog Links2 lynx x-terminal-emulator -e links2
+#    }
+#    menu Graphics folder {
+#        prog Gimp gimp gimp
+#        prog Geeqie geeqie geeqie
+#        prog Dia dia dia
+#        prog XFig xfig xfig
+#    }
+#    menu Development folder {
+#        prog ddd ddd ddd
+#        prog Eclipse eclipse eclipse
+#    }
+#    prog "Evince" evince evince
+#    prog "DVI Previewer" xdvi xdvi
+#    prog "Ghostview" ghostview gv
+#    prog "xfm" xfm xfm
+#}
+#menu Games folder {
+#    prog "Koules for X" koules xkoules -f
+#    prog Xboing xboing xboing
+#    prog Xboard xboard xboard
+#    prog XGalaga xgalaga xgal
+#    prog XDemineur xdemineur xdemineur
+#    prog Kobo Deluxe kobo-icon /usr/games/kobodl
+#}
+#menu System folder {
+#    prog "Control Panel" redhat control-panel
+#    prog xload xload xload
+#    prog xosview xosview xosview
+#    menu "Window Managers" folder {
+#        restart icewm - icewm
+#        restart icewm-gnome - icewm-gnome
+#        restart icewm-experimental - icewm-experimental
+#        restart icewm-lite - icewm-lite
+#        restart wmaker - wmaker
+#        restart enlightenment - enlightenment
+#        restart blackbox - blackbox
+#        restart sawfish - sawfish
+#        restart sawfish2 - sawfish2
+#        restart metacity - metacity
+#        restart fvwm2 - fvwm2
+#        restart fvwm - fvwm
+#    }
+#}
+#menu Utilities folder {
+#    menu Multimedia folder {
+#        prog XPlayCD xplaycd xplaycd
+#        prog XMixer xmixer xmixer
+#    }
+#    prog "Font Selector" xfontsel xfontsel
+#    prog Clock xclock xclock
+#    prog Magnify xmag xmag
+#    prog Calculator xcalc xcalc
+#    prog Colormap xcolormap xcmap
+#    prog Clipboard xclip xclipboard
+#    prog xkill bomb xkill
+#    separator
+#    prog "Screen Saver" xlock xlock -nolock
+#    prog "Screen Lock" xlock xlock
+#}
+includeprog icewm-menu-fdo --no-sep-others --seps
+menuprog Monitors ../devices/computer icewm-menu-xrandr
+menufile Toolbar folder toolbar

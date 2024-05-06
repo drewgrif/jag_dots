@@ -1,0 +1,6 @@
+#!/bin/bash
+
+nm-applet &
+dunst &
+picom --config ~/.config/picom/picom.conf &
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &

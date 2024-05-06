@@ -1,0 +1,18 @@
+About icewm configuration files
+-------------------------------
+
+The directory /etc/X11/icewm used to contain copies of default configuration
+files shipped with the icewm package. The original files were and are located
+in /usr/share/icewm/ directory. This was considered service to the users but
+it has also led to confusion and made package handling more complicated.
+
+Therefore, the default configuration files are now only located in
+/usr/share/icewm/ directory. To customize something for all system users, the
+system administrator shall copy the particular file to /etc/X11/icewm when
+needed, and icewm will automatically make use of that copy. Regular users can
+do the same, installing their version into ~/.icewm/.
+
+Note: for some settings, it's also possible to combine the default and
+customized configuration, i.e. with "include" statements or the special
+"prefoverride" file. See Icewm FAQ and Icewm Manual for more information.
+

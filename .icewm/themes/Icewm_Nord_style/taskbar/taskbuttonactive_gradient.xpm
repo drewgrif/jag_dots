@@ -1,0 +1,7 @@
+/* XPM */
+static char * taskbuttonactive_gradient_xpm[] = {
+"1 2 2 1",
+" 	c #6D8FB6",
+".	c #262A31",
+" ",
+"."};
