@@ -56,7 +56,7 @@ static const Rule rules[] = {
 #define WFDEFAULT WFACTIVE
 
 /* layout(s) */
-static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.65; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -66,19 +66,19 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ ":::",      gaplessgrid }, /* first entry is default */
-	{ "|M|",      centeredmaster },	
-	{ "[]=",      tile },
-	{ "HHH",      grid },
 	{ ">M>",      centeredfloatingmaster },
-   	{ "---",      horizgrid },
-   	{ "TTT",      bstack },
-	{ "===",      bstackhoriz },
-	{ "###",      nrowgrid },
-	{ "[@]",      spiral },
 	{ "[\\]",     dwindle },
+	{ "|M|",      centeredmaster },	/* first entry is default */
+	{ "[]=",      tile },
+	{ ":::",      gaplessgrid },
+	{ "[@]",      spiral },
+  	{ "---",      horizgrid },
+	{ "[M]",      monocle },
+	{ "HHH",      grid },
+   	{ "TTT",      bstack },
+	{ "###",      nrowgrid },
+	{ "===",      bstackhoriz },
 	{ "H[]",      deck },
-	{ "[M]",      monocle }, 
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ NULL,       NULL },
 };
@@ -159,7 +159,7 @@ static const Key keys[] = {
 	{ MODKEY|Mod1Mask|ShiftMask,   	XK_Tab,      incnmaster,     {.i = +1 } },
 	{ MODKEY|Mod1Mask,			    XK_Tab,      incnmaster,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
+	{ MODKEY|ShiftMask,				XK_r,      quit,           {1} }, 
 };
 
 /* button definitions */

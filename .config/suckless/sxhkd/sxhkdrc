@@ -31,11 +31,11 @@ super + Escape
 super + f
 	thunar
 
-super + e
-	geany
+super + e 	
+	wmctrl -a Geany || geany
 
 super + g
-	gimp
+	wmctrl -a gimp || gimp
 	
 # super + c
 # 	google-chrome
@@ -48,7 +48,7 @@ super + o
 
 super + t
 	~/bin/time_date
-
+	
 super + r
    tilix -e "ranger"
 
