@@ -28,6 +28,19 @@ static const char *colors[][3]      = {
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray4 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_barbie  },
 };
+typedef struct {
+	const char *name;
+	const void *cmd;
+} Sp;
+
+const char *spcmd1[] = {"st", "-n", "spterm1", "-g", "100x34", "-e", "pulsemixer", NULL };
+const char *spcmd2[] = {"kitty", "--class", "spterm2", "--title", "ranger", "-e", "ranger", NULL };
+
+static Sp scratchpads[] = {
+	/* name          cmd  */
+	{"spterm1",      spcmd1},
+	{"spterm2",      spcmd2},
+};
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
@@ -48,6 +61,8 @@ static const Rule rules[] = {
 	{ "Lxappearance",   	NULL,       NULL,       0,       	1,           -1 },
 	{ "Pavucontrol",  		NULL,       NULL,       0,       	1,           -1 },
 	{ "Terminator", 		NULL,       NULL,       0,       	1,           -1 },
+	{ NULL,		  "spterm1",	NULL,		SPTAG(0),  		1,    	-1 },
+	{ NULL,		  "spterm2",	NULL,		SPTAG(1),  		1,		-1 },
 };
 
 /* window following */
@@ -66,9 +81,9 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ ">M>",      centeredfloatingmaster },
+	{ ">M>",      centeredfloatingmaster }, /* first entry is default */
 	{ "[\\]",     dwindle },
-	{ "|M|",      centeredmaster },	/* first entry is default */
+	{ "|M|",      centeredmaster },	
 	{ "[]=",      tile },
 	{ ":::",      gaplessgrid },
 	{ "[@]",      spiral },
@@ -163,6 +178,8 @@ static const Key keys[] = {
 	{ MODKEY|Mod1Mask,			    XK_Tab,      incnmaster,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ShiftMask,				XK_r,      quit,           {1} }, 
+	{ MODKEY,            			XK_v,  	   togglescratch,  {.ui = 0 } },
+	{ MODKEY,            			XK_r,  	   togglescratch,  {.ui = 1 } },
 };
 
 /* button definitions */
@@ -176,7 +193,7 @@ static const Button buttons[] = {
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+	{ ClkClientWin,         MODKEY,         Button1,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },

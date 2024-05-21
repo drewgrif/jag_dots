@@ -49,11 +49,6 @@ super + o
 super + t
 	~/bin/time_date
 	
-super + r
-   tilix -e "ranger"
-
-super + v
-   tilix -e "nvim"
 
 ## audio
 
