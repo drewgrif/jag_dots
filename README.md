@@ -1,4 +1,4 @@
-# .dotfiles
+# .jag_dots
 
 Just a quick guide on my dotfiles.  [JustAGuyLinux on YouTube!](https://www.youtube.com/@JustAGuyLinux) is where you might have found me.
 
