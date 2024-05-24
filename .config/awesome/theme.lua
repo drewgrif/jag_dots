@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "SauceCodePro Nerd Font Mono Regular 12"
+theme.font          = "Roboto Mono Nerd Font 12"
 
 theme.bg_normal     = "#00141D"
 theme.bg_focus      = "#4FC3F7"
@@ -63,7 +63,7 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path.."default/submenu.png"
 theme.menu_height = dpi(18)
-theme.menu_width  = dpi(200)
+theme.menu_width  = dpi(100)
 
 -- You can add as many variables as
 -- you wish and access them by using
@@ -97,7 +97,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "~/.config/backgrounds/bellagio.png"
+-- theme.wallpaper = "~/.config/backgrounds/bellagio.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"

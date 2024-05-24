@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # background
-# feh --bg-scale ~/.config/backgrounds/bellagio.png &
+nitrogen --restore &
 
 # compositor
 picom --config ~/.config/picom/picom.conf &

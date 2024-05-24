@@ -206,6 +206,10 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
+        layout = {
+			spacing = 10,
+			layout = wibox.layout.fixed.horizontal
+        },
         buttons = taglist_buttons
     }
 
@@ -224,14 +228,14 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
+          --  mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
+         --   mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -271,8 +275,8 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
+   -- awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+   --           {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -330,6 +334,28 @@ globalkeys = gears.table.join(
                   end
               end,
               {description = "restore minimized", group = "client"}),
+              
+-- start application keybinds
+   
+awful.key({ modkey }, "b",     function () awful.util.spawn("firefox-esr") end,
+              {description = "open firefox", group = "launcher"}),
+              
+awful.key({ modkey }, "f",     function () awful.util.spawn("thunar") end,
+              {description = "open thunar", group = "launcher"}), 
+              
+awful.key({ modkey }, "e",     function () awful.util.spawn("geany") end,
+              {description = "open geany", group = "launcher"}),  
+              
+awful.key({ modkey }, "space",     function () awful.util.spawn("rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons") end,
+              {description = "rofi menu", group = "launcher"}),
+              
+awful.key({ }, "Print",      function () awful.util.spawn("flameshot screen") end,
+              {description = "screenshot", group = "launcher"}), 
+              
+awful.key({ modkey }, "Print",     function () awful.util.spawn("flameshot gui") end,
+              {description = "select screenshot", group = "launcher"}),                
+   
+-- end application keybinds
 
     -- Prompt
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
@@ -474,7 +500,7 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+                     placement = awful.placement.centered + awful.placement.no_overlap+awful.placement.no_offscreen
      }
     },
 
@@ -486,16 +512,12 @@ awful.rules.rules = {
           "pinentry",
         },
         class = {
-          "Arandr",
-          "Blueman-manager",
-          "Gpick",
-          "Kruler",
-          "MessageWin",  -- kalarm.
-          "Sxiv",
-          "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
-          "Wpa_gui",
-          "veromix",
-          "xtightvncviewer"},
+          "qimgv",
+          "mpv",
+          "Galculator",
+          "Lxappearance",
+          "Pavucontrol",
+          "Terminator"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.
@@ -511,12 +533,12 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false --[[default = true]] }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    { rule = { class = "Gimp" },
+    properties = { screen = 1, tag = "7" } },
 }
 -- }}}
 
