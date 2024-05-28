@@ -8,6 +8,7 @@ local awful = require("awful")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
+local vicious = require("vicious")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
@@ -66,21 +67,25 @@ editor_cmd = terminal .. " -e " .. editor
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
+local vertical_layout = require("layouts.vertical")
+local column_layout = require("layouts.column_layout")
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
+   -- awful.layout.suit.floating,
+   -- awful.layout.suit.spiral.dwindle,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.top,
     awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
+    -- awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier,
-    awful.layout.suit.corner.nw,
+    vertical_layout,
+    column_layout,
+    -- awful.layout.suit.max,
+   --  awful.layout.suit.max.fullscreen,
+   -- awful.layout.suit.magnifier,
+   --  awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
@@ -128,7 +133,126 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+-- Define custom colors
+local label_color = "#d791a8"
+local info_color = "#ffffff"
+
+-- Create the date widget
+local date_widget = wibox.widget.textclock("<span foreground='" .. label_color .. "'>  %a %b %-d </span>", 60)
+
+-- Create the time widget
+local time_widget = wibox.widget.textclock("<span foreground='" .. info_color .. "'>%l:%M %p  </span>", 1)
+
+-- Combine the date and time widgets
+local date_time_widget = wibox.widget {
+	date_widget,
+	time_widget,
+	layout = wibox.layout.fixed.horizontal,
+}
+
+-- Distro and kernel
+-- Function to get kernel version
+local function get_kernel_version(callback)
+    awful.spawn.easy_async_with_shell("uname -r", function(stdout)
+        callback(stdout)
+    end)
+end
+
+-- Create and update the kernel widget
+local kernel_widget = wibox.widget.textbox()
+get_kernel_version(function(kernel)
+    kernel_widget:set_markup(string.format("<span foreground='%s'>  Debian</span> <span foreground='%s'>%s</span>", label_color, info_color, kernel))
+end)
+
+-- Create CPU widget
+local cpu_widget = wibox.widget.textbox()
+
+-- Register the widget with Vicious
+vicious.register(cpu_widget, vicious.widgets.cpu, function (widget, args)
+	return string.format("<span foreground='%s'> CPU:</span> <span foreground='%s'>%d%%</span>", label_color, info_color, args[1]) end, 2) --Updates every 2 seconds
+
+-- Create Memory widget
+local mem_widget = wibox.widget.textbox()
+
+-- Register the widget with Vicious
+vicious.register(mem_widget, vicious.widgets.mem, function (widget, args)
+	return string.format("<span foreground='%s'> RAM:</span> <span foreground='%s'>%d%%</span>", label_color, info_color, args[1]) end, 15) --Updates every 15 seconds
+
+-- Volume widget start
+
+-- Function to get the current volume and mute status
+local function get_volume()
+    local volume, mute
+    local success, msg = pcall(function()
+        local fd = io.popen("pamixer --get-volume")
+        volume = tonumber(fd:read("*all"))
+        fd:close()
+
+        local fd_mute = io.popen("pamixer --get-mute")
+        mute = fd_mute:read("*all"):match("true")
+        fd_mute:close()
+    end)
+
+    if not success then
+        volume = 0
+        mute = false
+        print("Error getting volume: ", msg)
+    end
+
+    return volume, mute
+end
+
+-- Function to update the widget
+local function update_widget(widget)
+    local volume, mute = get_volume()
+    if mute then
+        widget.markup = '<span color="' .. label_color .. '">Muted </span>'
+    else
+        widget.markup = '<span color="' .. label_color .. '">Vol: </span><span color="' .. info_color .. '">' .. volume .. '% </span>'
+    end
+end
+
+-- Create the widget
+local volume_widget = wibox.widget.textbox()
+
+-- Initial update
+update_widget(volume_widget)
+
+-- Debounce timer for handling scroll events
+local scroll_timer
+local function handle_scroll()
+    if scroll_timer then
+        scroll_timer:stop()
+    end
+    scroll_timer = gears.timer.start_new(0.1, function()
+        update_widget(volume_widget)
+        return false
+    end)
+end
+
+-- Handle scroll event
+volume_widget:connect_signal("button::press", function(_, _, _, button)
+    if button == 4 then
+        -- Scroll up
+        awful.spawn("pamixer -i 2", false)
+    elseif button == 5 then
+        -- Scroll down
+        awful.spawn("pamixer -d 2", false)
+    elseif button == 1 then
+        -- Left click
+        awful.spawn("pamixer -t", false)
+    end
+
+    -- Update the widget after changing the volume
+    handle_scroll()
+end)
+
+-- Update the widget periodically
+gears.timer.start_new(10, function()
+    update_widget(volume_widget)
+    return true
+end)
+-- Volume widget end
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -237,7 +361,11 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
          --   mykeyboardlayout,
             wibox.widget.systray(),
-            mytextclock,
+            cpu_widget,
+            mem_widget,
+            kernel_widget,
+            date_time_widget,
+            volume_widget,
             s.mylayoutbox,
         },
     }
@@ -343,6 +471,9 @@ awful.key({ modkey }, "b",     function () awful.util.spawn("firefox-esr") end,
 awful.key({ modkey }, "f",     function () awful.util.spawn("thunar") end,
               {description = "open thunar", group = "launcher"}), 
               
+awful.key({ modkey }, "g",     function () awful.util.spawn("gimp") end,
+              {description = "open gimp", group = "launcher"}), 
+              
 awful.key({ modkey }, "e",     function () awful.util.spawn("geany") end,
               {description = "open geany", group = "launcher"}),  
               
@@ -353,7 +484,12 @@ awful.key({ }, "Print",      function () awful.util.spawn("flameshot screen") en
               {description = "screenshot", group = "launcher"}), 
               
 awful.key({ modkey }, "Print",     function () awful.util.spawn("flameshot gui") end,
-              {description = "select screenshot", group = "launcher"}),                
+              {description = "select screenshot", group = "launcher"}), 
+              
+awful.key({ modkey }, "v", function()
+	awful.util.spawn("st -c pulsemixer -e pulsemixer")
+end,
+{description = "change volume", group = "launcher"}), 
    
 -- end application keybinds
 
@@ -490,6 +626,7 @@ root.keys(globalkeys)
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
+-- local pulsemixer_rule = {instance = "pulsemixer"}
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
@@ -514,6 +651,8 @@ awful.rules.rules = {
         class = {
           "qimgv",
           "mpv",
+          "st",
+          "pulsemixer",
           "Galculator",
           "Lxappearance",
           "Pavucontrol",
