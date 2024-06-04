@@ -21,7 +21,7 @@ super + x
 	
 # help with shortcuts
 super + h
-	tilix -e ~/bin/keyhelper.sh
+	tilix -e ~/.config/suckless/sxhkd/keyhelper.sh
 	
 # make sxhkd reload its configuration files:
 super + Escape
@@ -29,7 +29,7 @@ super + Escape
 # application launchers
 
 super + f
-	thunar
+	wmctrl -a Thunar || thunar
 
 super + e 	
 	wmctrl -a Geany || geany
