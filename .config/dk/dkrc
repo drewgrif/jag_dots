@@ -10,7 +10,7 @@ logfile="$HOME/.dkrc.log"
 dunst &
 picom --config ~/.config/picom/picom.conf &
 feh --bg-fill ~/.config/backgrounds/wallhaven-85erok_3440x1440.png &
-~/bin/polybar-dk &
+~/.config/dk/polybar-dk &
 
 # (re)load sxhkd for keybinds
 if hash sxhkd >/dev/null 2>&1; then
