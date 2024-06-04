@@ -55,6 +55,8 @@ static const Rule rules[] = {
 	{ "GitHub Desktop", 	NULL,       NULL,       1 << 1,         0,           -1 },
 	{ "obs",  				NULL,       NULL,       1 << 8,       	0,           -1 },
 	{ "discord",  			NULL,       NULL,       1 << 7,       	0,           -1 },
+	{ "Thunar",  			NULL,       NULL,       1 << 2,       	0,           -1 },
+	{ "Geany",  			NULL,       NULL,       1 << 3,       	0,           -1 },
 	{ "mpv",  				NULL,       NULL,       0,       	1,           -1 },
 	{ "qimgv",    			NULL,       NULL,       0,       	1,           -1 },
 	{ "Galculator",   		NULL,       NULL,       0,       	1,           -1 },
@@ -71,7 +73,7 @@ static const Rule rules[] = {
 #define WFDEFAULT WFACTIVE
 
 /* layout(s) */
-static const float mfact     = 0.65; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -81,18 +83,18 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ ">M>",      centeredfloatingmaster }, /* first entry is default */
 	{ "[\\]",     dwindle },
+	{ ">M>",      centeredfloatingmaster }, /* first entry is default */
 	{ "|M|",      centeredmaster },	
 	{ "[]=",      tile },
+	{ "TTT",      bstack },
+	{ "###",      nrowgrid },
+	{ "===",      bstackhoriz },
 	{ ":::",      gaplessgrid },
 	{ "[@]",      spiral },
   	{ "---",      horizgrid },
 	{ "[M]",      monocle },
 	{ "HHH",      grid },
-   	{ "TTT",      bstack },
-	{ "###",      nrowgrid },
-	{ "===",      bstackhoriz },
 	{ "H[]",      deck },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ NULL,       NULL },
