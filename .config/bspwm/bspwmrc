@@ -50,4 +50,8 @@ feh --bg-fill ~/.config/backgrounds/wallhaven-3l6g83_3440x1440.png &
 ## apps for systray if enabled
 # volumeicon &
 # nm-applet &
-sxhkd &
+# (re)load sxhkd for keybinds
+if hash sxhkd >/dev/null 2>&1; then
+	pkill sxhkd
+	sxhkd -c "$HOME/.config/bspwm/sxhkdrc" &
+fi
