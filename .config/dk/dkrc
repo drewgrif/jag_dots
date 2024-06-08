@@ -30,7 +30,7 @@ elif [ $dpi -ge 120 ]; then
 	border_width=4
 	border_outer_width=2
 else
-	border_width=2
+	border_width=4
 	border_outer_width=1
 fi
 
@@ -44,7 +44,7 @@ fi
 
 	# default workspace '_' values used when allocating new workspaces
 	# can be applied to all existing workspaces when passed 'apply' after ws=_
-	dkcmd set ws=_ apply layout=tile master=1 stack=1 gap=3 msplit=0.33 ssplit=0.51
+	dkcmd set ws=_ apply layout=tile master=1 stack=1 gap=16 msplit=0.40 ssplit=0.50
 
 	# use grid layout, padding, and gaps on workspace 10
 	# dkcmd set ws=3 layout=grid master=1 stack=1

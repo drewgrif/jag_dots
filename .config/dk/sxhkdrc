@@ -22,9 +22,6 @@ super + f
 # terminal
 super + Return
 	tilix
-	
-super + l
-	~/Applications/LiteXL-v2.1.1-addons-x86_64.AppImage 
 
 super + g
 	gimp
@@ -87,9 +84,6 @@ super + shift + q
 super + shift + r
 	$HOME/.config/dk/dkrc; notify-send 'dk' 'Reloaded config'
 
-# restart dk
-super + ctrl + shift + r
-	dkcmd restart
 
 # focus next or previous window
 super + {j,k}
