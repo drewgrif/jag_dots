@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mem=$(free | awk '/Mem/ {used = $3; total = $2; printf "%.2f GiB / %.2f GiB\n", used / (1024 * 1024), total / (1024 * 1024)}')
+
+  echo ~/.config/tint2/executors/icons/indicator-sensors-memory.svg
+  echo "$mem"
