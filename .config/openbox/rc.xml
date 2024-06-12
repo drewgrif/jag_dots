@@ -109,11 +109,11 @@
     </font>
   </theme>
   <desktops>
-    <!-- this stuff is only used at startup, pagers allow you to change them
+     this stuff is only used at startup, pagers allow you to change them
 		during a session. these are default values to use when other ones are not
 		already set by other applications, or saved in your session.
 		Use obconf if you want to change these without having to log out
-		and back in -->
+		and back in 
     <number>10</number>
     <firstdesk>1</firstdesk>
     <names>
@@ -179,12 +179,6 @@
   <applications>
     <application class="obs">
       <desktop>10</desktop>
-    </application>
-    <application class="discord">
-      <desktop>9</desktop>
-    </application>
-    <application class="Gimp-2.10">
-      <desktop>8</desktop>
     </application>
   </applications>
   <keyboard>
@@ -378,42 +372,34 @@
         <direction>south</direction>
       </action>
     </keybind>
-    <keybind key="W-a">
+    <keybind key="W-S-a">
       <action name="MoveToCenter"/>
     </keybind>
     <!-- Keybindings for undecorate, fullscreen, minimize,
 		roll-up, stick, resize, move, close, and window menu -->
-    <keybind key="W-t">
+    <keybind key="W-S-t">
       <action name="ToggleDecorations"/>
     </keybind>
-    <keybind key="W-f">
+    <keybind key="W-S-f">
       <action name="ToggleMaximize"/>
     </keybind>
-    <keybind key="W-z">
+    <keybind key="W-S-z">
       <action name="Iconify"/>
     </keybind>
-    <keybind key="W-Tab">
+    <keybind key="W-S-Tab">
       <action name="ToggleShade"/>
     </keybind>
-    <keybind key="W-s">
+    <keybind key="W-S-s">
       <action name="ToggleOmnipresent"/>
     </keybind>
-    <keybind key="W-r">
-      <action name="Resize"/>
-    </keybind>
-    <keybind key="W-m">
+    <keybind key="W-S-m">
       <action name="Move"/>
     </keybind>
     <keybind key="W-q">
       <action name="Close"/>
     </keybind>
-    <keybind key="A-space">
-      <action name="ShowMenu">
-        <menu>client-menu</menu>
-      </action>
-    </keybind>
     <!-- Keybindings for window switching -->
-    <keybind key="A-Tab">
+    <keybind key="W-Tab">
       <action name="NextWindow">
         <dialog>list</dialog>
         <bar>no</bar>
@@ -492,7 +478,7 @@
     </keybind>
     <keybind key="W-space">
       <action name="Execute">
-        <command>rofi  drun -show drun -line padding 4 -hide-scrollbar -show-icons</command>
+        <command>xfce4-appfinder</command>
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
@@ -529,7 +515,12 @@
     </keybind>
     <keybind key="W-Print">
       <action name="Execute">
-        <command>scrot -s -e 'mv $f ~/Screenshots'</command>
+        <command>flameshot gui</command>
+      </action>
+    </keybind>
+    <keybind key="A-Print">
+      <action name="Execute">
+        <command>flameshot gui</command>
       </action>
     </keybind>
     <!-- Multimedia keys-->
@@ -546,6 +537,11 @@
     <keybind key="W-S-j">
       <action name="Execute">
         <command>~/bin/changevolume down</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-m">
+      <action name="Execute">
+        <command>~/bin/changevolume mute</command>
       </action>
     </keybind>
     <keybind key="XF86AudioNext">
@@ -589,6 +585,33 @@
     </keybind>
     <keybind key="W-S-q">
       <action name="Exit"/>
+    </keybind>
+    <!-- Vertical tiling -->
+    <keybind key="W-equal">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+      </action>
+      <action name="NextWindow">
+        <interactive>no</interactive>
+        <dialog>none</dialog>
+        <finalactions>
+          <action name="UnmaximizeFull"/>
+          <action name="MoveResizeTo">
+            <width>50%</width>
+          </action>
+          <action name="MaximizeVert"/>
+          <action name="MoveResizeTo">
+            <x>-0</x>
+            <y>0</y>
+          </action>
+        </finalactions>
+      </action>
     </keybind>
   </keyboard>
   <mouse>

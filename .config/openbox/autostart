@@ -1,7 +1,11 @@
+# wallpaper
+nitrogen --restore &
 
-feh --bg-fill ~/.config/backgrounds/wallhaven-6dzwm7_3440x1440.png &
-# xfce4-panel &
+# 3 tint2 panels
+
 tint2 &
-volumeicon &
+tint2 -c ~/.config/tint2/workspace.tint2rc &
+tint2 -c ~/.config/tint2/systray.tint2rc &
+
 dunst &
 picom --config ~/.config/picom/picom.conf &

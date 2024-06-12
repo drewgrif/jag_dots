@@ -23,6 +23,7 @@ if [ $? -eq 0 ]; then
     fbautostart
 fi
 
+# nm-applet &
 nitrogen --restore &
 dunst &
 picom --config ~/.config/picom/picom.conf &
