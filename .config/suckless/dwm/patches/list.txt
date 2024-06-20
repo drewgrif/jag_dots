@@ -1,0 +1,14 @@
+Permissions Size User Date Modified Name
+.rw-r--r--   504 drew  2 Jun 19:58   dwm-alwayscenter-20200625-f04cac6.diff
+.rw-r--r--  1.5k drew  2 Jun 19:58   dwm-attachbottom-6.3.diff
+.rw-r--r--  5.3k drew  2 Jun 19:58   dwm-autostart-20210120-cb3f58a.diff
+.rw-r--r--   811 drew  2 Jun 19:58   dwm-fixborders-6.2.diff
+.rw-r--r--  1.7k drew  2 Jun 19:58   dwm-focusonnetactive-6.2.diff
+.rw-r--r--  3.4k drew  2 Jun 19:58   dwm-movestack-20211115-a786211.diff
+.rw-r--r--  5.6k drew  2 Jun 19:58   dwm-pertag-20200914-61bb8b2.diff
+.rw-r--r--  3.3k drew  2 Jun 19:58   dwm-restartsig-20180523-6.2.diff
+.rw-r--r--  8.0k drew  2 Jun 19:58   dwm-scratchpads-20200414-728d397b.diff
+.rw-r--r--   27k drew  2 Jun 19:58   dwm-status2d-systray-6.4.diff
+.rw-r--r--   26k drew  2 Jun 19:58   dwm-vanitygaps-6.2.diff
+.rw-r--r--  5.4k drew  2 Jun 19:58   dwm-windowfollow-20221002-69d5652.diff
+.rw-r--r--     0 drew  5 Jun 20:17   list.txt

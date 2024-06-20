@@ -29,13 +29,16 @@ super + Escape
 # application launchers
 
 super + f
-	wmctrl -a Thunar || thunar
+	thunar
 
 super + e 	
-	wmctrl -a Geany || geany
+	geany
 
 super + g
-	wmctrl -a gimp || gimp
+	gimp
+
+super + n
+	flatpak run org.gnome.World.Iotas
 	
 # super + c
 # 	google-chrome

@@ -9,7 +9,7 @@ slstatus &
 feh --bg-scale ~/.config/backgrounds/wallhaven-m3m2zm_3440x1440.png &
 
 # compositor
-picom --config ~/.config/picom/picom.conf &
+picom --animations -b &
 
 # sxhkd
 # (re)load sxhkd for keybinds
