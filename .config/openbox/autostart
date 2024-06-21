@@ -1,5 +1,5 @@
 # wallpaper
-nitrogen --restore &
+feh --bg-scale ~/.config/backgrounds/wallhaven-wex83x_3440x1440.png &
 
 # 3 tint2 panels
 
@@ -8,4 +8,4 @@ tint2 -c ~/.config/tint2/workspace.tint2rc &
 tint2 -c ~/.config/tint2/systray.tint2rc &
 
 dunst &
-picom --config ~/.config/picom/picom.conf &
+picom --animations -b &
