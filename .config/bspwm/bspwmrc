@@ -42,7 +42,7 @@ picom --config ~/.config/picom/picom.conf &
 feh --bg-fill ~/.config/backgrounds/wallhaven-3l6g83_3440x1440.png &
 
 ## Polybar or tint
-~/bin/polybar-dk &
+~/.config/polybar-bspwm &
 
 ## Clipmemu start
 # clipmenud &
