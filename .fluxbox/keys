@@ -101,7 +101,7 @@ Mod4 r :Exec tilix -e ranger
 
 # screenshots
 Print :Exec scrot -e 'mv $f ~/Screenshots'; notify-send 'Scrot' 'Image saved to ~/Screenshots'
-mod4 Print :Exec flameshot gui
+mod4 Print :Exec scrot -s -e 'mv $f ~/Screenshots'; notify-send 'Scrot' 'Selected image to ~/Screenshots'
 
 # volume settings, using common keycodes
 # if these don't work, use xev to find out your real keycodes
