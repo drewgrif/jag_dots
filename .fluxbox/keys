@@ -46,24 +46,10 @@ OnTitlebar Mouse3 :WindowMenu
 
 ## Tabbing
 
-# ctrl-tab
-Control Tab :NextWindow {groups} (workspace=[current])
-Control Shift Tab :PrevWindow {groups} (workspace=[current])
+# super-tab
+Mod4 Tab :NextWindow {groups} (workspace=[current])
+Mod4 Shift Tab :PrevWindow {groups} (workspace=[current])
 
-# cycle through tabs in the current window
-Mod4 Tab :NextTab
-Mod4 Shift Tab :PrevTab
-
-# go to a specific tab in the current window
-Control 1 :Tab 1
-Control 2 :Tab 2
-Control 3 :Tab 3
-Control 4 :Tab 4
-Control 5 :Tab 5
-Control 6 :Tab 6
-Control 7 :Tab 7
-Control 8 :Tab 8
-Control 9 :Tab 9
 
 ## Moving and Resizing ##
 Control Mod1 Left :MoveLeft 20
@@ -89,15 +75,19 @@ Shift Mod4 r :restart
 Mod4 Return :Exec tilix
 
 # open a dialog to run programs
-Mod4 p :Exec xfce4-appfinder
-Mod4 space :Exec rofi drun -show drun -line padding 4 -hide-scrollbar -show-icons 
+Mod4 space :Exec xfce4-appfinder
+# Mod4 space :Exec rofi drun -show drun -line padding 4 -hide-scrollbar -show-icons 
 
 # custom
 Mod4 b :Exec firefox-esr
+Shift Mod4 b :Exec firefox-esr -private-window
 Mod4 e :Exec geany
 Mod4 f :Exec thunar
 Mod4 g :Exec gimp
 Mod4 v :Exec tilix -e pulsemixer
+Mod4 h :Exec tilix -e ~/.fluxbox/keyhelper.sh
+Mod1 Mod4 r :Exec ~/scripts/redshift-on
+Mod1 Mod4 b :Exec ~/scripts/redshift-off
 
 # screenshots
 Print :Exec scrot -e 'mv $f ~/Screenshots'; notify-send 'Scrot' 'Image saved to ~/Screenshots'
@@ -105,9 +95,9 @@ mod4 Print :Exec scrot -s -e 'mv $f ~/Screenshots'; notify-send 'Scrot' 'Selecte
 
 # volume settings, using common keycodes
 # if these don't work, use xev to find out your real keycodes
-Mod1 Right :Exec ~/bin/changevolume up
-Mod1 Left :Exec ~/bin/changevolume down
-Mod1 m :Exec ~/bin/changevolume mute
+Shift Mod4 period :Exec ~/scripts/changevolume up
+Shift Mod4 comma :Exec ~/scripts/changevolume down
+Shift Mod4 m :Exec ~/scripts/changevolume mute
 
 # current window commands
 Mod4 Q :Close

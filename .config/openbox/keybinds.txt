@@ -1,0 +1,47 @@
+OPENBOX KEY BINDINGS
+----------------
+Super + Return --- Launch Tilix
+Super + q --- Close window
+Super + Space --- Launch XFCE4 Appfinder
+Super + Right --- Tile 50% Right
+Super + Left --- Tile 50% Left
+Super + Up --- Float 75% Centered 
+Super + Down --- Float 50% Centered
+Super + Ctrl + Left --- Move to Left Edge
+Super + Ctrl + Right --- Move to Right Edge
+Super + Ctrl + Up --- Move to Top Edge
+Super + Ctrl + Down --- Move to Bottom Edge
+Super + Tab --- Cycle Applications
+Super + Shift + q --- Quit Openbox
+Super + Shift + r --- Restart Fluxbox
+
+OPENBOX TAG BINDINGS
+----------------
+Super + (1-9,0) --- Switch to tag (workspace 1-10)
+Super + Shift + (1-9,0) ---  Move Window to tag (workspace 1-10)
+
+APPLICATION KEY BINDINGS
+------------------
+Super + Space --- Rofi
+Super + Return --- Tilix
+Super + b --- Firefox-ESR
+Super + Shift + b --- Firefox-ESR -private-window
+Super + f --- Thunar
+Super + e --- Geany
+Super + v --- Pavucontrol
+
+AUDIO
+-----
+Super + Shift + Period --- Volume Up
+Super + Shift + Comma --- Volume Down
+Super + Shift + m --- Muted
+
+SCROT
+-----
+Super + @Print --- Select Rectangle Screenshot
+@Print --- Fullscreen Screenshot
+
+REDSHIFT
+--------
+Super + Alt + r --- Redshift On (night)
+Super + Alt + b --- Redshift off (daytime)

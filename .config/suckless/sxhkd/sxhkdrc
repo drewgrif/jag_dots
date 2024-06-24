@@ -56,10 +56,10 @@ super + t
 ## audio
 
 # Change volume, chunky
-super + shift + Up
+super + shift + period
     ~/bin/changevolume up
     
-super + shift + Down
+super + shift + comma
 	~/bin/changevolume down
 	
 super + shift + m

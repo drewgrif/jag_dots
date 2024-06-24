@@ -492,6 +492,11 @@
         <command>firefox-esr</command>
       </action>
     </keybind>
+    <keybind key="W-S-b">
+      <action name="Execute">
+        <command>firefox-esr -private-window</command>
+      </action>
+    </keybind>
     <keybind key="W-f">
       <action name="Execute">
         <command>thunar</command>
@@ -507,15 +512,26 @@
         <command>pavucontrol</command>
       </action>
     </keybind>
+        <keybind key="W-h">
+      <action name="Execute">
+        <command>~/.config/openbox/keyhelper.sh</command>
+      </action>
+    </keybind>
     <!-- Take a screenshot, say "Cheeeese!" -->
     <keybind key="Print">
       <action name="Execute">
         <command>scrot -e 'mv $f ~/Screenshots'</command>
       </action>
+      <action name="Execute">
+        <command>notify-send 'Scrot' 'Image saved to ~/Screenshots'</command>
+      </action>
     </keybind>
     <keybind key="W-Print">
       <action name="Execute">
-        <command>flameshot gui</command>
+        <command>scrot -s -e 'mv $f ~/Screenshots'; notify-send 'Scrot' 'Selected image to ~/Screenshots'</command>
+      </action>
+      <action name="Execute">
+        <command>notify-send 'Scrot' 'Selected image to ~/Screenshots'</command>
       </action>
     </keybind>
     <keybind key="A-Print">
@@ -524,24 +540,19 @@
       </action>
     </keybind>
     <!-- Multimedia keys-->
-    <keybind key="W-S-k">
+    <keybind key="W-S-period">
       <action name="Execute">
-        <command>~/bin/changevolume up</command>
+        <command>~/scripts/changevolume up</command>
       </action>
     </keybind>
-    <keybind key="W-S-j">
+    <keybind key="W-S-comman">
       <action name="Execute">
-        <command>~/bin/changevolume down</command>
-      </action>
-    </keybind>
-    <keybind key="W-S-j">
-      <action name="Execute">
-        <command>~/bin/changevolume down</command>
+        <command>~/scripts/changevolume down</command>
       </action>
     </keybind>
     <keybind key="W-S-m">
       <action name="Execute">
-        <command>~/bin/changevolume mute</command>
+        <command>~/scripts/changevolume mute</command>
       </action>
     </keybind>
     <keybind key="XF86AudioNext">
@@ -577,10 +588,10 @@
       </action>
     </keybind>
     <!-- Reload and Exit keybinds -->
-    <keybind key="W-S-BackSpace">
+    <keybind key="W-S-r">
       <action name="Restart"/>
     </keybind>
-    <keybind key="W-S-r">
+    <keybind key="W-A-r">
       <action name="Reconfigure"/>
     </keybind>
     <keybind key="W-S-q">

@@ -1,0 +1,50 @@
+FLUXBOX KEY BINDINGS
+----------------
+Super + Return --- Launch Tilix
+Super + q --- Close window
+Super + Space --- Launch XFCE4 Appfinder
+Super + Right --- Tile 50% Right
+Super + Left --- Tile 50% Left
+Super + Up --- Maximize
+Super + Down --- Resize and Move Center
+Super + Ctrl + Left --- Resize Left 
+Super + Ctrl + Right --- Resize Right
+Super + Shift + n --- Toggle WindowFollow
+Super + Shift + Right --- Move Window to Next Tag
+Super + Shift + Left --- Move Window to Prev Tag
+Super + Tab --- Cycle Applications
+Super + Shift + Tab --- Cycle Prev Applications
+Super + Shift + q --- Quit Fluxbox
+Super + Shift + r --- Restart Fluxbox
+
+FLUXBOX TAG BINDINGS
+----------------
+Super + (1-9,0) --- Switch to tag (workspace 1-10)
+Super + Shift + (1-9,0) ---  Move Window to tag (workspace 1-10)
+Super + Ctrl + (1-9,0) ---  Move and Focus Window on tag (workspace 1-10)
+
+APPLICATION KEY BINDINGS
+------------------
+Super + Space --- Rofi
+Super + Return --- Tilix
+Super + b --- Firefox-ESR
+Super + Shift + b --- Firefox-ESR -private-window
+Super + f --- Thunar
+Super + e --- Geany
+Super + v --- Pulsemixer
+
+AUDIO
+-----
+Super + Shift + Period --- Volume Up
+Super + Shift + Comma --- Volume Down
+Super + Shift + m --- Muted
+
+SCROT
+-----
+Super + @Print --- Select Rectangle Screenshot
+@Print --- Fullscreen Screenshot
+
+REDSHIFT
+--------
+Super + Alt + r --- Redshift On (night)
+Super + Alt + b --- Redshift off (daytime)
