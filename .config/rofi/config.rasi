@@ -1,5 +1,5 @@
   * {
-        bg: #121212;
+        bg: #00141d;
         background-color: @bg;
     }
 
@@ -15,7 +15,7 @@
 	    width: 35%;
 	    transparency: "real";
 	    orientation: vertical;
-	    border-color: #FF8F40;
+	    border-color: #4fc3f7;
         border-radius: 10px;
     }
 
@@ -29,7 +29,7 @@
 
     element {
 	    padding: 4 12;
-	    text-color: #121212;
+	    text-color: #00141d;
         border-radius: 5px;
     }
 
@@ -51,12 +51,12 @@
     }
 
 	element.selected.active {
-		background-color: #121212;
+		background-color: #00141d;
 		text-color: #bfbdb6;
 	}
  
 	element.alternate.normal {
-		background-color: #121212;
+		background-color: #00141d;
 		text-color: #bfbdb6;
 	}
 
@@ -68,24 +68,24 @@
 
 	element.selected.normal {
 		background-color: #ff8f40;
-		text-color: #121212;
+		text-color: #00141d;
 	}
  
 
 	element.normal.active {
-		background-color: #121212;
+		background-color: #00141d;
 		text-color: #bfbdb6;
 	}
  
 
 	element.normal.normal {
-		background-color: #121212;
+		background-color: #00141d;
 		text-color: #bfbdb6;
 	}
  
 	element.normal.urgent {
 		background-color: #f25d78;
-		text-color: #121212;
+		text-color: #00141d;
 	}
 
 	
@@ -115,7 +115,7 @@
     } 
 
     prompt {
-	    text-color: #d2a6ff;
+	    text-color: #80bfff;
 	    padding: 10 6 0 10;
 	    margin: 0 -2 0 0;
     }
