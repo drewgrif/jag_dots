@@ -15,4 +15,4 @@ dunst &
 # blueman-applet &
 
 # sxhkd
-sxhkd -c ~/.config/i3/sxhkd/sxhkdrc &
+sxhkd -c ~/.config/i3/sxhkdrc &
