@@ -38,11 +38,11 @@ bspc rule -a Zettlr  desktop='^6' follow=on
 bspc rule -a Geany desktop='^4' follow=on
 
 dunst &
-picom --config ~/.config/picom/picom.conf &
-feh --bg-fill ~/.config/backgrounds/wallhaven-3l6g83_3440x1440.png &
+picom --animations -b &
+feh --bg-fill ~/.config/backgrounds/debianpaint.png &
 
 ## Polybar or tint
-~/.config/polybar-bspwm &
+~/.config/bspwm/polybar-bspwm &
 
 ## Clipmemu start
 # clipmenud &
