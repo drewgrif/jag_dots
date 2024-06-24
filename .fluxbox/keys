@@ -97,7 +97,7 @@ Mod4 b :Exec firefox-esr
 Mod4 e :Exec geany
 Mod4 f :Exec thunar
 Mod4 g :Exec gimp
-Mod4 r :Exec tilix -e ranger
+Mod4 v :Exec tilix -e pulsemixer
 
 # screenshots
 Print :Exec scrot -e 'mv $f ~/Screenshots'; notify-send 'Scrot' 'Image saved to ~/Screenshots'
