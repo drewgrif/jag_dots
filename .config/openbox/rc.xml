@@ -517,6 +517,18 @@
         <command>~/.config/openbox/keyhelper.sh</command>
       </action>
     </keybind>
+    </keybind>
+        <keybind key="W-A-r">
+      <action name="Execute">
+        <command>~/scripts/redshift-on</command>
+      </action>
+    </keybind>
+    </keybind>
+        <keybind key="W-A-b">
+      <action name="Execute">
+        <command>~/scripts/redshift-off</command>
+      </action>
+    </keybind>
     <!-- Take a screenshot, say "Cheeeese!" -->
     <keybind key="Print">
       <action name="Execute">
