@@ -11,7 +11,7 @@ super + space
    	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
    	
 super + h
-	~/.config/dk/keyhelper.sh
+	tilix -e ~/.config/dk/keyhelper.sh
 	
 super + b
 	firefox-esr
