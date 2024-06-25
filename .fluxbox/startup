@@ -5,7 +5,7 @@
 # Lines starting with a '#' are ignored.
 
 # Change your keymap:
-xmodmap "/home/drew/.Xmodmap"
+# xmodmap "/home/drew/.Xmodmap"
 
 # Applications you want to run with fluxbox.
 # MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.

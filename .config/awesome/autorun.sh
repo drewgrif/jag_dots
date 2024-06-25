@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
 # background
-nitrogen --restore &
+feh --bg-fill ~/.config/backgrounds/wallhaven-3l6g83_3440x1440.png &
 
 # compositor
-picom --config ~/.config/picom/picom.conf &
+picom --animations -b &
+
+# Notifications
+dunst &
 

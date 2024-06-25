@@ -1,5 +1,5 @@
 # wallpaper
-feh --bg-scale ~/.config/backgrounds/wallhaven-wex83x_3440x1440.png &
+feh --bg-fill ~/.config/backgrounds/wallhaven-wex83x_3440x1440.png &
 
 # 3 tint2 panels
 
@@ -9,3 +9,4 @@ tint2 -c ~/.config/tint2/systray.tint2rc &
 
 dunst &
 picom --animations -b &
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
