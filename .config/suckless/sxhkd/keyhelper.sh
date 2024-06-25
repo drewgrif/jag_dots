@@ -10,21 +10,24 @@ PURPLE='\033[0;35m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-# Path to your custom text file
-custom_bindings_file=~/.config/suckless/sxhkd/keybinds.txt
+# Directory where the script is located
+script_dir=$(dirname "$(realpath "$0")")
+
+# Path to the custom text file (relative to the script's directory)
+custom_bindings_file="$script_dir/keybinds.txt"
 
 # Check if the custom file exists
 if [ -f "$custom_bindings_file" ]; then
-    # Display the content of the custom text file with lines in all uppercase displayed in red
-    while IFS= read -r line; do
-        if [[ "$line" == "${line^^}" ]]; then
-            echo -e "${RED}${line}${NC}"
-        else
-            echo "$line"
-        fi
-    done < "$custom_bindings_file"
+    # Pipe the content of the custom text file to less for paging with customized prompt
+    cat "$custom_bindings_file" | {
+        while IFS= read -r line; do
+            if [[ "$line" == "${line^^}" ]]; then
+                echo -e "${RED}${line}${NC}"
+            else
+                echo "$line"
+            fi
+        done
+    } | less -R -P '[more]'
 else
     echo "Custom bindings file not found: $custom_bindings_file"
 fi
-
-read
