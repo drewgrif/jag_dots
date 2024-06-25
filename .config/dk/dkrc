@@ -8,7 +8,7 @@ logfile="$HOME/.dkrc.log"
 
 # autostart
 dunst &
-picom --animations -b &
+picom --config ~/.config/picom/picom.conf &
 feh --bg-fill ~/.config/backgrounds/wallhaven-85erok_3440x1440.png &
 ~/.config/dk/polybar-dk &
 
@@ -44,7 +44,7 @@ fi
 
 	# default workspace '_' values used when allocating new workspaces
 	# can be applied to all existing workspaces when passed 'apply' after ws=_
-	dkcmd set ws=_ apply layout=tile master=1 stack=1 gap=16 msplit=0.40 ssplit=0.50
+	dkcmd set ws=_ apply layout=tile master=1 stack=3 gap=16 msplit=0.5 ssplit=0.5
 
 	# use grid layout, padding, and gaps on workspace 10
 	# dkcmd set ws=3 layout=grid master=1 stack=1
@@ -99,7 +99,7 @@ fi
 	dkcmd set win_minwh=50 win_minxy=10
 
 	# disable gaps and borders in single window layouts
-	dkcmd set smart_gap=true smart_border=true
+	dkcmd set smart_gap=false smart_border=false
 
 	# define mouse mod and move/resize buttons
 	dkcmd set mouse mod=alt move=button1 resize=button3
@@ -117,12 +117,12 @@ fi
 	# outer_width must be less than width, outer_width of 0 will be single borders
 	dkcmd set border width=$border_width outer_width=$border_outer_width \
 		colour \
-		focus='#F0C674' \
-		unfocus='#8ABEB7' \
+		focus='#4fc3f7' \
+		unfocus='#1a1a1a' \
 		urgent='#A54242' \
-		outer_focus='#282A2E' \
-		outer_unfocus='#282A2E' \
-		outer_urgent='#282A2E'
+		outer_focus='#b3e5fc' \
+		outer_unfocus='#b3e5fc' \
+		outer_urgent='#b3e5fc'
 
 
 	# window rules
@@ -145,7 +145,7 @@ fi
 	# dkcmd rule class="^mpv$" instance="^albumart$" float=true ignore=true callback=albumart bw=0
 
 	# open window(s) in a floating state
-	dkcmd rule class="^(pavucontrol|transmission-gtk|qimgv|galculator|mpv|xfce4-terminal|lxappearance)$" float=true w=1280 h=720 x=950 y=350 stick=true
+	dkcmd rule class="^(pavucontrol|transmission-gtk|qimgv|galculator|mpv|xfce4-terminal|lxappearance)$" float=true w=1280 h=720 x=center y=center stick=true
 
 	# open window(s) with a specific geometry and coordinates (floating only!)
 	dkcmd rule class="^google-chrome$" title="^open files$" float=true w=1280 h=720
