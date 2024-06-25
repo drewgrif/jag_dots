@@ -8,7 +8,7 @@ logfile="$HOME/.dkrc.log"
 
 # autostart
 dunst &
-picom --config ~/.config/picom/picom.conf &
+picom --animations -b &
 feh --bg-fill ~/.config/backgrounds/wallhaven-85erok_3440x1440.png &
 ~/.config/dk/polybar-dk &
 
@@ -44,7 +44,7 @@ fi
 
 	# default workspace '_' values used when allocating new workspaces
 	# can be applied to all existing workspaces when passed 'apply' after ws=_
-	dkcmd set ws=_ apply layout=tile master=1 stack=3 gap=16 msplit=0.5 ssplit=0.5
+	dkcmd set ws=_ apply layout=tile master=1 stack=3 gap=16 msplit=0.50 ssplit=0.50
 
 	# use grid layout, padding, and gaps on workspace 10
 	# dkcmd set ws=3 layout=grid master=1 stack=1
@@ -147,11 +147,14 @@ fi
 	# open window(s) in a floating state
 	dkcmd rule class="^(pavucontrol|transmission-gtk|qimgv|galculator|mpv|xfce4-terminal|lxappearance)$" float=true w=1280 h=720 x=center y=center stick=true
 
+	# open window(s) with a specific geometry and coordinates (floating only!)
+	# dkcmd rule class="^google-chrome$" title="^open files$" float=true w=1280 h=720
+
 	# open window(s) with sticky and floating enabled to view on all workspaces.
 	dkcmd rule class="^stickyterm$" stick=true float=true w=1280 h=720
 
 	# focus window and workspace on opening
-	dkcmd rule class="^firefox-esr$" ws=1 focus=true
+	# dkcmd rule class="^firefox-esr$" ws=1 focus=true
 
 	# update or remove an existing rule with the same match patterns
 	dkcmd rule class="^firefox$" mon="HDMI-A-0"

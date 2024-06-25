@@ -9,9 +9,15 @@ super + p
 # rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
 super + space
    	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+   	
+super + h
+	~/.config/dk/keyhelper.sh
 	
 super + b
 	firefox-esr
+
+super + shift + b
+	firefox-esr -private-window
 
 super + e
 	geany
@@ -26,38 +32,29 @@ super + Return
 super + g
 	gimp
 	
-super + c
-	google-chrome
-	
 super + d
 	Discord
 
 super + o
 	obs
 
-super + t
-	~/bin/time_date
-	
-super + shift + c
-	galculator
-
 #########
 # Scrot #
 #########
 super + @Print
-	scrot -s -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Selected image to ~/Pictures'
+	scrot -s -e 'mv $f ~/Screenshots'; \
+	notify-send 'Scrot' 'Selected image to ~/Screenshots'
 
 @Print
-	scrot -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Image saved to ~/Pictures'
+	scrot -e 'mv $f ~/Screenshots'; \
+	notify-send 'Scrot' 'Image saved to ~/Screenshots'
 	
 ## redshift
 super + alt + r
-	~/bin/redshift-on
+	~/scripts/redshift-on
 	
 super + alt + b
-	~/bin/redshift-off
+	~/scripts/redshift-off
 	
 	
 # dedicated volume keys
@@ -71,6 +68,18 @@ super + alt + b
 # super volume keys
 super + {Insert,Delete}
 	pamixer {-i,-d} 2
+	
+## audio
+
+# Change volume, chunky
+super + shift + period
+    ~/scripts/changevolume up
+    
+super + shift + comma
+	~/scripts/changevolume down
+	
+super + shift + m
+	~/scripts/changevolume mute
 
 # reload sxhkd
 super + Escape
@@ -86,47 +95,33 @@ super + shift + r
 
 
 # focus next or previous window
-super + {j,k}
+super + {Right,Left}
 	dkcmd win focus {next,prev}
 
 # close window, swap tiled window in/out of master, cycle tiled windows in place
 super + {q,Tab}
 	dkcmd win {kill,cycle}
 
-# toggle fullscreen and fake fullscreen (enable manipulating fullscreen window)
-{_,super + }F11
-	dkcmd win {full,fakefull}
 
 # toggle floating or sticky
 super + shift + {space,s}
 	dkcmd win {float,stick}
 
-# move window, signed (+/-) for relative changes
-super + shift + {h,j,k,l}
-	dkcmd win resize {x=-20,y=+20,y=-20,x=+20}
-
 # resize window, signed (+/-) for relative changes
-super + ctrl + {h,j,k,l}
+super + ctrl + {Left,Up,Down,Right}
 	dkcmd win resize {w=-20,h=+20,h=-20,w=+20}
 
 # move the active window up/down the stack
-super + {Up,Down}
+super + shift + {Right,Left}
 	dkcmd win mvstack {up,down}
 
 # view, send, or follow to a workspace (by number)
 super + {_,shift + ,ctrl + }{1-9,0}
-	dkcmd ws {view,send,follow} {1-9,10}; \
-	~/bin/dkwhich
-
-# view, send, or follow to the next, previous, last active,
-# next non-empty, or prev non-empty workspace
-super + {_,shift + ,ctrl + }{bracketleft,bracketright,BackSpace,Left,Right}
-	dkcmd ws {view,send,follow} {prev,next,last,prevne,nextne}
-
+	dkcmd ws {view,send,follow} {1-9,10}
+	
 # view, send, or follow to the next, previous, or last active monitor
-super + {_,shift + ,ctrl + }{comma,period,backslash}
-	dkcmd mon {view,send,follow} {prev,next,last}
-
+# super + {_,shift + ,ctrl + }{comma,period,backslash}
+# 	dkcmd mon {view,send,follow} {prev,next,last}
 
 # change number of windows in master or first stack
 super + {_,shift + }{i,d}

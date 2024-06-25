@@ -1,0 +1,54 @@
+DK KEY BINDINGS
+----------------
+Super + Return --- Launch Tilix
+Super + q --- Close window
+Super + p --- Launch dmenu
+Super + Right --- Change Focus Right
+Super + Left --- Change Focus Left
+Super + Shift + Right --- Move Window Right
+Super + Shift + Left --- Move Window Left
+Super + Ctrl + Left --- Resize Left 
+Super + Ctrl + Right --- Resize Right
+Super + Ctrl + Up --- Resize Up
+Super + Ctrl + Down --- Resize Down
+Super + Tab --- Cycle Windows
+
+Super + Shift + q --- Quit DK
+Super + Shift + r --- Restart DK
+Super + ESC --- Restart SXHKD
+Super + h --- This screen
+
+DK TAG BINDINGS
+----------------
+Super + (1-9,0) --- Switch to tag (workspace 1-10)
+Super + Shift + (1-9,0) ---  Move Window to tag (workspace 1-10)
+Super + Ctrl + (1-9,0) ---  Move and Focus Window on tag (workspace 1-10)
+	
+SXHKD KEY BINDINGS
+------------------
+Super + Space --- Rofi
+Super + Return --- Tilix
+Super + b --- Firefox-ESR
+Super + Shift + b --- Firefox-ESR -private-window
+Super + f --- Thunar
+Super + e --- Geany
+Super + v --- Pulsemixer
+
+AUDIO
+-----
+Super + Shift + Period --- Volume Up
+Super + Shift + Comma --- Volume Down
+Super + Shift + m --- Muted
+Super + Insert --- Volume Up
+Super + Delete --- Volume Down
+
+SCROT
+-----
+Super + @Print --- Select Rectangle Screenshot
+@Print --- Fullscreen Screenshot
+
+REDSHIFT
+--------
+Super + Alt + r --- Redshift On (night)
+Super + Alt + b --- Redshift off (daytime)
+
