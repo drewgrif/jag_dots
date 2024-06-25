@@ -119,9 +119,9 @@ fi
 		colour \
 		focus='#4fc3f7' \
 		unfocus='#1a1a1a' \
-		urgent='#A54242' \
-		outer_focus='#b3e5fc' \
-		outer_unfocus='#b3e5fc' \
+		urgent='#b3e5fc' \
+		outer_focus='#4fc3f7' \
+		outer_unfocus='#1a1a1a' \
 		outer_urgent='#b3e5fc'
 
 
@@ -146,9 +146,6 @@ fi
 
 	# open window(s) in a floating state
 	dkcmd rule class="^(pavucontrol|transmission-gtk|qimgv|galculator|mpv|xfce4-terminal|lxappearance)$" float=true w=1280 h=720 x=center y=center stick=true
-
-	# open window(s) with a specific geometry and coordinates (floating only!)
-	dkcmd rule class="^google-chrome$" title="^open files$" float=true w=1280 h=720
 
 	# open window(s) with sticky and floating enabled to view on all workspaces.
 	dkcmd rule class="^stickyterm$" stick=true float=true w=1280 h=720
