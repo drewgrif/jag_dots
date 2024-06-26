@@ -29,14 +29,6 @@ super + f
 super + Return
 	tilix
 
-super + g
-	gimp
-	
-super + d
-	Discord
-
-super + o
-	obs
 
 #########
 # Scrot #
@@ -64,21 +56,17 @@ super + alt + b
 # dedicated backlight keys
 {XF86MonBrightnessUp,XF86MonBrightnessDown}
 	xbacklight {+10,-10}
-
-# super volume keys
-super + {Insert,Delete}
-	pamixer {-i,-d} 2
 	
 ## audio
 
 # Change volume, chunky
-super + shift + period
+super + Insert
     ~/scripts/changevolume up
     
-super + shift + comma
+super + Delete
 	~/scripts/changevolume down
 	
-super + shift + m
+super + m
 	~/scripts/changevolume mute
 
 # reload sxhkd

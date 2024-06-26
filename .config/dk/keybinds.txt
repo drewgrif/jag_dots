@@ -1,6 +1,6 @@
 DK KEY BINDINGS
-----------------
-Super + Return --- Launch Tilix
+---------------
+Super + Space --- Rofi Menu
 Super + q --- Close window
 Super + p --- Launch dmenu
 Super + Right --- Change Focus Right
@@ -26,7 +26,7 @@ Super + Ctrl + (1-9,0) ---  Move and Focus Window on tag (workspace 1-10)
 	
 SXHKD KEY BINDINGS
 ------------------
-Super + Space --- Rofi
+Super + Space --- Rofi Menu
 Super + Return --- Tilix
 Super + b --- Firefox-ESR
 Super + Shift + b --- Firefox-ESR -private-window
@@ -36,11 +36,9 @@ Super + v --- Pulsemixer
 
 AUDIO
 -----
-Super + Shift + Period --- Volume Up
-Super + Shift + Comma --- Volume Down
-Super + Shift + m --- Muted
 Super + Insert --- Volume Up
 Super + Delete --- Volume Down
+Super + m --- Muted
 
 SCROT
 -----

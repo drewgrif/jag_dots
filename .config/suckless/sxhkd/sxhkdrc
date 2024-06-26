@@ -13,11 +13,8 @@ super + space
    	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
    	
 super + shift + Return
-	terminator
+	kitty
 
-# logout, shutdown, reboot
-super + x
-	~/bin/power
 	
 # help with shortcuts
 super + h
@@ -36,9 +33,6 @@ super + e
 
 super + g
 	gimp
-
-super + n
-	flatpak run org.gnome.World.Iotas
 	
 # super + c
 # 	google-chrome
@@ -48,39 +42,40 @@ super + d
 
 super + o
 	obs
-
-super + t
-	~/bin/time_date
 	
-
-## audio
-
 # Change volume, chunky
-super + shift + period
-    ~/bin/changevolume up
+super + Insert
+    ~/scripts/changevolume up
     
-super + shift + comma
-	~/bin/changevolume down
+super + Delete
+	~/scripts/changevolume down
 	
-super + shift + m
-	~/bin/changevolume mute
+super + m
+	~/scripts/changevolume mute
+	
+# dedicated volume keys
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
+	pamixer {-i,-d} 2
+
+# dedicated backlight keys
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+	xbacklight {+10,-10}
 	
 #########
 # Scrot #
 #########
 super + @Print
-	flameshot gui
+	flameshot gui --path ~/Screenshots/
 
 @Print
-	scrot -e 'mv $f ~/Screenshots'; \
-	notify-send 'Scrot' 'Image saved to ~/Screenshots'
+	flameshot full --path ~/Screenshots/
 	
 ## redshift
 super + alt + r
-	~/bin/redshift-on
+	~/scripts/redshift-on
 	
 super + alt + b
-	~/bin/redshift-off
+	~/scripts/redshift-off
 
 
 ## Show clipmenu

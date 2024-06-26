@@ -1,8 +1,8 @@
 super + b
-	wmctrl -a Mozilla Firefox || firefox-esr
+	 firefox-esr
 
 super + shift + b
-	wmctrl -a Mozilla Firefox Private Browsing || firefox-esr -private-window
+	firefox-esr -private-window
 
 super + Return
 	tilix
@@ -12,27 +12,20 @@ super + space
    	rofi  drun -show drun -line padding 4 -hide-scrollbar -show-icons 
    	
 super + shift + Return
-    terminator
+    kitty
 	
-# rofi network manager (will not work unless on wifi)	
-super + n
-	bash ~/bin/rofi-network-manager
-
-# logout, shutdown, reboot
-super + x
-	~/bin/power
 	
 # help with shortcuts
 super + h
-	tilix -e ~/bin/bsphelp.sh
+	tilix -e ~/.config/bspwm/keyhelper.sh
 
 # application launchers
 
 super + f
-	wmctrl -a Thunar || thunar
+	thunar
 
 super + e 	
-	wmctrl -a Geany || geany
+	geany
 
 super + g
 	gimp
@@ -41,19 +34,14 @@ super + r
    tilix -e "ranger"
 
 super + v
-   tilix -e "nvim"
+   tilix -e pulsemixer
 
-super + c
-	google-chrome
 	
 super + d
 	Discord
 
 super + o
 	obs
-	
-super + shift + c
-	galculator
 
 # set the window state
 super + shift + {t,s,f}
@@ -97,23 +85,34 @@ super + ctrl + {Left,Down,Up,Right}
 	bspc node -z bottom 0 -40; bspc node -z top 0 -40, \ 
 	bspc node -z left 40 0; bspc node -z right 40 0}
 	
+	
 ## audio
 
 # Change volume, chunky
-super + shift + Up
-    ~/bin/changevolume up
+super + Insert
+    ~/scripts/changevolume up
     
-super + shift + Down
-	~/bin/changevolume down
+super + Delete
+	~/scripts/changevolume down
 	
-super + shift + m
-	~/bin/changevolume mute
+super + m
+	~/scripts/changevolume mute
+	
+# dedicated volume keys
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
+	pamixer {-i,-d} 2
+
+# dedicated backlight keys
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+	xbacklight {+10,-10}
+
 
 #########
 # Scrot #
 #########
 super + @Print
-	flameshot gui
+	scrot -s -e 'mv $f ~/Screenshots'; \
+	notify-send 'Scrot' 'Selected image to ~/Screenshots'
 
 @Print
 	scrot -e 'mv $f ~/Screenshots'; \
@@ -121,10 +120,10 @@ super + @Print
 	
 ## redshift
 super + alt + r
-	~/bin/redshift-on
+	~/scripts/redshift-on
 	
 super + alt + b
-	~/bin/redshift-off
+	~/scripts/redshift-off
     
 super + @equal
 	bspc query -N -d | xargs -I % bspc node % -B

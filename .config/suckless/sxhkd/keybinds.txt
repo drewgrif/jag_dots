@@ -7,7 +7,6 @@ Super + Right --- Change Focus Right
 Super + Left --- Change Focus Left
 Super + Ctrl + Left --- Resize Left 
 Super + Ctrl + Right --- Resize Right
-Super + Shift + n --- Toggle WindowFollow
 Super + Shift + Right --- Move Window Right
 Super + Shift + Left --- Move Window Left
 Super + Shift + q --- Quit DWM
@@ -56,9 +55,9 @@ Super + Escape --- Reload sxhkd
 
 AUDIO
 -----
-Super + Shift + Up --- Volume Up
-Super + Shift + Down --- Volume Down
-Super + Shift + m --- Muted
+Super + Insert --- Volume Up
+Super + Delete --- Volume Down
+Super + m --- Muted
 
 SCROT
 -----
