@@ -14,7 +14,6 @@ super + space
 super + shift + Return
     kitty
 	
-	
 # help with shortcuts
 super + h
 	tilix -e ~/.config/bspwm/keyhelper.sh
@@ -29,9 +28,6 @@ super + e
 
 super + g
 	gimp
-
-super + r
-   tilix -e "ranger"
 
 super + v
    tilix -e pulsemixer
