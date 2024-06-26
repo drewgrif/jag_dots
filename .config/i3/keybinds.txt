@@ -4,12 +4,8 @@ Super + Space --- Rofi Menu
 Super + q --- Close window
 Super + Right --- Change Focus Right
 Super + Left --- Change Focus Left
-Super + Up --- Change Focus Up
-Super + Down --- Change Focus Down
 Super + Shift + Right --- Move Window Right
 Super + Shift + Left --- Move Window Left
-Super + Shift + Up --- Move Window Up
-Super + Shift + Down --- Move Window Down
 Super + Ctrl + Left --- Resize Left 
 Super + Ctrl + Right --- Resize Right
 Super + Ctrl + Up --- Resize Up 
@@ -23,7 +19,7 @@ Super + h --- This screen
 i3 TAG BINDINGS
 ----------------
 Super + (1-9,0) --- Switch to tag (workspace 1-10)
-Super + Shift + (1-9,0) ---  Move and Focus Window to tag (workspace 1-10)
+Super + Shift + (1-9,0) ---  Move Window to tag (workspace 1-10)
 	
 SXHKD KEY BINDINGS
 ------------------

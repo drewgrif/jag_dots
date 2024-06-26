@@ -1,51 +1,43 @@
-# sxhkd reload
-
-super + Escape
-	pkill -USR1 -x sxhkd;notify-send 'sxhkd' 'Reloaded config'
-
-#Rofi
-
-super + space
-   	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
-
-
-# Application Keybindings
-
-super + shift + Return
-   kitty
-   
-super + Return
-   tilix
-
 super + b
-	wmctrl -a firefox-esr || firefox-esr
+	 firefox-esr
+
+super + shift + b
+	firefox-esr -private-window
+
+super + Return
+	tilix
+
+# rofi launchers
+super + space
+   	rofi  drun -show drun -line padding 4 -hide-scrollbar -show-icons 
+   	
+super + shift + Return
+    kitty
 	
-super + c
-   galculator
-	
+# help with shortcuts
+super + h
+	tilix -e ~/.config/i3/keyhelper.sh
+
+# application launchers
+
 super + f
-	wmctrl -a Thunar || thunar
-	
-super + r
-   tilix -e "ranger"
+	thunar
+
+super + e 	
+	geany
+
+super + g
+	gimp
 
 super + v
-   tilix -e "nvim"
-   
-super + e 	
-	i3-msg 'workspace 4;  exec --no-startup-id geany'
+   tilix -e pulsemixer
+
 	
-super + m
-	i3-msg 'workspace 6;  exec --no-startup-id zettlr'
-	
-super + g
-	i3-msg 'workspace 8;  exec --no-startup-id gimp'
-	
-super + d 
-	i3-msg 'workspace 9;  exec --no-startup-id Discord'
-	
-super + o	
-	i3-msg 'workspace 10;  exec --no-startup-id obs'
+super + d
+	Discord
+
+super + o
+	obs
  
  
 #########
@@ -72,40 +64,10 @@ super + {1-9,0}
     i3-msg workspace {1-9,10}
 
 # The 
-# super + shift+{1-9,0}
-#    i3-msg move container to workspace number {1-9,10}
+super + shift+{1-9,0}
+	i3-msg move container to workspace number {1-9,10}
 
-# the following is if you want to follow your app to the new ws
-super + shift + 1
-	i3-msg 'move container to workspace 1; workspace 1'
 
-super + shift + 2
-	i3-msg 'move container to workspace 2; workspace 2'
-
-super + shift + 3
-	i3-msg 'move container to workspace 3; workspace 3'
-	
-super + shift + 4
-	i3-msg 'move container to workspace 4; workspace 4'
-	
-super + shift + 5
-	i3-msg 'move container to workspace 5; workspace 5'
-	
-super + shift + 6
-	i3-msg 'move container to workspace 6; workspace 6'
-	
-super + shift + 7
-	i3-msg 'move container to workspace 7; workspace 7'
-	
-super + shift + 8
-	i3-msg 'move container to workspace 8; workspace 8'
-	
-super + shift + 9
-	i3-msg 'move container to workspace 9; workspace 9'
-	
-super + shift + 0
-	i3-msg 'move container to workspace 10; workspace 10'
-    
 #movement
 
 super+{h,j,k,l}
@@ -123,14 +85,22 @@ super+shift+{Left,Down,Up,Right}
 ## audio
 
 # Change volume, chunky
-super + shift + k
-    ~/bin/changevolume up
+super + Insert
+    ~/scripts/changevolume up
     
-super + shift + j
-	~/bin/changevolume down
+super + Delete
+	~/scripts/changevolume down
 	
-super + shift + m
-	~/bin/changevolume mute
+super + m
+	~/scripts/changevolume mute
+	
+# dedicated volume keys
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
+	pamixer {-i,-d} 2
+
+# dedicated backlight keys
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+	xbacklight {+10,-10}
 
 
 #i3 Specific Keybindings
