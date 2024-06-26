@@ -1,64 +1,46 @@
-DWM KEY BINDINGS
-----------------
-Super + Return --- Launch Tilix
+i3 KEY BINDINGS
+------------------
+Super + Space --- Rofi Menu
 Super + q --- Close window
-Super + p --- Launch dmenu
 Super + Right --- Change Focus Right
 Super + Left --- Change Focus Left
-Super + Ctrl + Left --- Resize Left 
-Super + Ctrl + Right --- Resize Right
-Super + Shift + n --- Toggle WindowFollow
+Super + Up --- Change Focus Up
+Super + Down --- Change Focus Down
 Super + Shift + Right --- Move Window Right
 Super + Shift + Left --- Move Window Left
-Super + Shift + q --- Quit DWM
-Super + Shift + r --- Restart DWM
+Super + Shift + Up --- Move Window Up
+Super + Shift + Down --- Move Window Down
+Super + Ctrl + Left --- Resize Left 
+Super + Ctrl + Right --- Resize Right
+Super + Ctrl + Up --- Resize Up 
+Super + Ctrl + Down --- Resize Down
 
-DWM TAG BINDINGS
+Super + Shift + q --- Quit i3
+Super + Shift + r --- Restart i3
+Super + ESC --- Restart SXHKD
+Super + h --- This screen
+
+i3 TAG BINDINGS
 ----------------
-Super + (1-9) --- Switch to tag (workspace 1-9)
-Super + Shift + (1-9) ---  Move Window to tag (workspace 1-9)
-Super + 0 --- Switch to tag 10
-Super + minus --- Switch to tag 11
-Super + equal --- Switch to tag 12
-Super + Shift + 0 --- Move to tag 10
-Super + Shift + minus --- Move to tag 11
-Super + Shift + equal --- Move to tag 12
-
-DWM LAYOUTS
------------
-Ctrl + Shift + 1 --- Dwindle
-Ctrl + Shift + 2 --- CenteredFloatingMaster
-Ctrl + Shift + 3 --- CenteredMaster
-Ctrl + Shift + 4 --- Tile
-Ctrl + Shift + 5 --- Bstack
-Ctrl + Shift + 6 --- Nrowgrid
-Ctrl + Shift + 7 --- Bstackhoriz
-Ctrl + Shift + 8 --- Gaplessgrid
-Ctrl + Shift + 9 --- Spiral	
-Ctrl + Shift + 0 --- HorizontalGrid
+Super + (1-9,0) --- Switch to tag (workspace 1-10)
+Super + Shift + (1-9,0) ---  Move and Focus Window to tag (workspace 1-10)
 	
 SXHKD KEY BINDINGS
 ------------------
-Super + Space --- Rofi
+Super + Space --- Rofi Menu
 Super + Return --- Tilix
-Super + Shift + Return --- Terminator
+Super + Shift + Return --- Kitty (floating)
 Super + b --- Firefox-ESR
 Super + Shift + b --- Firefox-ESR -private-window
 Super + f --- Thunar
 Super + e --- Geany
-Super + g --- Gimp
-Super + d --- Discord
-Super + o --- Obs
-Super + r --- Ranger
-Super + v --- Nvim
-Super + x --- Power/Logout
-Super + Escape --- Reload sxhkd
+Super + v --- Pulsemixer
 
 AUDIO
 -----
-Super + Shift + Up --- Volume Up
-Super + Shift + Down --- Volume Down
-Super + Shift + m --- Muted
+Super + Insert --- Volume Up
+Super + Delete --- Volume Down
+Super + m --- Muted
 
 SCROT
 -----
@@ -69,3 +51,4 @@ REDSHIFT
 --------
 Super + Alt + r --- Redshift On (night)
 Super + Alt + b --- Redshift off (daytime)
+
