@@ -514,7 +514,7 @@
     </keybind>
         <keybind key="W-h">
       <action name="Execute">
-        <command>~/.config/openbox/keyhelper.sh</command>
+        <command>tilix -e ~/.config/openbox/keyhelper.sh</command>
       </action>
     </keybind>
         <keybind key="W-A-r">
