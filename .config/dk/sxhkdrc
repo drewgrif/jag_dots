@@ -68,6 +68,10 @@ super + Delete
 	
 super + m
 	~/scripts/changevolume mute
+	
+# super volume keys
+# super + {Insert,Delete}
+#	pamixer {-i,-d} 2
 
 # reload sxhkd
 super + Escape

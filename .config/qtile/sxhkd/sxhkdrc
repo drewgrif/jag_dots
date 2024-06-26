@@ -2,89 +2,88 @@
 # Application keybindings #
 #####################
 
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+
 super + b
-    firefox-esr
+	 firefox-esr
+
+super + shift + b
+	firefox-esr -private-window
 
 super + Return
 	tilix
 
 # rofi launchers
 super + space
-   	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+   	rofi  drun -show drun -line padding 4 -hide-scrollbar -show-icons 
    	
 super + shift + Return
-	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+    kitty
 	
-# rofi network manager	
-super + n
-	bash ~/bin/rofi-network-manager
+# help with shortcuts
+super + h
+	tilix -e ~/.config/bspwm/keyhelper.sh
 
-# logout, shutdown, reboot
-super + x
-	~/bin/power
-	
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 # application launchers
 
 super + f
 	thunar
 
-super + e
+super + e 	
 	geany
 
 super + g
 	gimp
-	
-super + c
-	google-chrome
+
+super + v
+   tilix -e pulsemixer
+
 	
 super + d
-	discord
+	Discord
 
 super + o
 	obs
 
-super + t
-	~/bin/time_date
-
-
-	
-## audio
-
 # Change volume, chunky
-super + shift + k
-    ~/bin/changevolume up
+super + Insert
+    ~/scripts/changevolume up
     
-super + shift + j
-	~/bin/changevolume down
+super + Delete
+	~/scripts/changevolume down
 	
-super + shift + m
-	~/bin/changevolume mute
+super + m
+	~/scripts/changevolume mute
+	
+# dedicated volume keys
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
+	pamixer {-i,-d} 2
+
+# dedicated backlight keys
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+	xbacklight {+10,-10}
+
 
 #########
 # Scrot #
 #########
-super + alt + @s
-	scrot -s -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Selected image to ~/Pictures'
+super + @Print
+	scrot -s -e 'mv $f ~/Screenshots'; \
+	notify-send 'Scrot' 'Selected image to ~/Screenshots'
 
-super + s
-	scrot -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Image saved to ~/Pictures'
+@Print
+	scrot -e 'mv $f ~/Screenshots'; \
+	notify-send 'Scrot' 'Image saved to ~/Screenshots'
 	
 ## redshift
 super + alt + r
-	~/bin/redshift-on
+	~/scripts/redshift-on
 	
 super + alt + b
-	~/bin/redshift-off
+	~/scripts/redshift-off
 
-
-## Show clipmenu
-alt + v
-    CM_LAUNCHER=rofi clipmenu 
     
 
  
