@@ -7,7 +7,7 @@ super + p
 	
 # rofi launcher
 super + space
-   	rofi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+   	rofi -show drun -modi drun -line-padding 4 -hide-scrollbar -show-icons
    	
 super + h
 	tilix -e ~/.config/dk/keyhelper.sh

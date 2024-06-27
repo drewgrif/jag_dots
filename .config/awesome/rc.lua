@@ -408,7 +408,7 @@ end, {description = "open obs", group = "launcher"}),
 awful.key({ modkey }, "e",     function () awful.util.spawn("geany") end,
               {description = "open geany", group = "launcher"}),  
               
-awful.key({ modkey }, "space",     function () awful.util.spawn("rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons") end,
+awful.key({ modkey }, "space",     function () awful.util.spawn("rofi -show drun -modi drun -line-padding 4 -hide-scrollbar -show-icons") end,
               {description = "rofi menu", group = "launcher"}),
               
 awful.key({ }, "Print",      function () awful.util.spawn("flameshot screen") end,
