@@ -10,7 +10,7 @@ super + shift + b
 
 # rofi launchers
 super + space
-   	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+   	rofi drun -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
    	
 super + shift + Return
 	kitty

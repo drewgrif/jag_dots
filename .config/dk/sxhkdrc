@@ -5,10 +5,9 @@
 super + p
 	dmenu_run
 	
-# rofi launchers
-# rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+# rofi launcher
 super + space
-   	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+   	rofi drun -show drun -line padding 4 -hide-scrollbar -show-icons
    	
 super + h
 	tilix -e ~/.config/dk/keyhelper.sh

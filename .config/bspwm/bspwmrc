@@ -32,7 +32,8 @@ bspc rule -a Gimp desktop='^8' follow=on
 bspc rule -a obs desktop='^10' follow=on
 bspc rule -a discord desktop='^9' follow=on
 
-
+# start up stuff
+xsetroot -cursor_name left_ptr &
 dunst &
 picom --animations -b &
 feh --bg-fill ~/.config/backgrounds/wallhaven-m3w6pk_3440x1440.png &
