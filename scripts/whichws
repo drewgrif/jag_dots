@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-Deskname=$(bspc query -D -d focused --names)
-notify-send -t 3500 "Workspace $Deskname"

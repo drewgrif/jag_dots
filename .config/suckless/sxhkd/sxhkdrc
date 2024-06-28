@@ -77,7 +77,5 @@ super + alt + r
 super + alt + b
 	~/scripts/redshift-off
 
-
-## Show clipmenu
-alt + v
-    CM_LAUNCHER=rofi clipmenu 
+super + x 
+	~/scripts/power
