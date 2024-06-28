@@ -50,7 +50,6 @@ Super + d --- Discord
 Super + o --- Obs
 Super + r --- Ranger
 Super + v --- Nvim
-Super + x --- Power/Logout
 Super + Escape --- Reload sxhkd
 
 AUDIO
