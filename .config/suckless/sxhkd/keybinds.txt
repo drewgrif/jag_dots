@@ -49,8 +49,8 @@ Super + e --- Geany
 Super + g --- Gimp
 Super + d --- Discord
 Super + o --- Obs
-Super + r --- Ranger
-Super + v --- Nvim
+Super + r --- scratchpad (Ranger)
+Super + v --- scratchpad (Pulsemixer)
 Super + Escape --- Reload sxhkd
 
 AUDIO
