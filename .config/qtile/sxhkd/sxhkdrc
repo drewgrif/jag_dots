@@ -24,7 +24,7 @@ super + shift + Return
 	
 # help with shortcuts
 super + h
-	tilix -e ~/.config/bspwm/keyhelper.sh
+	tilix -e ~/.config/qtile/keyhelper.sh
 
 # application launchers
 

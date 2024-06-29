@@ -240,6 +240,7 @@ border_normal=colors[1],
         Match(wm_class="qimgv"),  # q image viewer
         Match(wm_class="lxappearance"),  # lxappearance
         Match(wm_class="pavucontrol"),  # pavucontrol
+        Match(wm_class="kitty"),  # kitty
         Match(wm_class="Galculator"),  # calculator
         Match(wm_class="confirmreset"),  # gitk
         Match(wm_class="makebranch"),  # gitk
