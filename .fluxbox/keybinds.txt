@@ -25,7 +25,7 @@ Super + Ctrl + (1-9,0) ---  Move and Focus Window on tag (workspace 1-10)
 
 APPLICATION KEY BINDINGS
 ------------------
-Super + Space --- Rofi
+Super + Space --- XFCE4-Appfinder
 Super + Return --- Tilix
 Super + b --- Firefox-ESR
 Super + Shift + b --- Firefox-ESR -private-window
