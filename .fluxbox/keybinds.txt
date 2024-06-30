@@ -35,9 +35,9 @@ Super + v --- Pulsemixer
 
 AUDIO
 -----
-Super + Shift + Period --- Volume Up
-Super + Shift + Comma --- Volume Down
-Super + Shift + m --- Muted
+Super + Insert --- Volume Up
+Super + Delete --- Volume Down
+Super + m --- Muted
 
 SCROT
 -----

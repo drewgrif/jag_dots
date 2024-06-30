@@ -95,9 +95,9 @@ mod4 Print :Exec scrot -s -e 'mv $f ~/Screenshots'; notify-send 'Scrot' 'Selecte
 
 # volume settings, using common keycodes
 # if these don't work, use xev to find out your real keycodes
-Shift Mod4 period :Exec ~/scripts/changevolume up
-Shift Mod4 comma :Exec ~/scripts/changevolume down
-Shift Mod4 m :Exec ~/scripts/changevolume mute
+Mod4 Insert :Exec ~/scripts/changevolume up
+Mod4 Delete :Exec ~/scripts/changevolume down
+Mod4 m :Exec ~/scripts/changevolume mute
 
 # current window commands
 Mod4 Q :Close

@@ -550,17 +550,17 @@
       </action>
     </keybind>
     <!-- Multimedia keys-->
-    <keybind key="W-S-period">
+    <keybind key="W-Insert">
       <action name="Execute">
         <command>~/scripts/changevolume up</command>
       </action>
     </keybind>
-    <keybind key="W-S-comman">
+    <keybind key="W-Delete">
       <action name="Execute">
         <command>~/scripts/changevolume down</command>
       </action>
     </keybind>
-    <keybind key="W-S-m">
+    <keybind key="W-m">
       <action name="Execute">
         <command>~/scripts/changevolume mute</command>
       </action>
