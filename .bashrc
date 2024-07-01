@@ -42,7 +42,7 @@ alias hi="notify-send 'Hi there!' 'Welcome to the jaglinux desktop! ' -i ''"
 # Add Color
 alias egrep='grep --color=auto' 
 
-export PATH="~/bin:$PATH"
+export PATH="~/scripts:$PATH"
 export PATH="~/.local/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
  export VISUAL=nvim;
