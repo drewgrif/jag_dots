@@ -41,7 +41,7 @@ SXHKD KEY BINDINGS
 ------------------
 Super + Space --- Rofi
 Super + Return --- Tilix
-Super + Shift + Return --- Terminator
+Super + Shift + Return --- Kitty
 Super + b --- Firefox-ESR
 Super + Shift + b --- Firefox-ESR -private-window
 Super + f --- Thunar
