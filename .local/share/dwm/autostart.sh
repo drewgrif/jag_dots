@@ -2,8 +2,8 @@
 
 slstatus &
 
-# network applet
-# nm-applet &
+# polkit
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
 # background
 feh --bg-scale ~/.config/backgrounds/wallhaven-m3m2zm_3440x1440.png &
@@ -20,9 +20,3 @@ fi
 
 # Notifications
 dunst &
-
-# nextcloud
-# ~/bin/Nextcloud-3.13.0-x86_64.AppImage &
-
-# volume
-# volumeicon &
