@@ -15,6 +15,7 @@ picom --animations -b &
 # (re)load sxhkd for keybinds
 if hash sxhkd >/dev/null 2>&1; then
 	pkill sxhkd
+	sleep 0.5
 	sxhkd -c "$HOME/.config/suckless/sxhkd/sxhkdrc" &
 fi
 
