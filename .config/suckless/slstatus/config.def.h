@@ -70,6 +70,7 @@ static const struct arg args[] = {
 /*  { keyboard_indicators, "^c#d791a8^ Caps: ^c#FFFFFF^%s", "caps", NULL }, */
 /*   { keyboard_indicators, "^c#d791a8^ Num: ^c#FFFFFF^%s", "num", NULL }, */
 /* { run_command, "^c#d791a8^  %s", "~/scripts/check_updates.sh" }, */
+ /* { run_command, "^c#d791a8^  Updates: ^c#FFFFFF^%s",  "aptitude search '~U' | wc -l" }, */
 	{ cpu_perc, "^c#d791a8^  CPU: ^c#FFFFFF^%s%%", 	NULL },
 	{ ram_perc, "^c#d791a8^  RAM: ^c#FFFFFF^%s%%",	 NULL },
 	{ datetime, "^c#d791a8^  %s", 		"%a %b %-d" },
