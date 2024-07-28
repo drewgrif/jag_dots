@@ -24,10 +24,11 @@ Super + equal --- Switch to tag 12
 Super + Shift + 0 --- Move to tag 10
 Super + Shift + minus --- Move to tag 11
 Super + Shift + equal --- Move to tag 12
-Super + Tab --- View Tag to Right
-Super + Shift + Tab --- View Tag to Left
-Alt + Tab --- Move Window to Right Tag
-Control + Tab --- Move Window to Left Tag
+Super + Tab --- Last Tag
+Ctrl  + Shift + Right --- View Tag to Right
+Ctrl  + Shift + Left --- View Tag to Left
+Ctrl  + Alt + Right --- Move Window to Right Tag
+Ctrl  + Alt + Left --- Move Window to Left Tag
 
 DWM LAYOUTS
 -----------
