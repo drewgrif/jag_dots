@@ -7,6 +7,7 @@ Super + Right --- Change Focus Right
 Super + Left --- Change Focus Left
 Super + Ctrl + Left --- Resize Left 
 Super + Ctrl + Right --- Resize Right
+Super + Shift + n --- Toggle WindowFollow
 Super + Shift + Right --- Move Window Right
 Super + Shift + Left --- Move Window Left
 Super + Shift + q --- Quit DWM
@@ -23,6 +24,10 @@ Super + equal --- Switch to tag 12
 Super + Shift + 0 --- Move to tag 10
 Super + Shift + minus --- Move to tag 11
 Super + Shift + equal --- Move to tag 12
+Super + Tab --- View Tag to Right
+Super + Shift + Tab --- View Tag to Left
+Alt + Tab --- Move Window to Right Tag
+Control + Tab --- Move Window to Left Tag
 
 DWM LAYOUTS
 -----------
@@ -51,6 +56,7 @@ Super + d --- Discord
 Super + o --- Obs
 Super + r --- scratchpad (Ranger)
 Super + v --- scratchpad (Pulsemixer)
+Super + x --- Power/Logout
 Super + Escape --- Reload sxhkd
 
 AUDIO
