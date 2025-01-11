@@ -90,8 +90,8 @@ Mod1 Mod4 r :Exec ~/scripts/redshift-on
 Mod1 Mod4 b :Exec ~/scripts/redshift-off
 
 # screenshots
-Print :Exec scrot -e 'mv $f ~/Screenshots'; notify-send 'Scrot' 'Image saved to ~/Screenshots'
-mod4 Print :Exec scrot -s -e 'mv $f ~/Screenshots'; notify-send 'Scrot' 'Selected image to ~/Screenshots'
+Print :Exec maim ~/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png; notify-send 'Maim' 'Image saved to ~/Screenshots'
+mod4 Print :Exec maim -s ~/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png; notify-send 'Maim' 'Selected image saved to ~/Screenshots'
 
 # volume settings, using common keycodes
 # if these don't work, use xev to find out your real keycodes

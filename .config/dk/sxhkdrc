@@ -28,17 +28,16 @@ super + f
 super + Return
 	tilix
 
-
 #########
-# Scrot #
+# Maim #
 #########
 super + @Print
-	scrot -s -e 'mv $f ~/Screenshots'; \
-	notify-send 'Scrot' 'Selected image to ~/Screenshots'
+    maim -s ~/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png; \
+    notify-send 'Maim' 'Selected image saved to ~/Screenshots'
 
 @Print
-	scrot -e 'mv $f ~/Screenshots'; \
-	notify-send 'Scrot' 'Image saved to ~/Screenshots'
+    maim ~/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png; \
+    notify-send 'Maim' 'Image saved to ~/Screenshots'
 	
 ## redshift
 super + alt + r

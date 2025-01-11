@@ -527,23 +527,23 @@
         <command>~/scripts/redshift-off</command>
       </action>
     </keybind>
-    <!-- Take a screenshot, say "Cheeeese!" -->
-    <keybind key="Print">
-      <action name="Execute">
-        <command>scrot -e 'mv $f ~/Screenshots'</command>
-      </action>
-      <action name="Execute">
-        <command>notify-send 'Scrot' 'Image saved to ~/Screenshots'</command>
-      </action>
-    </keybind>
-    <keybind key="W-Print">
-      <action name="Execute">
-        <command>scrot -s -e 'mv $f ~/Screenshots'; notify-send 'Scrot' 'Selected image to ~/Screenshots'</command>
-      </action>
-      <action name="Execute">
-        <command>notify-send 'Scrot' 'Selected image to ~/Screenshots'</command>
-      </action>
-    </keybind>
+<!-- Take a screenshot, say "Cheeeese!" -->
+<keybind key="Print">
+  <action name="Execute">
+    <command>maim ~/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png</command>
+  </action>
+  <action name="Execute">
+    <command>notify-send 'Maim' 'Image saved to ~/Screenshots'</command>
+  </action>
+</keybind>
+<keybind key="W-Print">
+  <action name="Execute">
+    <command>maim -s ~/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png</command>
+  </action>
+  <action name="Execute">
+    <command>notify-send 'Maim' 'Selected image saved to ~/Screenshots'</command>
+  </action>
+</keybind>
     <keybind key="A-Print">
       <action name="Execute">
         <command>flameshot gui</command>
