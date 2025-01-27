@@ -8,9 +8,9 @@ alias ..='cd ..'
 alias ...='cd ../..' 
 alias install='sudo apt install'
 alias update='sudo apt update'
-alias upgrade='sudo apt upgrade'
-alias uplist='apt list --upgradable'
-alias remove='sudo apt autoremove'
+alias upgrade='sudo nala upgrade'
+alias uplist='nala list --upgradable'
+alias remove='sudo nala autoremove'
 alias l='exa -ll --color=always --group-directories-first'
 alias ls='exa -al --header --icons --group-directories-first'
 alias df='df -h'
@@ -32,7 +32,7 @@ alias gp="git push -u origin main"
 alias gsave="git commit -m 'save'"
 alias gs="git status"
 alias gc="git clone"
-alias tr="tree"
+
 alias ff="fastfetch"
 
 # Dunst
@@ -43,6 +43,7 @@ alias hi="notify-send 'Hi there!' 'Welcome to the jaglinux desktop! ' -i ''"
 alias egrep='grep --color=auto' 
 
 export PATH="~/scripts:$PATH"
+export PATH="~/.config/bspwm/scripts:$PATH"
 export PATH="~/.local/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
  export VISUAL=nvim;
