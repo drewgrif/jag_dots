@@ -3,19 +3,25 @@
 
 stty -ixon # Disables ctrl-s and ctrl-q (Used To Pause Term) 
 
+if command -v eza >/dev/null 2>&1; then
+    alias l='eza -ll --color=always --group-directories-first'
+    alias ls='eza -al --header --icons --group-directories-first'
+elif command -v exa >/dev/null 2>&1; then
+    alias l='exa -ll --color=always --group-directories-first'
+    alias ls='exa -al --header --icons --group-directories-first'
+fi
+
 # Aliases
 alias ..='cd ..' 
 alias ...='cd ../..' 
 alias install='sudo apt install'
 alias update='sudo apt update'
-alias upgrade='sudo nala upgrade'
+alias upgrade='sudo nala upgrade && sudo apt autoremove --purge'
 alias uplist='nala list --upgradable'
 alias remove='sudo nala autoremove'
-alias l='exa -ll --color=always --group-directories-first'
-alias ls='exa -al --header --icons --group-directories-first'
 alias df='df -h'
 alias free='free -h'
-alias myip="ip -f inet address | grep inet | grep -v 'lo$' | cut -d ' ' -f 6,13 && curl ifconfig.me && echo ' external ip'"
+alias myip="hostname -I | awk '{print $1}'; curl -s ifconfig.me && echo ' external ip'"
 alias x="exit"
 # Dotfiles & Files
 alias bs='micro ~/.bashrc'
@@ -36,18 +42,16 @@ alias gc="git clone"
 alias ff="fastfetch"
 
 # Dunst
-alias hi="notify-send 'Hi there!' 'Welcome to the jaglinux desktop! ' -i ''"
+alias hi='pgrep -x dunst >/dev/null && notify-send "Hi there!" "Welcome to the jaglinux desktop! " -i ""'
 
 
 # Add Color
 alias egrep='grep --color=auto' 
 
-export PATH="~/scripts:$PATH"
-export PATH="~/.config/bspwm/scripts:$PATH"
-export PATH="~/.local/bin:$PATH"
-export PATH="/usr/local/go/bin:$PATH"
- export VISUAL=nvim;
- export EDITOR=nvim;
+export PATH="$HOME/scripts:$HOME/.local/bin:/usr/local/go/bin:$PATH"
+export EDITOR=$(command -v nvim || command -v micro || echo nano)
+export VISUAL="$EDITOR"
+
 # PS1 Customization
 #PS1="\[\e[32m\]\h\[\e[m\]\[\e[36m\]@\[\e[m\]\[\e[34m\]\u\[\e[m\] \W \$ " 
 # Colour codes
