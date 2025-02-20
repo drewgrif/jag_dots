@@ -1,0 +1,177 @@
+// Inspired by https://github.com/usgraphics/TR-100
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": null,
+    "display": {
+        "pipe": true,
+        "key": {
+            "width": 16
+        },
+        "separator": "│ ",
+        "percent": {
+            "type": 6
+        },
+        "bar": {
+            "borderLeft": "",
+            "borderRight": "",
+            "charElapsed": "█",
+            "charTotal": "░",
+            "width": 40
+        },
+        "constants": [
+            "\u001b[42C"
+        ]
+    },
+    "modules": [
+        {
+            "type": "custom",
+            "format": "┌┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┐"
+        },
+        {
+            "type": "custom",
+            "format": "├┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┤"
+        },
+        {
+            "type": "version",
+            "key": " ",
+            "format": "│                   FASTFETCH v{version}                   │"
+        },
+        {
+            "type": "custom",
+            "format": "│                 TR-100 MACHINE REPORT                 │"
+        },
+        {
+            "type": "custom",
+            "format": "├────────────┬──────────────────────────────────────────┤"
+        },
+        {
+            "type": "os",
+            "key": "│ OS         │{$1}"
+        },
+        {
+            "type": "kernel",
+            "key": "│ KERNEL     │{$1}"
+        },
+        {
+            "type": "packages",
+            "key": "│ PACKAGES   │{$1}"
+        },
+        {
+            "type": "custom",
+            "format": "├────────────┼──────────────────────────────────────────┤"
+        },
+        {
+            "type": "title",
+            "key": "│ HOSTNAME   │{$1}",
+            "format": "{host-name}"
+        },
+        {
+            "type": "localip",
+            "key": "│ CLIENT IP  │{$1}",
+            "format": "{ipv4}"
+        },
+        {
+            "type": "localip",
+            "key": "│ MAC ADDR   │{$1}",
+            "format": "{mac} ({ifname})",
+            "showIPv4": false,
+            "showMac": true
+        },
+        {
+            "type": "dns",
+            "key": "│ DNS        │{$1}",
+            "showType": "ipv4"
+        },
+        {
+            "type": "title",
+            "key": "│ USER       │{$1}",
+            "format": "{user-name}"
+        },
+        {
+            "type": "host",
+            "key": "│ MACHINE    │{$1}",
+            "format": "{name}"
+        },
+        {
+            "type": "custom",
+            "format": "├────────────┼──────────────────────────────────────────┤"
+        },
+        {
+            "type": "cpu",
+            "key": "│ PROCESSOR  │{$1}",
+            "format": "{name}"
+        },
+        {
+            "type": "cpu",
+            "key": "│ CORES      │{$1}",
+            "format": "{cores-physical} PHYSICAL CORES / {cores-logical} THREADS",
+            "showPeCoreCount": false
+        },
+        {
+            "type": "cpu",
+            "key": "│ CPU FREQ   │{$1}",
+            "format": "{freq-max}{/freq-max}{freq-base}{/}"
+        },
+        {
+            "type": "loadavg",
+            "compact": false,
+            "key": "│ LOAD  {duration>2}m  │{$1}" // pad duration to 2 chars
+        },
+                {
+            "type": "custom",
+            "format": "├────────────┼──────────────────────────────────────────┤"
+        },
+        {
+            "type": "gpu",
+            "key": "│ GPU        │{$1}",
+            "format": "{name}"
+        },
+        {
+            "type": "custom",
+            "format": "├────────────┼──────────────────────────────────────────┤"
+        },
+        {
+            "type": "memory",
+            "key": "│ MEMORY     │{$1}",
+            "format": "{used} / {total} [{percentage}]"
+        },
+        {
+            "type": "memory",
+            "key": "│ USAGE      │{$1}",
+            "format": ""
+        },
+        {
+            "type": "custom",
+            "format": "├────────────┼──────────────────────────────────────────┤"
+        },
+        {
+            "type": "disk",
+            "key": "│ VOLUME     │{$1}",
+            "format": "{size-used} / {size-total} [{size-percentage}]",
+            "folders": "/"
+        },
+        {
+            "type": "disk",
+            "key": "│ DISK USAGE │{$1}",
+            "format": ""
+        },
+        {
+            "type": "custom",
+            "format": "├────────────┼──────────────────────────────────────────┤"
+        },
+        {
+            "type": "users",
+            "key": "│ LAST LOGIN │{$1}",
+            "format": "{login-time}{?client-ip} ({client-ip})",
+            "myselfOnly": true
+        },
+        {
+            "type": "uptime",
+            "key": "│ UPTIME     │{$1}"
+        },
+        {
+            "type": "custom",
+            "format": "└────────────┴──────────────────────────────────────────┘"
+        }
+    ]
+  }
