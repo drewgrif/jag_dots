@@ -187,6 +187,7 @@ static void checkotherwm(void);
 static void cleanup(void);
 static void cleanupmon(Monitor *mon);
 static void clientmessage(XEvent *e);
+static void columnlayout(Monitor *m);
 static void configure(Client *c);
 static void configurenotify(XEvent *e);
 static void configurerequest(XEvent *e);
@@ -669,6 +670,33 @@ clientmessage(XEvent *e)
 			restack(selmon);
 		}
 	}
+}
+
+void
+columnlayout(Monitor *m) {
+    unsigned int i, n;
+    int w, x;
+    Client *c;
+
+    /* Count number of non-floating, visible windows */
+    for (n = 0, c = m->clients; c; c = c->next)
+        if (ISVISIBLE(c) && !c->isfloating)
+            n++;
+
+    if (n == 0)
+        return;
+
+    /* Calculate column width and initial x position, accounting for gaps */
+    w = (m->ww - 2 * gappoh - (n - 1) * gappiv) / n;
+    x = m->wx + gappoh;
+
+    /* Tile non-floating windows */
+    for (i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++) {
+        if (!c->isfloating && ISVISIBLE(c)) {
+            resize(c, x, m->wy + gappov, w - (2 * c->bw), m->wh - 2 * gappov - (2 * c->bw), 0);
+            x += w + gappiv;
+        }
+    }
 }
 
 void

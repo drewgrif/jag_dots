@@ -85,7 +85,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[\\]",     dwindle },
+	{ "[\\]",     dwindle },  /* Start with default layout */
+	{ "[C]", columnlayout }, /* Added justaguylinux column layout - no resizing*/
 	{ ">M>",      centeredfloatingmaster }, /* first entry is default */
 	{ "|M|",      centeredmaster },	
 	{ "[]=",      tile },
