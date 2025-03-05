@@ -35,7 +35,7 @@ typedef struct {
 } Sp;
 
 const char *spcmd1[] = {"st", "-n", "spterm1", "-g", "100x34", "-e", "pulsemixer", NULL };
-const char *spcmd2[] = {"kitty", "--class", "spterm2", "--title", "ranger", "-e", "ranger", NULL };
+const char *spcmd2[] = {"st", "-n", "spterm2", "-g", "100x34", "-e", "ranger", NULL };
 
 static Sp scratchpads[] = {
 	/* name          cmd  */
@@ -61,10 +61,10 @@ static const Rule rules[] = {
 	{ "mpv",  				NULL,       NULL,       0,       	1,           1,			-1 },
 	{ "qimgv",    			NULL,       NULL,       0,       	1,          1,			 -1 },
 	{ "Galculator",   		NULL,       NULL,       0,       	1,           0,			-1 },
+	{ "Transmission-gtk",   	NULL,       NULL,       0,       	1,           1,			-1 },
 	{ "Lxappearance",   	NULL,       NULL,       0,       	1,           1,			-1 },
 	{ "Pavucontrol",  		NULL,       NULL,       0,       	1,           0,			-1 },
 	{ "Thunar",  			NULL,       NULL,       0,       	0,           1,			-1 },
-	{ "kitty", 		NULL,       NULL,       0,       	1,           0,			-1 },
 	{ NULL,		  "spterm1",	NULL,		SPTAG(0),  		1,    	-1 },
 	{ NULL,		  "spterm2",	NULL,		SPTAG(1),  		1,		-1 },
 };
@@ -85,11 +85,11 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[\\]",     dwindle },  /* Start with default layout */
-	{ "[C]", columnlayout }, /* Added justaguylinux column layout - no resizing*/
+	{ "[\\]",     dwindle },
 	{ ">M>",      centeredfloatingmaster }, /* first entry is default */
 	{ "|M|",      centeredmaster },	
 	{ "[]=",      tile },
+	{ "[C]", columnlayout }, /* Start with column layout */
 	{ "TTT",      bstack },
 	{ "###",      nrowgrid },
 	{ "===",      bstackhoriz },
