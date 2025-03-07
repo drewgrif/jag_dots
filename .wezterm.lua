@@ -2,32 +2,7 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
--- Dynamically enable Wayland if running in a Wayland session
-local is_wayland = os.getenv("WAYLAND_DISPLAY") ~= nil
-config.enable_wayland = is_wayland
-
 -- General appearance and visuals
-config.colors = {
-  tab_bar = {
-    background = "#00141d",  -- col_gray1, your main DWM bar background
-
-    active_tab = {
-      bg_color = "#80bfff",  -- col_gray2 (selected tab in bright blue)
-      fg_color = "#00141d",  -- contrast text on active tab
-    },
-
-    inactive_tab = {
-      bg_color = "#1a1a1a",  -- col_gray4 (dark background for inactive tabs)
-      fg_color = "#FFFFFF",  -- col_gray3 (white text on inactive tabs)
-    },
-
-    new_tab = {
-      bg_color = "#1a1a1a",   -- same as inactive
-      fg_color = "#4fc3f7",   -- col_barbie (for the "+" button)
-    },
-  },
-}
-
 config.window_background_opacity = 0.90
 config.color_scheme = 'nightfox'
 config.font_size = 16
@@ -42,20 +17,39 @@ config.window_padding = {
 
 config.use_fancy_tab_bar = true
 config.window_frame = {
-  font = wezterm.font { family = 'JetBrainsMono Nerd Font Mono', weight = 'Regular' },
+  font = wezterm.font { family = 'FiraCode Nerd Font Mono', weight = 'Regular' },
 }
 
 config.default_cursor_style = "BlinkingUnderline"
 config.cursor_blink_rate = 500
 
-if os.getenv("SSH_CONNECTION") then
-  config.term = "xterm-256color"
-else
-  config.term = "wezterm"
-end
+-- Terminal emulation (no SSH check needed if you want to just always use wezterm)
+config.term = "wezterm"
 
 config.max_fps = 144
 config.animation_fps = 30
+
+-- Tab bar color matching your DWM colors
+config.colors = {
+  tab_bar = {
+    background = "#00141d",  -- col_gray1
+
+    active_tab = {
+      bg_color = "#80bfff",  -- col_gray2 (bright blue tab)
+      fg_color = "#00141d",  -- dark text on active tab
+    },
+
+    inactive_tab = {
+      bg_color = "#1a1a1a",  -- col_gray4
+      fg_color = "#FFFFFF",  -- col_gray3
+    },
+
+    new_tab = {
+      bg_color = "#1a1a1a",
+      fg_color = "#4fc3f7",  -- col_barbie (for the "+" button)
+    },
+  },
+}
 
 -- Keybindings using ALT for tabs & splits
 config.keys = {
