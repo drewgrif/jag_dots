@@ -59,14 +59,22 @@ config.animation_fps = 30
 
 -- Keybindings using ALT for tabs & splits
 config.keys = {
+  -- Tab management
   { key = "t", mods = "ALT", action = wezterm.action.SpawnTab "CurrentPaneDomain" },
   { key = "w", mods = "ALT", action = wezterm.action.CloseCurrentTab { confirm = false } },
   { key = "Tab", mods = "ALT", action = wezterm.action.ActivateTabRelative(1) },
   { key = "Tab", mods = "ALT|SHIFT", action = wezterm.action.ActivateTabRelative(-1) },
 
-  { key = "s", mods = "ALT", action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" } },
+  -- Pane management
+  { key = "v", mods = "ALT", action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" } },
   { key = "h", mods = "ALT", action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" } },
   { key = "q", mods = "ALT", action = wezterm.action.CloseCurrentPane { confirm = false } },
+
+  -- Pane navigation (move between panes with ALT + Arrows)
+  { key = "LeftArrow",  mods = "ALT", action = wezterm.action.ActivatePaneDirection "Left" },
+  { key = "RightArrow", mods = "ALT", action = wezterm.action.ActivatePaneDirection "Right" },
+  { key = "UpArrow",    mods = "ALT", action = wezterm.action.ActivatePaneDirection "Up" },
+  { key = "DownArrow",  mods = "ALT", action = wezterm.action.ActivatePaneDirection "Down" },
 }
 
 -- Mouse bindings for quick actions
