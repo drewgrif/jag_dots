@@ -14,8 +14,9 @@ fi
 # Aliases
 alias ..='cd ..' 
 alias ...='cd ../..' 
-alias install='sudo apt install'
-alias update='sudo apt update'
+alias install='sudo nala install'
+alias update='sudo apt clean && 
+sudo apt update'
 alias upgrade='sudo nala upgrade && sudo apt autoremove --purge'
 alias uplist='nala list --upgradable'
 alias remove='sudo nala autoremove'
