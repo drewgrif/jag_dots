@@ -24,6 +24,7 @@ alias df='df -h'
 alias free='free -h'
 alias myip="hostname -I | awk '{print $1}'; curl -s ifconfig.me && echo ' external ip'"
 alias x="exit"
+
 # Dotfiles & Files
 alias bs='micro ~/.bashrc'
 alias reload='source ~/.bashrc'
@@ -32,8 +33,12 @@ alias vv="nvim ."
 alias e="micro"
 alias g.="cd ~/.config"
 alias gd="cd ~/Downloads"
+
+# DWM aliases
 alias gdw="cd ~/.config/suckless/dwm"
 alias gds="cd ~/.config/suckless/slstatus"
+alias remake="rm config.h && make && sudo make clean install"
+
 # Git aliases
 alias gp="git push -u origin main"
 alias gsave="git commit -m 'save'"
