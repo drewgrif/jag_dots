@@ -3,10 +3,13 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 -- General appearance and visuals
-config.window_background_opacity = 0.90
-config.color_scheme = 'nightfox'
-config.font_size = 16
+config.window_background_opacity = 0.95
+config.font_size = 18
+config.line_height = 1.1
 config.font = wezterm.font('SauceCodePro Nerd Font Mono', { weight = 'Regular', italic = false })
+
+-- Colors
+config.color_scheme = 'UnderTheSea'
 
 config.window_padding = {
   left = 10,
@@ -92,5 +95,7 @@ config.mouse_bindings = {
     action = wezterm.action.CloseCurrentPane { confirm = false },
   },
 }
+
+
 
 return config
