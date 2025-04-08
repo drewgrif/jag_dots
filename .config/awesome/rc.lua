@@ -76,7 +76,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     awful.layout.suit.fair,
-    -- awful.layout.suit.fair.horizontal,
+    awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral,
     -- awful.layout.suit.max,
    --  awful.layout.suit.max.fullscreen,
@@ -286,7 +286,7 @@ end
          --   mykeyboardlayout,
                         cpu_widget,
             mem_widget,
-            kernel_widget,
+           -- kernel_widget,
             date_time_widget,
             s.mylayoutbox,
             wibox.widget.systray(),
@@ -357,10 +357,14 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ modkey,  "Control"  }, "Right",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({ modkey,  "Control"  }, "Right",     function () awful.tag.incmwfact( 0.05) end,
               {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey,  "Control"         }, "Left",     function () awful.tag.incmwfact(-0.05)          end,
+    awful.key({ modkey,  "Control"  }, "Left",     function () awful.tag.incmwfact(-0.05) end,
               {description = "decrease master width factor", group = "layout"}),
+    awful.key({ modkey,  "Control"  }, "Down",     function () awful.client.incwfact( 0.05) end,
+              {description = "increase client height", group = "layout"}),
+    awful.key({ modkey,  "Control"  }, "Up",     function () awful.client.incwfact(-0.05)  end,
+              {description = "decrease client height", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
@@ -452,7 +456,13 @@ clientkeys = gears.table.join(
         {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey,  		  }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
-    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
+    awful.key({ modkey, "Shift" }, "space",  
+			function (c)
+			    c.floating = not c.floating
+				  if c.floating then
+				    awful.placement.centered(c, {honor_workarea = true})
+				  end
+			end,	    
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
@@ -706,7 +716,7 @@ awful.rules.rules = {
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
-    -- if not awesome.startup then awful.client.setslave(c) end
+    if not awesome.startup then awful.client.setslave(c) end
 
     if awesome.startup
       and not c.size_hints.user_position
