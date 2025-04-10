@@ -1,4 +1,4 @@
--- ~/.wezterm.lua
+-- ~/.config/wezterm/wezterm.lua
 local wezterm = require "wezterm"
 local act = wezterm.action
 
