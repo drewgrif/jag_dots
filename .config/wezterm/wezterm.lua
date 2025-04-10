@@ -28,8 +28,8 @@ local tab_bar = {
   background = gh.gh_bg,
 
   active_tab = {
-    bg_color = "#161b22",
-    fg_color = gh.gh_fg,
+    bg_color = gh.gh_blue,
+    fg_color = gh.gh_bg,
     intensity = "Bold",
   },
 
