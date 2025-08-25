@@ -1,0 +1,24 @@
+
+# Ignore all build objects
+*.o
+
+# Ignore executables (but not the dirs of same name)
+dwm
+!dwm/
+
+slock
+!slock/
+
+slstatus
+!slstatus/
+
+st
+!st/
+
+tabbed
+!tabbed/
+
+xembed
+
+# Ignore user's custom config.h(s)
+config.h
