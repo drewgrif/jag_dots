@@ -1,47 +1,15 @@
-# .jag_dots
+# ⚠️ ARCHIVED - DO NOT USE
 
-Just a quick guide on my dotfiles.  [JustAGuyLinux on YouTube!](https://www.youtube.com/@JustAGuyLinux) is where you might have found me.
+**This repository is abandoned and no longer maintained.**
 
-## Areas of interest AND configuration file for the following:
+This was an old collection of dotfiles that is outdated and should not be used. For current projects and configurations, visit my active repositories on Codeberg.
 
-* awesome 
-* bspwm
-* dk 
-* dwm
-* fluxbox
-* i3
-* icewm
-* openbox
-* qtile
+## 🤝 Connect
 
-## Further, there are configs for:
+- 🌐 **Codeberg**: [codeberg.org/justaguylinux](https://codeberg.org/justaguylinux)
+- 🎬 **YouTube**: [Just A Guy Linux](https://youtube.com/@justaguylinux)
+- 🐘 **Mastodon**: [@justaguylinux@fosstodon.org](https://fosstodon.org/@justaguylinux)
 
-1. .bashrc
-2. dunst
-3. picom
-4. polybar
-5. nvim
-6. rofi
-7. tint2
+---
 
-
-## Even more,
-
-There is a bunch of scripts in the /scripts directory
-
-### As of 07/26/2024
-
-*  changevolume
-*  check_updates.sh
-*  discord_install.sh
-*  discord_update.sh
-*  notes
-*  ovpn
-*  power
-*  pulseaudio-control.bash
-*  redshift-off
-*  redshift-on
-*  time_date
-*  whichws
-*  whichwspace
-*  workspace_monitor
+*This GitHub repository is read-only and archived.*
