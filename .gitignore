@@ -1,0 +1,3 @@
+# Simple ignore to hide file created by an IDE
+.vscode/*
+.idea/*
